@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       仇江江
 // @match        https://ad.xiaohongshu.com/aurora*
