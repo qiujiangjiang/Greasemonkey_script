@@ -1,0 +1,521 @@
+// ==UserScript==
+// @name         小红书广告数据查询与展示
+// @namespace    http://tampermonkey.net/
+// @version      0.3
+// @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
+// @author       仇江江
+// @match        https://ad.xiaohongshu.com/aurora*
+// @grant        GM_xmlhttpRequest
+// @connect      ad.xiaohongshu.com
+// @license MIT
+// ==/UserScript==
+
+(function () {
+    "use strict";
+  
+    // 存储请求返回的数据
+    let responseData = [];
+  
+    // 创建隐藏的小球元素
+    const ball = document.createElement("div");
+    ball.style.position = "fixed";
+    ball.style.right = "10px";
+    ball.style.bottom = "10px";
+    ball.style.width = "60px";
+    ball.style.height = "60px";
+    ball.style.backgroundColor = "#0066CC";
+    ball.style.borderRadius = "50%";
+    ball.style.cursor = "pointer";
+    ball.style.display = "none";
+    ball.style.color = "white";
+    ball.style.display = "flex";
+    ball.style.alignItems = "center";
+    ball.style.justifyContent = "center";
+    ball.style.fontSize = "12px";
+    ball.textContent = "检查链接";
+    ball.style.zIndex = "9999"; // 添加z-index 在图层最顶
+    document.body.appendChild(ball);
+  
+    // 创建悬浮窗口元素
+    const floatingWindow = document.createElement("div");
+    floatingWindow.style.position = "fixed";
+    floatingWindow.style.right = "20px";
+    floatingWindow.style.top = "20px";
+    floatingWindow.style.width = "50vw";
+    floatingWindow.style.height = "80vh";
+    floatingWindow.style.backgroundColor = "white";
+    floatingWindow.style.border = "1px solid #0066CC";
+    floatingWindow.style.borderRadius = "8px";
+    floatingWindow.style.display = "none";
+    floatingWindow.style.padding = "20px";
+    floatingWindow.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    floatingWindow.style.zIndex = "9999"; // 添加z-index 在图层最顶
+    document.body.appendChild(floatingWindow);
+  
+    // 创建关闭按钮
+    const closeButton = document.createElement("div");
+    closeButton.style.position = "absolute";
+    closeButton.style.right = "10px";
+    closeButton.style.top = "10px";
+    closeButton.style.cursor = "pointer";
+    closeButton.style.fontSize = "20px";
+    closeButton.innerHTML = "×";
+    closeButton.style.color = "#0066CC";
+    floatingWindow.appendChild(closeButton);
+  
+    // 创建按钮容器
+    const buttonContainer = document.createElement("div");
+    buttonContainer.style.marginBottom = "20px";
+    floatingWindow.appendChild(buttonContainer);
+  
+    // 创建检查按钮
+    const checkButton = document.createElement("button");
+    checkButton.textContent = "检查";
+    checkButton.style.marginRight = "10px";
+    checkButton.style.padding = "8px 16px";
+    checkButton.style.backgroundColor = "#0066CC";
+    checkButton.style.color = "white";
+    checkButton.style.border = "none";
+    checkButton.style.borderRadius = "4px";
+    checkButton.style.cursor = "pointer";
+    buttonContainer.appendChild(checkButton);
+  
+    // 创建下载按钮
+    const downloadButton = document.createElement("button");
+    downloadButton.textContent = "下载Excel";
+    downloadButton.style.padding = "8px 16px";
+    downloadButton.style.backgroundColor = "#0066CC";
+    downloadButton.style.color = "white";
+    downloadButton.style.border = "none";
+    downloadButton.style.borderRadius = "4px";
+    downloadButton.style.cursor = "pointer";
+    buttonContainer.appendChild(downloadButton);
+  
+    // 创建链接统计文本容器
+    const linkStatsContainer = document.createElement("div");
+    linkStatsContainer.style.marginBottom = "20px";
+    linkStatsContainer.style.fontSize = "14px";
+    linkStatsContainer.style.color = "#333333";
+    floatingWindow.appendChild(linkStatsContainer);
+  
+    // 创建表格容器
+    const tableContainer = document.createElement("div");
+    tableContainer.style.height = "calc(100% - 100px)";
+    tableContainer.style.overflowY = "auto";
+    tableContainer.style.overflowX = "auto";
+    floatingWindow.appendChild(tableContainer);
+  
+    // 显示小球
+    ball.style.display = "flex";
+  
+    // 点击小球展开悬浮窗口
+    ball.addEventListener("click", function () {
+      floatingWindow.style.display = "block";
+      ball.style.display = "none";
+    });
+  
+    // 点击关闭按钮
+    closeButton.addEventListener("click", function () {
+      floatingWindow.style.display = "none";
+      ball.style.display = "flex";
+      tableContainer.innerHTML = "";
+      linkStatsContainer.innerHTML = "";
+      responseData = []; // 清空存储的数据
+    });
+  
+    // 点击检查按钮发送请求
+    checkButton.addEventListener("click", sendRequest);
+  
+    // 点击下载按钮
+    downloadButton.addEventListener("click", function () {
+      if (responseData.length > 0) {
+        downloadExcel(responseData);
+      } else {
+        alert("没有可下载的数据！");
+      }
+    });
+  
+    // 发送请求
+    async function sendRequest() {
+      let maxPageNum = 4;
+      let pageNum = 1;
+      let totalPage = 1;
+      let allData = [];
+      do {
+        const response = await fetch(
+          `https://ad.xiaohongshu.com/api/leona/rtb/creativity/list?pageNum=${pageNum}&pageSize=50`,
+          {
+            method: "POST",
+            headers: {
+              accept: "application/json, text/plain, */*",
+              "accept-language":
+                "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+              "content-type": "application/json;charset=UTF-8",
+              priority: "u=1, i",
+              "sec-ch-ua":
+                '"Not A(Brand";v="8", "Chromium";v="132", "Microsoft Edge";v="132"',
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": '"Windows"',
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+            },
+            body: JSON.stringify({
+              startTime: new Date().toISOString().split("T")[0],
+              endTime: new Date().toISOString().split("T")[0],
+              pageNum: pageNum,
+              pageSize: 50,
+            }),
+          }
+        );
+        const data = await response.json();
+        console.log(data.data.list);
+  
+        allData = allData.concat(data.data.list);
+        totalPage = data.data.totalPage;
+        pageNum++;
+      } while (pageNum <= totalPage || pageNum <= maxPageNum);
+  
+      try {
+        // 保存响应数据
+        responseData = allData;
+  
+        // 统计链接重复次数
+        const clickUrlCounts = {};
+        const expoUrlCounts = {};
+  
+        allData.forEach((item) => {
+            if (item.clickUrls && item.clickUrls[0]) {
+                const clickUrl = extractUrlParam(item.clickUrls[0]);
+                clickUrlCounts[clickUrl] = (clickUrlCounts[clickUrl] || 0) + 1;
+            }
+            if (item.expoUrls && item.expoUrls[0]) {
+                const expoUrl = extractUrlParam(item.expoUrls[0]);
+                expoUrlCounts[expoUrl] = (expoUrlCounts[expoUrl] || 0) + 1;
+            }
+        });
+  
+        // 读取option 本地持久化的存储
+        const storedOption = localStorage.getItem('data');
+        const option = JSON.parse(storedOption);
+        option.forEach((item) => {
+            const link = item.link;
+            const relink = link.match(/e=[^&]+/);
+            if (relink) {
+                item.relink = relink[0];
+            } else {
+                item.relink = link
+            }
+        });
+        console.log(option);
+        
+        if (storedOption) {
+            Object.entries(clickUrlCounts).forEach(([url, count]) => {
+                if (url) {
+                    const div = document.createElement("div");
+                    div.style.marginBottom = "5px";
+                    div.textContent = `点击链接：${url} 有${count}条`;
+                    const relink = url.match(/e=.*?(&|$)/)[0];
+                    if (option.some(item => item.relink === relink)) {
+                        div.textContent += ` 配置符合：${option.find(item => item.relink === relink).name}`;
+                    } else {
+                        div.textContent += " 无配置符合";
+                    }
+                    linkStatsContainer.appendChild(div);
+                }
+            });
+  
+            Object.entries(expoUrlCounts).forEach(([url, count]) => {
+                if (url) {
+                    const div = document.createElement("div");
+                    div.style.marginBottom = "5px";
+                    div.textContent = `曝光链接：${url} 有${count}条`;
+                    const relink = url.match(/e=.*?(&|$)/)[0];
+                    if (option.some(item => item.relink === relink)) {
+                        div.textContent += ` 配置符合：${option.find(item => item.relink === relink).name}`;
+                   
+                    } else {
+                        div.textContent += " 无配置符合";
+                    }
+                    linkStatsContainer.appendChild(div);
+                }
+            });
+        } else {
+            Object.entries(clickUrlCounts).forEach(([url, count]) => {
+                if (url) {
+                    const div = document.createElement("div");
+                    div.style.marginBottom = "5px";
+                    div.textContent = `点击链接：${url} 有${count}条`;
+                    div.textContent += " 无配置符合";
+                    linkStatsContainer.appendChild(div);
+                }
+            });
+  
+            Object.entries(expoUrlCounts).forEach(([url, count]) => {
+                if (url) {
+                    const div = document.createElement("div");
+                    div.style.marginBottom = "5px";
+                    div.textContent = `曝光链接：${url} 有${count}条`;
+                    div.textContent += " 无配置符合";
+                    linkStatsContainer.appendChild(div);
+                }
+            });
+        }
+  
+        createTable(allData);
+      } catch (error) {
+        console.error("解析响应数据时出错:", error);
+      }
+    }
+  
+    // 提取URL参数
+    function extractUrlParam(url) {
+      const match = url.match(/https:\/\/magellan.alimama.com\/(.*?)&/);
+      return match ? match[1] : "";
+    }
+  
+    // 创建表格
+    function createTable(data) {
+      const table = document.createElement("table");
+      table.style.width = "100%";
+      table.style.borderCollapse = "collapse";
+      table.style.backgroundColor = "white";
+  
+      // 创建表头
+      const thead = document.createElement("thead");
+      thead.style.backgroundColor = "#0066CC";
+      const headerRow = document.createElement("tr");
+      const headers = ["创建时间", "创意名", "创意ID", "点击链接", "曝光链接"];
+      headers.forEach((headerText) => {
+        const th = document.createElement("th");
+        th.style.border = "1px solid #0066CC";
+        th.style.padding = "12px";
+        th.style.color = "white";
+        th.style.fontWeight = "bold";
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+  
+      // 创建表体
+      const tbody = document.createElement("tbody");
+      data.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.style.backgroundColor = index % 2 === 0 ? "#F5F8FA" : "white";
+  
+        const createTime = item.creativityCreateTime;
+        const creativityName = item.creativityName;
+        const creativityId = item.creativityId;
+        const clickUrl = item.clickUrls
+          ? JSON.stringify(item.clickUrls.map(extractUrlParam)).replace(
+              /,/g,
+              "\n"
+            )
+          : "";
+        const expoUrl = item.expoUrls
+          ? JSON.stringify(item.expoUrls.map(extractUrlParam)).replace(/,/g, "\n")
+          : "";
+  
+        const values = [
+          createTime,
+          creativityName,
+          creativityId,
+          clickUrl,
+          expoUrl,
+        ];
+        values.forEach((value) => {
+          const td = document.createElement("td");
+          td.style.border = "1px solid #E5E5E5";
+          td.style.padding = "12px";
+          td.style.color = "#333333";
+          td.textContent = value;
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+      table.appendChild(tbody);
+  
+      // 清空表格容器并插入新表格
+      tableContainer.innerHTML = "";
+      tableContainer.appendChild(table);
+    }
+  
+    // 下载Excel
+    function downloadExcel(data) {
+      // 添加BOM头,解决中文乱码问题
+      const BOM = "\uFEFF";
+      const headers = ["创建时间", "创意名", "创意ID", "点击链接", "曝光链接"];
+      const csvContent = [headers.join(",")];
+  
+      data.forEach((item) => {
+        const createTime = item.creativityCreateTime || "";
+        const creativityName = item.creativityName || "";
+        const creativityId = item.creativityId || "";
+        const clickUrl =
+          item.clickUrls && item.clickUrls[0]
+            ? JSON.stringify(item.clickUrls.map(extractUrlParam)).replace(
+                /,/g,
+                "\n"
+              )
+            : "";
+        const expoUrl =
+          item.expoUrls && item.expoUrls[0]
+            ? JSON.stringify(item.expoUrls.map(extractUrlParam)).replace(
+                /,/g,
+                "\n"
+              )
+            : "";
+  
+        // 处理CSV中的特殊字符
+        const escapeCsvValue = (value) => {
+          if (typeof value !== "string") return value;
+          if (
+            value.includes(",") ||
+            value.includes('"') ||
+            value.includes("\n")
+          ) {
+            return `"${value.replace(/"/g, '""')}"`;
+          }
+          return value;
+        };
+  
+        const values = [
+          createTime,
+          creativityName,
+          creativityId,
+          clickUrl,
+          expoUrl,
+        ].map(escapeCsvValue);
+        csvContent.push(values.join(","));
+      });
+  
+      const csv = BOM + csvContent.join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      const timestamp = new Date().toLocaleString().replace(/[/:]/g, "-");
+  
+      link.setAttribute("href", url);
+      link.setAttribute("download", `data_${timestamp}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+
+
+    function option(){
+        const div = document.createElement('div');
+        div.style.position = 'absolute'; // 设置为绝对定位
+        div.style.top = '50%'; // 设置上边缘距离屏幕顶部50%
+        div.style.left = '50%'; // 设置左边缘距离屏幕左边50%
+        div.style.transform = 'translate(-50%, -50%)'; // 通过translate调整到屏幕正中间
+        div.style.zIndex = '9999'; // 设置z-index为9999，使其位于最上层
+        div.style.width = '500px'; // 限制div的大小
+        div.style.height = '300px'; // 限制div的大小
+        div.style.overflowX = 'auto'; // 添加左右滑块
+        div.style.overflowY = 'auto'; // 添加左右滑块
+        div.style.background= 'white';
+        div.style.border="1px solid rgb(0, 102, 204)";
+        div.style.borderRadius= "8px";
+        const table = document.createElement('table');
+        table.style.width = '100%';
+        table.style.borderCollapse = 'collapse';
+    
+        const thead = document.createElement('thead');
+        const tr = document.createElement('tr');
+        const th1 = document.createElement('th');
+        th1.textContent = '链接';
+        tr.appendChild(th1);
+        const th2 = document.createElement('th');
+        th2.textContent = '名字';
+        tr.appendChild(th2);
+        thead.appendChild(tr);
+        table.appendChild(thead);
+    
+        const tbody = document.createElement('tbody');
+        const storedData = localStorage.getItem('data');
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            data.forEach((item) => {
+                const row = document.createElement('tr');
+                const td1 = document.createElement('td');
+                const linkInput = document.createElement('input');
+                linkInput.type = 'text';
+                linkInput.value = item.link;
+                td1.appendChild(linkInput);
+                row.appendChild(td1);
+                const td2 = document.createElement('td');
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.value = item.name;
+                td2.appendChild(nameInput);
+                row.appendChild(td2);
+                tbody.appendChild(row);
+            });
+        } else {
+            const row = document.createElement('tr');
+            const td1 = document.createElement('td');
+            const linkInput = document.createElement('input');
+            linkInput.type = 'text';
+            td1.appendChild(linkInput);
+            row.appendChild(td1);
+            const td2 = document.createElement('td');
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            td2.appendChild(nameInput);
+            row.appendChild(td2);
+            tbody.appendChild(row);
+        }
+        table.appendChild(tbody);
+    
+        const addButton = document.createElement('button');
+        addButton.textContent = '+';
+        addButton.onclick = () => {
+            const newRow = document.createElement('tr');
+            const newTd1 = document.createElement('td');
+            const newLinkInput = document.createElement('input');
+            newLinkInput.type = 'text';
+            newTd1.appendChild(newLinkInput);
+            newRow.appendChild(newTd1);
+            const newTd2 = document.createElement('td');
+            const newNameInput = document.createElement('input');
+            newNameInput.type = 'text';
+            newTd2.appendChild(newNameInput);
+            newRow.appendChild(newTd2);
+            if (tbody.children.length > 0) {
+                tbody.insertBefore(newRow, tbody.children[0]);
+            } else {
+                tbody.appendChild(newRow);
+            }
+        };
+        table.appendChild(addButton);
+    
+        const saveButton = document.createElement('button');
+        saveButton.textContent = '保存';
+        saveButton.onclick = () => {
+            const rows = tbody.rows;
+            const data = [];
+            for (let i = 0; i < rows.length; i++) {
+                const link = rows[i].cells[0].children[0].value;
+                const name = rows[i].cells[1].children[0].value;
+                data.push({ link, name });
+            }
+            localStorage.setItem('data', JSON.stringify(data));
+            div.style.display = 'none'; // 点击保存后隐藏当前元素
+        };
+        table.appendChild(saveButton);
+    
+        div.appendChild(table);
+        document.body.appendChild(div);
+    }
+
+    // 创建配置按钮
+    const optionButton = document.createElement("button");
+    optionButton.textContent = "配置";
+    optionButton.onclick = option;
+    buttonContainer.appendChild(optionButton);
+
+  })();
