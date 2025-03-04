@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
-// @author       仇江江
+// @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
 // @grant        GM_xmlhttpRequest
 // @connect      ad.xiaohongshu.com
@@ -12,10 +12,10 @@
 
 (function () {
     "use strict";
-  
+
     // 存储请求返回的数据
     let responseData = [];
-  
+
     // 创建隐藏的小球元素
     const ball = document.createElement("div");
     ball.style.position = "fixed";
@@ -35,7 +35,7 @@
     ball.textContent = "检查链接";
     ball.style.zIndex = "9999"; // 添加z-index 在图层最顶
     document.body.appendChild(ball);
-  
+
     // 创建悬浮窗口元素
     const floatingWindow = document.createElement("div");
     floatingWindow.style.position = "fixed";
@@ -51,7 +51,7 @@
     floatingWindow.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
     floatingWindow.style.zIndex = "9999"; // 添加z-index 在图层最顶
     document.body.appendChild(floatingWindow);
-  
+
     // 创建关闭按钮
     const closeButton = document.createElement("div");
     closeButton.style.position = "absolute";
@@ -62,12 +62,12 @@
     closeButton.innerHTML = "×";
     closeButton.style.color = "#0066CC";
     floatingWindow.appendChild(closeButton);
-  
+
     // 创建按钮容器
     const buttonContainer = document.createElement("div");
     buttonContainer.style.marginBottom = "20px";
     floatingWindow.appendChild(buttonContainer);
-  
+
     // 创建检查按钮
     const checkButton = document.createElement("button");
     checkButton.textContent = "检查";
@@ -79,7 +79,7 @@
     checkButton.style.borderRadius = "4px";
     checkButton.style.cursor = "pointer";
     buttonContainer.appendChild(checkButton);
-  
+
     // 创建下载按钮
     const downloadButton = document.createElement("button");
     downloadButton.textContent = "下载Excel";
@@ -90,30 +90,30 @@
     downloadButton.style.borderRadius = "4px";
     downloadButton.style.cursor = "pointer";
     buttonContainer.appendChild(downloadButton);
-  
+
     // 创建链接统计文本容器
     const linkStatsContainer = document.createElement("div");
     linkStatsContainer.style.marginBottom = "20px";
     linkStatsContainer.style.fontSize = "14px";
     linkStatsContainer.style.color = "#333333";
     floatingWindow.appendChild(linkStatsContainer);
-  
+
     // 创建表格容器
     const tableContainer = document.createElement("div");
     tableContainer.style.height = "calc(100% - 100px)";
     tableContainer.style.overflowY = "auto";
     tableContainer.style.overflowX = "auto";
     floatingWindow.appendChild(tableContainer);
-  
+
     // 显示小球
     ball.style.display = "flex";
-  
+
     // 点击小球展开悬浮窗口
     ball.addEventListener("click", function () {
       floatingWindow.style.display = "block";
       ball.style.display = "none";
     });
-  
+
     // 点击关闭按钮
     closeButton.addEventListener("click", function () {
       floatingWindow.style.display = "none";
@@ -122,10 +122,10 @@
       linkStatsContainer.innerHTML = "";
       responseData = []; // 清空存储的数据
     });
-  
+
     // 点击检查按钮发送请求
     checkButton.addEventListener("click", sendRequest);
-  
+
     // 点击下载按钮
     downloadButton.addEventListener("click", function () {
       if (responseData.length > 0) {
@@ -134,7 +134,7 @@
         alert("没有可下载的数据！");
       }
     });
-  
+
     // 发送请求
     async function sendRequest() {
       let maxPageNum = 4;
@@ -170,20 +170,20 @@
         );
         const data = await response.json();
         console.log(data.data.list);
-  
+
         allData = allData.concat(data.data.list);
         totalPage = data.data.totalPage;
         pageNum++;
       } while (pageNum <= totalPage || pageNum <= maxPageNum);
-  
+
       try {
         // 保存响应数据
         responseData = allData;
-  
+
         // 统计链接重复次数
         const clickUrlCounts = {};
         const expoUrlCounts = {};
-  
+
         allData.forEach((item) => {
             if (item.clickUrls && item.clickUrls[0]) {
                 const clickUrl = extractUrlParam(item.clickUrls[0]);
@@ -194,7 +194,7 @@
                 expoUrlCounts[expoUrl] = (expoUrlCounts[expoUrl] || 0) + 1;
             }
         });
-  
+
         // 读取option 本地持久化的存储
         const storedOption = localStorage.getItem('data');
         const option = JSON.parse(storedOption);
@@ -208,7 +208,7 @@
             }
         });
         console.log(option);
-        
+
         if (storedOption) {
             Object.entries(clickUrlCounts).forEach(([url, count]) => {
                 if (url) {
@@ -224,7 +224,7 @@
                     linkStatsContainer.appendChild(div);
                 }
             });
-  
+
             Object.entries(expoUrlCounts).forEach(([url, count]) => {
                 if (url) {
                     const div = document.createElement("div");
@@ -233,7 +233,7 @@
                     const relink = url.match(/e=.*?(&|$)/)[0];
                     if (option.some(item => item.relink === relink)) {
                         div.textContent += ` 配置符合：${option.find(item => item.relink === relink).name}`;
-                   
+
                     } else {
                         div.textContent += " 无配置符合";
                     }
@@ -250,7 +250,7 @@
                     linkStatsContainer.appendChild(div);
                 }
             });
-  
+
             Object.entries(expoUrlCounts).forEach(([url, count]) => {
                 if (url) {
                     const div = document.createElement("div");
@@ -261,26 +261,26 @@
                 }
             });
         }
-  
+
         createTable(allData);
       } catch (error) {
         console.error("解析响应数据时出错:", error);
       }
     }
-  
+
     // 提取URL参数
     function extractUrlParam(url) {
       const match = url.match(/https:\/\/magellan.alimama.com\/(.*?)&/);
       return match ? match[1] : "";
     }
-  
+
     // 创建表格
     function createTable(data) {
       const table = document.createElement("table");
       table.style.width = "100%";
       table.style.borderCollapse = "collapse";
       table.style.backgroundColor = "white";
-  
+
       // 创建表头
       const thead = document.createElement("thead");
       thead.style.backgroundColor = "#0066CC";
@@ -297,13 +297,13 @@
       });
       thead.appendChild(headerRow);
       table.appendChild(thead);
-  
+
       // 创建表体
       const tbody = document.createElement("tbody");
       data.forEach((item, index) => {
         const row = document.createElement("tr");
         row.style.backgroundColor = index % 2 === 0 ? "#F5F8FA" : "white";
-  
+
         const createTime = item.creativityCreateTime;
         const creativityName = item.creativityName;
         const creativityId = item.creativityId;
@@ -316,7 +316,7 @@
         const expoUrl = item.expoUrls
           ? JSON.stringify(item.expoUrls.map(extractUrlParam)).replace(/,/g, "\n")
           : "";
-  
+
         const values = [
           createTime,
           creativityName,
@@ -335,19 +335,19 @@
         tbody.appendChild(row);
       });
       table.appendChild(tbody);
-  
+
       // 清空表格容器并插入新表格
       tableContainer.innerHTML = "";
       tableContainer.appendChild(table);
     }
-  
+
     // 下载Excel
     function downloadExcel(data) {
       // 添加BOM头,解决中文乱码问题
       const BOM = "\uFEFF";
       const headers = ["创建时间", "创意名", "创意ID", "点击链接", "曝光链接"];
       const csvContent = [headers.join(",")];
-  
+
       data.forEach((item) => {
         const createTime = item.creativityCreateTime || "";
         const creativityName = item.creativityName || "";
@@ -366,7 +366,7 @@
                 "\n"
               )
             : "";
-  
+
         // 处理CSV中的特殊字符
         const escapeCsvValue = (value) => {
           if (typeof value !== "string") return value;
@@ -379,7 +379,7 @@
           }
           return value;
         };
-  
+
         const values = [
           createTime,
           creativityName,
@@ -389,13 +389,13 @@
         ].map(escapeCsvValue);
         csvContent.push(values.join(","));
       });
-  
+
       const csv = BOM + csvContent.join("\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       const timestamp = new Date().toLocaleString().replace(/[/:]/g, "-");
-  
+
       link.setAttribute("href", url);
       link.setAttribute("download", `data_${timestamp}.csv`);
       document.body.appendChild(link);
@@ -423,7 +423,7 @@
         const table = document.createElement('table');
         table.style.width = '100%';
         table.style.borderCollapse = 'collapse';
-    
+
         const thead = document.createElement('thead');
         const tr = document.createElement('tr');
         const th1 = document.createElement('th');
@@ -434,7 +434,7 @@
         tr.appendChild(th2);
         thead.appendChild(tr);
         table.appendChild(thead);
-    
+
         const tbody = document.createElement('tbody');
         const storedData = localStorage.getItem('data');
         if (storedData) {
@@ -470,7 +470,7 @@
             tbody.appendChild(row);
         }
         table.appendChild(tbody);
-    
+
         const addButton = document.createElement('button');
         addButton.textContent = '+';
         addButton.onclick = () => {
@@ -492,7 +492,7 @@
             }
         };
         table.appendChild(addButton);
-    
+
         const saveButton = document.createElement('button');
         saveButton.textContent = '保存';
         saveButton.onclick = () => {
@@ -507,15 +507,156 @@
             div.style.display = 'none'; // 点击保存后隐藏当前元素
         };
         table.appendChild(saveButton);
-    
+
         div.appendChild(table);
         document.body.appendChild(div);
     }
+    //======================改名
+    // 创建打开卡片的按钮
+const openButton = document.createElement('button');
+openButton.textContent = '修改单元内计划字符';
+
+// 为打开按钮添加点击事件监听器
+openButton.addEventListener('click', function () {
+    // 创建遮罩层
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.zIndex = '999';
+
+    // 创建卡片
+    const card = document.createElement('div');
+    card.style.position = 'fixed';
+    card.style.top = '50%';
+    card.style.left = '50%';
+    card.style.transform = 'translate(-50%, -50%)';
+    card.style.backgroundColor = 'white';
+    card.style.border = '1px solid #ccc';
+    card.style.padding = '20px';
+    card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    card.style.zIndex = '2147483647';
+
+    // 创建关闭按钮
+    const closeButton = document.createElement('span');
+    closeButton.textContent = 'x';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.addEventListener('click', function () {
+        document.body.removeChild(overlay);
+        document.body.removeChild(card);
+    });
+
+    // 创建第一个输入框及其标签
+    const oldCharLabel = document.createElement('label');
+    oldCharLabel.textContent = '旧字符';
+    const oldCharInput = document.createElement('input');
+    oldCharInput.type = 'text';
+
+    // 创建第二个输入框及其标签
+    const newCharLabel = document.createElement('label');
+    newCharLabel.textContent = '新字符';
+    const newCharInput = document.createElement('input');
+    newCharInput.type = 'text';
+
+    // 创建替换按钮
+    const replaceButton = document.createElement('button');
+    replaceButton.textContent = '替换';
+    replaceButton.addEventListener('click', async function () {
+        const oldChar = oldCharInput.value;
+        const newChar = newCharInput.value;
+        await mainSend(oldChar,newChar)
+
+        // 这里可以执行其他脚本，例如替换页面上的文本
+        console.log(`将 "${oldChar}" 替换为 "${newChar}"`);
+    });
+
+    // 将元素添加到卡片中
+    card.appendChild(closeButton);
+    card.appendChild(oldCharLabel);
+    card.appendChild(oldCharInput);
+    card.appendChild(newCharLabel);
+    card.appendChild(newCharInput);
+    card.appendChild(replaceButton);
+
+    // 将遮罩层和卡片添加到页面中
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
+});
+
+
+
+async function mainSend(old1,new1) {
+    const n = location.href.match(/[0-9]{1,20}/g)
+    const r = await fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/list", {
+        "headers": {
+          "accept": "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json;charset=UTF-8",
+          "priority": "u=1, i",
+          "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Microsoft Edge\";v=\"133\", \"Chromium\";v=\"133\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "37e8ffc9e25f798c"
+        },
+        "referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103584356/192658846/creativity",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": `{\"campaignId\":${n[0]},\"unitId\":${n[1]},\"startTime\":\"2025-02-27\",\"endTime\":\"2025-02-27\",\"pageNum\":1,\"pageSize\":50}`,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+      });
+
+      const j = await r.json()
+      for (let index = 0; index < j.data.list.length; index++) {
+        const element = j.data.list[index];
+        const oldName = element.creativityName
+        const regex = new RegExp(old1, 'g');
+        const newName = oldName.replace(regex,new1)
+        await reanmeSend(element.creativityId,newName)
+
+      }
+
+}
+async function reanmeSend(id,name) {
+  return  fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/update/name", {
+        "headers": {
+          "accept": "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json;charset=UTF-8",
+          "priority": "u=1, i",
+          "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Microsoft Edge\";v=\"133\", \"Chromium\";v=\"133\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "dee287ce9b6526cc"
+        },
+        //"referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103596579/192712174/creativity",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": `{\"creativityId\":${id},\"creativityName\":\"${name}\"}`,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+      });
+}
+
+    //======================
+
 
     // 创建配置按钮
     const optionButton = document.createElement("button");
     optionButton.textContent = "配置";
     optionButton.onclick = option;
     buttonContainer.appendChild(optionButton);
-
+buttonContainer.appendChild(openButton);
   })();
