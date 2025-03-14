@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -13,6 +13,37 @@
 (function () {
   "use strict";
 
+
+  const sheet = new CSSStyleSheet();
+  sheet.replaceSync(`
+.loading {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000;
+  border-top-color: transparent;
+  border-radius: 100%;
+
+  animation: circle infinite 0.75s linear;
+}
+
+// 转转转动画
+@keyframes circle {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  `);
+
+  function addStyleSheet(sheet) {
+    const allSheets = [...document.adoptedStyleSheets, sheet];
+    document.adoptedStyleSheets=allSheets
+
+  }
+  addStyleSheet(sheet)
   // 存储请求返回的数据
   let responseData = [];
   function addBallAttributes(ball,text){
@@ -146,7 +177,24 @@
   });
 
   // 点击检查按钮发送请求
-  checkButton.addEventListener("click", sendRequest);
+  checkButton.addEventListener("click", function () {
+    checkButton.disabled = true;
+    checkButton.style.backgroundColor ="rgb(105, 102, 102)"
+    const loading = document.createElement("div");
+    loading.className = "loading";
+    loading.id = "loading-indicator"; // 添加一个唯一ID
+    tableContainer.appendChild(loading);
+    sendRequest().then(() => {
+      checkButton.disabled = false;
+      checkButton.style.backgroundColor ="rgb(0, 102, 204)"  
+      
+      // 使用更安全的方式移除loading
+      const loadingElement = document.getElementById("loading-indicator");
+      if (loadingElement) {
+        loadingElement.remove();
+      }
+    });
+  });
 
   // 点击下载按钮
   downloadButton.addEventListener("click", function () {
@@ -159,6 +207,7 @@
 
   // 发送请求
   async function sendRequest() {
+
     let maxPageNum = 4;
     let pageNum = 1;
     let totalPage = 1;
@@ -688,7 +737,8 @@ async function mainSend(old1,new1) {
         z-index: 2147483647;
       }
     `);
-    document.adoptedStyleSheets = [sheet];
+    addStyleSheet(sheet)
+    // document.adoptedStyleSheets = [sheet];
     const progressBar = document.createElement('div');
     progressBar.id = 'progressBar';
     progressBar.innerText = "进度";
