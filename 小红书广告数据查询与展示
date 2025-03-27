@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -13,9 +13,94 @@
 (function () {
   "use strict";
 
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
+  //提示==========
+
+  // 注入样式
+  const style = document.createElement("style");
+  style.textContent = `
+.custom-toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 4px;
+    background: #333;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    top: 20px;
+    margin-top: 0;
+}
+.custom-toast.show {
+    opacity: 1;
+    margin-top: 0 !important;
+}
+.custom-toast.success { background: #67c23a; }
+.custom-toast.warning { background: #e6a23c; }
+.custom-toast.error { background: #f56c6c; }
+.custom-toast.info { background: #909399; }
+`;
+  document.head.appendChild(style);
+
+  // 提示队列管理
+  const toastStack = {
+    list: [],
+    add(toast) {
+      this.list.push(toast);
+      this.updatePositions();
+    },
+    remove(toast) {
+      this.list = this.list.filter((t) => t !== toast);
+      this.updatePositions();
+    },
+    updatePositions() {
+      this.list.forEach((toast, index) => {
+        const baseTop = 20;
+        const spacing = 60;
+        const targetTop = baseTop + index * spacing;
+        toast.style.top = `${targetTop}px`;
+      });
+    },
+  };
+
+  // 提示函数
+  window.showToast = function (message, type = "info", duration = 3000) {
+    const toast = document.createElement("div");
+    toast.className = `custom-toast ${type}`;
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+    void toast.offsetHeight; // 触发重绘
+
+    toastStack.add(toast);
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => {
+        toast.remove();
+        toastStack.remove(toast);
+      }, 300);
+    }, duration);
+  };
+
+  // // 使用示例
+  // showToast('第一个提示', 'success');
+  // setTimeout(() => showToast('第二个提示在下方', 'error'), 500);
+  // setTimeout(() => showToast('第三个提示继续下移', 'info'), 1000);
+
+  //提示----------
+
+  //圆球=====================
   const sheet = new CSSStyleSheet();
   sheet.replaceSync(`
+    /* 加载转圈圈 */
 .loading {
   width: 30px;
   height: 30px;
@@ -25,8 +110,7 @@
 
   animation: circle infinite 0.75s linear;
 }
-
-// 转转转动画
+/* 加载转圈圈动画 */
 @keyframes circle {
   0% {
     transform: rotate(0);
@@ -36,17 +120,42 @@
   }
 }
 
+/* 下面是卡片的样式 */
+      #overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        transform: translate(-50%, -50%);
+      }
+      #card {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 500px; /* 设置卡片的宽度 */
+        height: 300px; /* 设置卡片的高度 */
+        background-color: white;
+        border: 1px solid #0057ff ;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2147483647;
+        transform: translate(-50%, -50%);
+        border-radius: 8px
+      }
+
   `);
 
   function addStyleSheet(sheet) {
     const allSheets = [...document.adoptedStyleSheets, sheet];
-    document.adoptedStyleSheets=allSheets
-
+    document.adoptedStyleSheets = allSheets;
   }
-  addStyleSheet(sheet)
+  addStyleSheet(sheet);
   // 存储请求返回的数据
   let responseData = [];
-  function addBallAttributes(ball,text){
+  function addBallAttributes(ball, text) {
     ball.style.cssText = `
       position: fixed; 
       right: 10px; 
@@ -67,7 +176,7 @@
   }
   // 创建隐藏的小球元素
   const ball = document.createElement("div");
-  addBallAttributes(ball,"检查链接")
+  addBallAttributes(ball, "检查链接");
   document.body.appendChild(ball);
 
   // 创建悬浮窗口元素
@@ -107,8 +216,8 @@
     margin-bottom: 20px;
   `; // 改成 cssom
   floatingWindow.appendChild(buttonContainer);
-  function addButtonAttributes(checkButton,text){
-    checkButton.textContent = text;//"检查";
+  function addButtonAttributes(checkButton, text) {
+    checkButton.textContent = text; //"检查";
     checkButton.style.cssText = `
       margin-right: 10px; 
       padding: 8px 16px; 
@@ -121,12 +230,12 @@
   }
   // 创建检查按钮
   const checkButton = document.createElement("button");
-  addButtonAttributes(checkButton,"检查")
+  addButtonAttributes(checkButton, "检查");
   buttonContainer.appendChild(checkButton);
 
   // 创建下载按钮
   const downloadButton = document.createElement("button");
-  addButtonAttributes(downloadButton,"下载")
+  addButtonAttributes(downloadButton, "下载");
   buttonContainer.appendChild(downloadButton);
 
   // 创建链接统计文本容器
@@ -179,15 +288,15 @@
   // 点击检查按钮发送请求
   checkButton.addEventListener("click", function () {
     checkButton.disabled = true;
-    checkButton.style.backgroundColor ="rgb(105, 102, 102)"
+    checkButton.style.backgroundColor = "rgb(105, 102, 102)";
     const loading = document.createElement("div");
     loading.className = "loading";
     loading.id = "loading-indicator"; // 添加一个唯一ID
     tableContainer.appendChild(loading);
     sendRequest().then(() => {
       checkButton.disabled = false;
-      checkButton.style.backgroundColor ="rgb(0, 102, 204)"  
-      
+      checkButton.style.backgroundColor = "rgb(0, 102, 204)";
+
       // 使用更安全的方式移除loading
       const loadingElement = document.getElementById("loading-indicator");
       if (loadingElement) {
@@ -207,7 +316,6 @@
 
   // 发送请求
   async function sendRequest() {
-
     let maxPageNum = 4;
     let pageNum = 1;
     let totalPage = 1;
@@ -256,94 +364,99 @@
       const expoUrlCounts = {};
 
       allData.forEach((item) => {
-          if (item.clickUrls && item.clickUrls[0]) {
-              const clickUrl = extractUrlParam(item.clickUrls[0]);
-              clickUrlCounts[clickUrl] = (clickUrlCounts[clickUrl] || 0) + 1;
-          }
-          if (item.expoUrls && item.expoUrls[0]) {
-              const expoUrl = extractUrlParam(item.expoUrls[0]);
-              expoUrlCounts[expoUrl] = (expoUrlCounts[expoUrl] || 0) + 1;
-          }
+        if (item.clickUrls && item.clickUrls[0]) {
+          const clickUrl = extractUrlParam(item.clickUrls[0]);
+          clickUrlCounts[clickUrl] = (clickUrlCounts[clickUrl] || 0) + 1;
+        }
+        if (item.expoUrls && item.expoUrls[0]) {
+          const expoUrl = extractUrlParam(item.expoUrls[0]);
+          expoUrlCounts[expoUrl] = (expoUrlCounts[expoUrl] || 0) + 1;
+        }
       });
 
       // 读取option 本地持久化的存储
-      const storedOption = localStorage.getItem('data');
+      const storedOption = localStorage.getItem("data");
       const option = JSON.parse(storedOption);
       option.forEach((item) => {
-          const link = item.link;
-          const relink = link.match(/e=[^&]+/);
-          if (relink) {
-              item.relink = relink[0];
-          } else {
-              item.relink = link
-          }
+        const link = item.link;
+        const relink = link.match(/e=[^&]+/);
+        if (relink) {
+          item.relink = relink[0];
+        } else {
+          item.relink = link;
+        }
       });
       console.log(option);
 
       if (storedOption) {
-          Object.entries(clickUrlCounts).forEach(([url, count]) => {
-              if (url) {
-                  const div = document.createElement("div");
-                  div.style.cssText = `
+        Object.entries(clickUrlCounts).forEach(([url, count]) => {
+          if (url) {
+            const div = document.createElement("div");
+            div.style.cssText = `
                     margin-bottom: 5px;
                   `; // 改成 cssom
-                  div.textContent = `点击链接：${url} 有${count}条`;
-                  const relink = url.match(/e=.*?(&|$)/)[0];
-                  if (option.some(item => item.relink === relink)) {
-                      div.textContent += ` 配置符合：${option.find(item => item.relink === relink).name}`;
-                  } else {
-                      div.textContent += " 无配置符合";
-                  }
-                  linkStatsContainer.appendChild(div);
-              }
-          });
+            div.textContent = `点击链接：${url} 有${count}条`;
+            const relink = url.match(/e=.*?(&|$)/)[0];
+            if (option.some((item) => item.relink === relink)) {
+              div.textContent += ` 配置符合：${
+                option.find((item) => item.relink === relink).name
+              }`;
+            } else {
+              div.textContent += " 无配置符合";
+            }
+            linkStatsContainer.appendChild(div);
+          }
+        });
 
-          Object.entries(expoUrlCounts).forEach(([url, count]) => {
-              if (url) {
-                  const div = document.createElement("div");
-                  div.style.cssText = `
+        Object.entries(expoUrlCounts).forEach(([url, count]) => {
+          if (url) {
+            const div = document.createElement("div");
+            div.style.cssText = `
                     margin-bottom: 5px;
                   `; // 改成 cssom
-                  div.textContent = `曝光链接：${url} 有${count}条`;
-                  const relink = url.match(/e=.*?(&|$)/)[0];
-                  if (option.some(item => item.relink === relink)) {
-                      div.textContent += ` 配置符合：${option.find(item => item.relink === relink).name}`;
-
-                  } else {
-                      div.textContent += " 无配置符合";
-                  }
-                  linkStatsContainer.appendChild(div);
-              }
-          });
+            div.textContent = `曝光链接：${url} 有${count}条`;
+            const relink = url.match(/e=.*?(&|$)/)[0];
+            if (option.some((item) => item.relink === relink)) {
+              div.textContent += ` 配置符合：${
+                option.find((item) => item.relink === relink).name
+              }`;
+            } else {
+              div.textContent += " 无配置符合";
+            }
+            linkStatsContainer.appendChild(div);
+          }
+        });
       } else {
-          Object.entries(clickUrlCounts).forEach(([url, count]) => {
-              if (url) {
-                  const div = document.createElement("div");
-                  div.style.cssText = `
+        Object.entries(clickUrlCounts).forEach(([url, count]) => {
+          if (url) {
+            const div = document.createElement("div");
+            div.style.cssText = `
                     margin-bottom: 5px;
                   `; // 改成 cssom
-                  div.textContent = `点击链接：${url} 有${count}条`;
-                  div.textContent += " 无配置符合";
-                  linkStatsContainer.appendChild(div);
-              }
-          });
+            div.textContent = `点击链接：${url} 有${count}条`;
+            div.textContent += " 无配置符合";
+            linkStatsContainer.appendChild(div);
+          }
+        });
 
-          Object.entries(expoUrlCounts).forEach(([url, count]) => {
-              if (url) {
-                  const div = document.createElement("div");
-                  div.style.cssText = `
+        Object.entries(expoUrlCounts).forEach(([url, count]) => {
+          if (url) {
+            const div = document.createElement("div");
+            div.style.cssText = `
                     margin-bottom: 5px;
                   `; // 改成 cssom
-                  div.textContent = `曝光链接：${url} 有${count}条`;
-                  div.textContent += " 无配置符合";
-                  linkStatsContainer.appendChild(div);
-              }
-          });
+            div.textContent = `曝光链接：${url} 有${count}条`;
+            div.textContent += " 无配置符合";
+            linkStatsContainer.appendChild(div);
+          }
+        });
       }
 
       createTable(allData);
+      showToast("读取成功", "success");
     } catch (error) {
       console.error("解析响应数据时出错:", error);
+      showToast("读取报错,可能是没有配置", "error");
     }
   }
 
@@ -493,11 +606,9 @@
     URL.revokeObjectURL(url);
   }
 
-
-
-  function option(){
-      const div = document.createElement('div');
-      div.style.cssText = `
+  function option() {
+    const div = document.createElement("div");
+    div.style.cssText = `
         position: absolute; 
         top: 50%; 
         left: 50%; 
@@ -511,176 +622,161 @@
         border: 1px solid rgb(0, 102, 204); 
         border-radius: 8px;
       `; // 改成 cssom
-      const table = document.createElement('table');
-      table.style.cssText = `
+    const table = document.createElement("table");
+    table.style.cssText = `
         width: 100%; 
         border-collapse: collapse;
       `; // 改成 cssom
 
-      const thead = document.createElement('thead');
-      const tr = document.createElement('tr');
-      const th1 = document.createElement('th');
-      th1.textContent = '链接';
-      tr.appendChild(th1);
-      const th2 = document.createElement('th');
-      th2.textContent = '名字';
-      tr.appendChild(th2);
-      thead.appendChild(tr);
-      table.appendChild(thead);
+    const thead = document.createElement("thead");
+    const tr = document.createElement("tr");
+    const th1 = document.createElement("th");
+    th1.textContent = "链接";
+    tr.appendChild(th1);
+    const th2 = document.createElement("th");
+    th2.textContent = "名字";
+    tr.appendChild(th2);
+    thead.appendChild(tr);
+    table.appendChild(thead);
 
-      const tbody = document.createElement('tbody');
-      const storedData = localStorage.getItem('data');
-      if (storedData) {
-          const data = JSON.parse(storedData);
-          data.forEach((item) => {
-              const row = document.createElement('tr');
-              const td1 = document.createElement('td');
-              const linkInput = document.createElement('input');
-              linkInput.type = 'text';
-              linkInput.value = item.link;
-              td1.appendChild(linkInput);
-              row.appendChild(td1);
-              const td2 = document.createElement('td');
-              const nameInput = document.createElement('input');
-              nameInput.type = 'text';
-              nameInput.value = item.name;
-              td2.appendChild(nameInput);
-              row.appendChild(td2);
-              tbody.appendChild(row);
-          });
+    const tbody = document.createElement("tbody");
+    const storedData = localStorage.getItem("data");
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      data.forEach((item) => {
+        const row = document.createElement("tr");
+        const td1 = document.createElement("td");
+        const linkInput = document.createElement("input");
+        linkInput.type = "text";
+        linkInput.value = item.link;
+        td1.appendChild(linkInput);
+        row.appendChild(td1);
+        const td2 = document.createElement("td");
+        const nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.value = item.name;
+        td2.appendChild(nameInput);
+        row.appendChild(td2);
+        tbody.appendChild(row);
+      });
+    } else {
+      const row = document.createElement("tr");
+      const td1 = document.createElement("td");
+      const linkInput = document.createElement("input");
+      linkInput.type = "text";
+      td1.appendChild(linkInput);
+      row.appendChild(td1);
+      const td2 = document.createElement("td");
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      td2.appendChild(nameInput);
+      row.appendChild(td2);
+      tbody.appendChild(row);
+    }
+    table.appendChild(tbody);
+
+    const addButton = document.createElement("button");
+    addButton.textContent = "+";
+    addButton.onclick = () => {
+      const newRow = document.createElement("tr");
+      const newTd1 = document.createElement("td");
+      const newLinkInput = document.createElement("input");
+      newLinkInput.type = "text";
+      newTd1.appendChild(newLinkInput);
+      newRow.appendChild(newTd1);
+      const newTd2 = document.createElement("td");
+      const newNameInput = document.createElement("input");
+      newNameInput.type = "text";
+      newTd2.appendChild(newNameInput);
+      newRow.appendChild(newTd2);
+      if (tbody.children.length > 0) {
+        tbody.insertBefore(newRow, tbody.children[0]);
       } else {
-          const row = document.createElement('tr');
-          const td1 = document.createElement('td');
-          const linkInput = document.createElement('input');
-          linkInput.type = 'text';
-          td1.appendChild(linkInput);
-          row.appendChild(td1);
-          const td2 = document.createElement('td');
-          const nameInput = document.createElement('input');
-          nameInput.type = 'text';
-          td2.appendChild(nameInput);
-          row.appendChild(td2);
-          tbody.appendChild(row);
+        tbody.appendChild(newRow);
       }
-      table.appendChild(tbody);
+    };
+    table.appendChild(addButton);
 
-      const addButton = document.createElement('button');
-      addButton.textContent = '+';
-      addButton.onclick = () => {
-          const newRow = document.createElement('tr');
-          const newTd1 = document.createElement('td');
-          const newLinkInput = document.createElement('input');
-          newLinkInput.type = 'text';
-          newTd1.appendChild(newLinkInput);
-          newRow.appendChild(newTd1);
-          const newTd2 = document.createElement('td');
-          const newNameInput = document.createElement('input');
-          newNameInput.type = 'text';
-          newTd2.appendChild(newNameInput);
-          newRow.appendChild(newTd2);
-          if (tbody.children.length > 0) {
-              tbody.insertBefore(newRow, tbody.children[0]);
-          } else {
-              tbody.appendChild(newRow);
-          }
-      };
-      table.appendChild(addButton);
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "保存";
+    saveButton.onclick = () => {
+      const rows = tbody.rows;
+      const data = [];
+      for (let i = 0; i < rows.length; i++) {
+        const link = rows[i].cells[0].children[0].value;
+        const name = rows[i].cells[1].children[0].value;
+        data.push({ link, name });
+      }
+      localStorage.setItem("data", JSON.stringify(data));
+      div.style.display = "none"; // 点击保存后隐藏当前元素
+    };
+    table.appendChild(saveButton);
 
-      const saveButton = document.createElement('button');
-      saveButton.textContent = '保存';
-      saveButton.onclick = () => {
-          const rows = tbody.rows;
-          const data = [];
-          for (let i = 0; i < rows.length; i++) {
-              const link = rows[i].cells[0].children[0].value;
-              const name = rows[i].cells[1].children[0].value;
-              data.push({ link, name });
-          }
-          localStorage.setItem('data', JSON.stringify(data));
-          div.style.display = 'none'; // 点击保存后隐藏当前元素
-      };
-      table.appendChild(saveButton);
-
-      div.appendChild(table);
-      document.body.appendChild(div);
+    div.appendChild(table);
+    document.body.appendChild(div);
   }
+
+  //tools==================
+  function create_car() {
+    // 创建遮罩层
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+
+    // 创建卡片
+    const card = document.createElement("div");
+    card.id = "card";
+
+    // 创建关闭按钮
+    const closeButton = document.createElement("span");
+    closeButton.textContent = "x";
+    closeButton.style.position = "absolute";
+    closeButton.style.top = "10px";
+    closeButton.style.right = "10px";
+    closeButton.style.cursor = "pointer";
+    closeButton.addEventListener("click", function () {
+      document.body.removeChild(overlay);
+      document.body.removeChild(card);
+    });
+    card.appendChild(closeButton);
+    return {
+      overlay,
+      card,
+      closeButton,
+    };
+  }
+
+  //tools-------------------
   //======================改名
   // 创建打开卡片的按钮
-  const openButton = document.createElement('button');
+  const openButton = document.createElement("button");
   addButtonAttributes(openButton, "修改单元内计划字符");
 
   // 为打开按钮添加点击事件监听器
-  openButton.addEventListener('click', function () {
-    const sheet = new CSSStyleSheet();
-    sheet.replaceSync(`
-      #overlay {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        transform: translate(-50%, -50%);
-      }
-      #card {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 500px; /* 设置卡片的宽度 */
-        height: 300px; /* 设置卡片的高度 */
-        background-color: white;
-        border: 1px solid #ccc;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 2147483647;
-        transform: translate(-50%, -50%);
-      }
-    `);
-    const allSheets = [...document.adoptedStyleSheets, sheet];
-    document.adoptedStyleSheets=allSheets
-    // 创建遮罩层
-    const overlay = document.createElement('div');
-    overlay.id = 'overlay';
-
-    // 创建卡片
-    const card = document.createElement('div');
-    card.id = 'card';
-
-    // 创建关闭按钮
-    const closeButton = document.createElement('span');
-    closeButton.textContent = 'x';
-    closeButton.style.position = 'absolute';
-    closeButton.style.top = '10px';
-    closeButton.style.right = '10px';
-    closeButton.style.cursor = 'pointer';
-    closeButton.addEventListener('click', function () {
-        document.body.removeChild(overlay);
-        document.body.removeChild(card);
-    });
+  openButton.addEventListener("click", function () {
+    const { overlay, card, closeButton } = create_car();
 
     // 创建第一个输入框及其标签
-    const oldCharLabel = document.createElement('label');
-    oldCharLabel.textContent = '旧字符';
-    const oldCharInput = document.createElement('input');
-    oldCharInput.type = 'text';
+    const oldCharLabel = document.createElement("label");
+    oldCharLabel.textContent = "旧字符";
+    const oldCharInput = document.createElement("input");
+    oldCharInput.type = "text";
 
     // 创建第二个输入框及其标签
-    const newCharLabel = document.createElement('label');
-    newCharLabel.textContent = '新字符';
-    const newCharInput = document.createElement('input');
-    newCharInput.type = 'text';
+    const newCharLabel = document.createElement("label");
+    newCharLabel.textContent = "新字符";
+    const newCharInput = document.createElement("input");
+    newCharInput.type = "text";
 
     // 创建替换按钮
-    const replaceButton = document.createElement('button');
-    replaceButton.textContent = '替换';
-    replaceButton.addEventListener('click', async function () {
-        const oldChar = oldCharInput.value;
-        const newChar = newCharInput.value;
-        await mainSend(oldChar, newChar)
+    const replaceButton = document.createElement("button");
+    replaceButton.textContent = "替换";
+    replaceButton.addEventListener("click", async function () {
+      const oldChar = oldCharInput.value;
+      const newChar = newCharInput.value;
+      await mainSend(oldChar, newChar);
 
-        // 这里可以执行其他脚本，例如替换页面上的文本
-        console.log(`将 "${oldChar}" 替换为 "${newChar}"`);
+      // 这里可以执行其他脚本，例如替换页面上的文本
+      console.log(`将 "${oldChar}" 替换为 "${newChar}"`);
     });
 
     // 将元素添加到卡片中
@@ -696,32 +792,40 @@
     document.body.appendChild(card);
   });
 
+  async function mainSend(old1, new1) {
+    const n = location.href.match(/[0-9]{1,20}/g);
+    const r = await fetch(
+      "https://ad.xiaohongshu.com/api/leona/rtb/creativity/list",
+      {
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json;charset=UTF-8",
+          priority: "u=1, i",
+          "sec-ch-ua":
+            '"Not(A:Brand";v="99", "Microsoft Edge";v="133", "Chromium";v="133"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": '"macOS"',
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "37e8ffc9e25f798c",
+        },
+        referrer:
+          "https://ad.xiaohongshu.com/aurora/ad/manage/103584356/192658846/creativity",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: `{\"campaignId\":${n[0]},\"unitId\":${n[1]},\"startTime\":\"${
+          new Date().toISOString().split("T")[0]
+        }\",\"endTime\":\"${
+          new Date().toISOString().split("T")[0]
+        }\",\"pageNum\":1,\"pageSize\":50}`,
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+      }
+    );
 
-async function mainSend(old1,new1) {
-  const n = location.href.match(/[0-9]{1,20}/g)
-  const r = await fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/list", {
-      "headers": {
-        "accept": "application/json, text/plain, */*",
-        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-        "content-type": "application/json;charset=UTF-8",
-        "priority": "u=1, i",
-        "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Microsoft Edge\";v=\"133\", \"Chromium\";v=\"133\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"macOS\"",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "x-b3-traceid": "37e8ffc9e25f798c"
-      },
-      "referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103584356/192658846/creativity",
-      "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": `{\"campaignId\":${n[0]},\"unitId\":${n[1]},\"startTime\":\"2025-02-27\",\"endTime\":\"2025-02-27\",\"pageNum\":1,\"pageSize\":50}`,
-      "method": "POST",
-      "mode": "cors",
-      "credentials": "include"
-    });
-
-    const j = await r.json()
+    const j = await r.json();
     const total = j.data.list.length;
     let completed = 0;
     const sheet = new CSSStyleSheet();
@@ -737,59 +841,285 @@ async function mainSend(old1,new1) {
         z-index: 2147483647;
       }
     `);
-    addStyleSheet(sheet)
+    addStyleSheet(sheet);
     // document.adoptedStyleSheets = [sheet];
-    const progressBar = document.createElement('div');
-    progressBar.id = 'progressBar';
+    const progressBar = document.createElement("div");
+    progressBar.id = "progressBar";
     progressBar.innerText = "进度";
     document.body.appendChild(progressBar);
 
     for (let index = 0; index < j.data.list.length; index++) {
       const element = j.data.list[index];
-      const oldName = element.creativityName
-      const regex = new RegExp(old1, 'g');
-      const newName = oldName.replace(regex,new1)
-      await reanmeSend(element.creativityId,newName)
+      const oldName = element.creativityName;
+      const regex = new RegExp(old1, "g");
+      const newName = oldName.replace(regex, new1);
+      await reanmeSend(element.creativityId, newName);
       completed++;
       const progress = (completed / total) * 100;
       progressBar.style.width = `${progress}%`;
     }
 
     document.body.removeChild(progressBar);
-    alert('完成');
-}
-async function reanmeSend(id,name) {
-return  fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/update/name", {
-      "headers": {
-        "accept": "application/json, text/plain, */*",
+    showToast("完成", "success");
+    // alert("完成");
+  }
+  async function reanmeSend(id, name) {
+    return fetch(
+      "https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/update/name",
+      {
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json;charset=UTF-8",
+          priority: "u=1, i",
+          "sec-ch-ua":
+            '"Not(A:Brand";v="99", "Microsoft Edge";v="133", "Chromium";v="133"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": '"macOS"',
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "dee287ce9b6526cc",
+        },
+        //"referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103596579/192712174/creativity",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: `{\"creativityId\":${id},\"creativityName\":\"${name}\"}`,
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+      }
+    );
+  }
+
+  //调价函数======================
+
+  function getCurrentTimestamp() {
+    return Math.floor(Date.now() / 1000);
+  }
+
+  async function getData(body, bid, result) {
+    body.removeBind = 0;
+    body.sourceFlag = "web";
+    body.pageEnterTime = getCurrentTimestamp() - 10;
+    body.pageSubmitTime = getCurrentTimestamp();
+    body.keywordWithBid.map((e) => {
+      e.bid = bid * 100;
+    });
+    const r = await fetch("https://ad.xiaohongshu.com/api/leona/rtb/unit", {
+      headers: {
+        accept: "application/json, text/plain, */*",
         "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-        "content-type": "application/json;charset=UTF-8",
-        "priority": "u=1, i",
-        "sec-ch-ua": "\"Not(A:Brand\";v=\"99\", \"Microsoft Edge\";v=\"133\", \"Chromium\";v=\"133\"",
+        "content-type": "application/json",
+        priority: "u=1, i",
+        "sec-ch-ua":
+          '"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"',
         "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"macOS\"",
+        "sec-ch-ua-platform": '"Windows"',
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin",
-        "x-b3-traceid": "dee287ce9b6526cc"
+        "x-b3-traceid": "631398efd0ea1db1",
       },
-      //"referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103596579/192712174/creativity",
-      "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": `{\"creativityId\":${id},\"creativityName\":\"${name}\"}`,
-      "method": "POST",
-      "mode": "cors",
-      "credentials": "include"
+      // "referrer": "https://ad.xiaohongshu.com/aurora/ad/edit/unit/107358958/208378008/4/2?byManage=true&manageLevel=byAccount&AFormGrayFlag=false",
+      referrerPolicy: "strict-origin-when-cross-origin",
+      body: JSON.stringify(body),
+      method: "PUT",
+      mode: "cors",
+      credentials: "include",
     });
-}
+    const j = await r.json();
+    showToast(`单元${body.unitName}调整出价${bid},${j.msg}`, "success");
+    console.log(`单元${body.unitName}调整出价${bid},${j.msg}`);
+    result.push(`单元${body.unitName}调整出价${bid},${j.msg}`);
+  }
 
-  //======================
+  async function set_bid(bid) {
+    const r = await fetch(
+      "https://ad.xiaohongshu.com/api/leona/rtb/unit/search",
+      {
+        headers: {
+          accept: "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json",
+          priority: "u=1, i",
+          "sec-ch-ua":
+            '"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": '"Windows"',
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "e900951027b4cc32",
+        },
+        referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: `{\"startTime\":\"${
+          new Date().toISOString().split("T")[0]
+        }\",\"endTime\":\"${
+          new Date().toISOString().split("T")[0]
+        }\",\"pageNum\":1,\"pageSize\":100}`,
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+      }
+    )
+      .then((response) => response.json())
+      .then(async (data) => {
+        showToast(
+          `获取数据:当前获取单元${data.data.list.length}条\n开始执行调价`,
+          "info"
+        );
+        const result = [];
+        for (let index = 0; index < data.data.list.length; index++) {
+          const element = data.data.list[index];
+          showToast(`当前执行单元${element.unitName},调整出价为${bid}`, "info");
+          console.log(`当前执行单元${element.unitName},调整出价为${bid}`);
 
+          await getData(element, bid, result);
+          await sleep(1000);
+        }
+        alert(result.join("\n"));
+      });
+  }
+
+  //调价函数----------------------
+
+  // 创意开启关闭创意============================
+
+
+
+  // 关闭计划
+  async function closePlan(chunkedA,isColse) {
+
+    const text = isColse = 1?"开启创意":"关闭创意";
+    for (let i = 0; i < chunkedA.length; i++) {
+      const ids = chunkedA[i];
+      let retry = true;
+      while (retry) {
+        const r = await fetch(
+          "https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/status",
+          {
+            headers: {
+              accept: "application/json, text/plain, */*",
+              "accept-language":
+                "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+              "content-type": "application/json;charset=UTF-8",
+              priority: "u=1, i",
+              "sec-ch-ua":
+                '"Not(A:Brand";v="99", "Microsoft Edge";v="133", "Chromium";v="133"',
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": '"macOS"',
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-b3-traceid": "c1adc74c127d40f2",
+            },
+            referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
+            referrerPolicy: "strict-origin-when-cross-origin",
+            // 2是关闭 1是开启
+            body: JSON.stringify({
+              ids: ids,
+              actionType: parseInt(isColse),
+            }),
+            method: "PUT",
+            mode: "cors",
+            credentials: "include",
+          }
+        );
+        const res = await r.json();
+        console.log(res.msg);
+        if (res.msg === "成功") {
+          showToast(`${text},${res.msg}:${JSON.stringify(ids)}`, "success");
+          retry = false;
+        } else {
+          retry = true;
+        }
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+  }
+
+  function split_array(array, number) {
+    // 将数组a以number个为一组切割
+    const chunkedA = array.reduce((acc, _, index) => {
+      const chunkIndex = Math.floor(index / number);
+      if (!acc[chunkIndex]) {
+        acc[chunkIndex] = [];
+      }
+      acc[chunkIndex].push(_);
+      return acc;
+    }, []);
+    return chunkedA;
+  }
+
+  // 创意开启关闭创意-----------------------------
 
   // 创建配置按钮
   const optionButton = document.createElement("button");
-    addButtonAttributes(optionButton,"配置")
+  addButtonAttributes(optionButton, "配置");
 
+  // 开启关闭创意============================
+
+  const openOrClose = document.createElement("button");
+  addButtonAttributes(openOrClose, "关闭/开启创意");
+  openOrClose.onclick = () => {
+    const { overlay, card, closeButton } = create_car();
+    // 创建第一个下拉列表
+    const creativeIdSelect = document.createElement("select");
+    creativeIdSelect.options.add(new Option("创意ID", "creativeId"));
+    creativeIdSelect.options.add(new Option("文字匹配", "textMatch"));
+    card.appendChild(creativeIdSelect);
+
+    // 创建第二个下拉列表
+    const toggleSelect = document.createElement("select");
+    toggleSelect.options.add(new Option("关闭", "2"));
+    toggleSelect.options.add(new Option("开启", "1"));
+
+    card.appendChild(toggleSelect);
+
+    // 创建多行文本输入框
+    const textArea = document.createElement("textarea");
+    card.appendChild(textArea);
+
+    // 创建请求按钮
+    const requestButton = document.createElement("button");
+    requestButton.textContent = "请求";
+    requestButton.onclick = async () => {
+      const chunkedA = split_array(textArea.value.trim().split(/\n|,\n/g).map(e=>e.trim()), 50);
+      // console.log();
+      
+      closePlan(chunkedA,toggleSelect.value);
+    };
+    card.appendChild(requestButton);
+    // 将遮罩层和卡片添加到页面中
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
+
+    
+  };
+
+  // 批量调价搜索词
+  const modify_the_price = document.createElement("button");
+  addButtonAttributes(modify_the_price, "批量调整出价");
+
+  modify_the_price.onclick = () => {
+    const bid = prompt("请输入出价");
+    //判断bid是否是数值 并且就bid转换成小数
+    if (isNaN(bid)) {
+      showToast("请输入数字", "error");
+      return;
+    }
+
+    if (bid) {
+      var Newbid = parseFloat(bid);
+      set_bid(Newbid);
+    }
+  };
+
+  // 加载元素
   optionButton.onclick = option;
   buttonContainer.appendChild(optionButton);
-buttonContainer.appendChild(openButton);
+  buttonContainer.appendChild(openButton);
+  buttonContainer.appendChild(openOrClose);
+  buttonContainer.appendChild(modify_the_price);
 })();
