@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      1.01
+// @version      1.12
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -145,6 +145,57 @@
         transform: translate(-50%, -50%);
         border-radius: 8px
       }
+
+/* 下面是卡片中输入框还有下拉框的样式 */
+
+ #card select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px 12px;
+}
+
+ #card label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+    #card input[type="text"],#card textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+    #card button,.card button {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+margin-right: 10px;
+    padding: 8px 16px;
+    background-color: rgb(0, 102, 204);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
 
   `);
 
@@ -348,7 +399,7 @@
         }
       );
       const data = await response.json();
-      console.log(data.data.list);
+      // console.log(data.data.list);
 
       allData = allData.concat(data.data.list);
       totalPage = data.data.totalPage;
@@ -608,6 +659,7 @@
 
   function option() {
     const div = document.createElement("div");
+    div.className = "card";
     div.style.cssText = `
         position: absolute; 
         top: 50%; 
@@ -621,12 +673,49 @@
         background: white; 
         border: 1px solid rgb(0, 102, 204); 
         border-radius: 8px;
-      `; // 改成 cssom
+      `;
     const table = document.createElement("table");
     table.style.cssText = `
         width: 100%; 
         border-collapse: collapse;
-      `; // 改成 cssom
+      `;
+    const addButton = document.createElement("button");
+    addButton.textContent = "添加";
+    addButton.onclick = () => {
+      const newRow = document.createElement("tr");
+      const newTd1 = document.createElement("td");
+      const newLinkInput = document.createElement("input");
+      newLinkInput.type = "text";
+      newTd1.appendChild(newLinkInput);
+      newRow.appendChild(newTd1);
+      const newTd2 = document.createElement("td");
+      const newNameInput = document.createElement("input");
+      newNameInput.type = "text";
+      newTd2.appendChild(newNameInput);
+      newRow.appendChild(newTd2);
+      tbody.insertBefore(newRow, tbody.children[0]);
+    };
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "保存(关闭)";
+    saveButton.onclick = () => {
+      const rows = tbody.rows;
+      const data = [];
+      for (let i = 0; i < rows.length; i++) {
+        const link = rows[i].cells[0].children[0].value;
+        const name = rows[i].cells[1].children[0].value;
+        data.push({ link, name });
+      }
+      localStorage.setItem("data", JSON.stringify(data));
+      div.style.display = "none";
+    };
+    const clearButton = document.createElement("button");
+    clearButton.textContent = "清空";
+    clearButton.onclick = () => {
+      tbody.innerHTML = ""; // 清空tbody中的所有内容
+    };
+    div.appendChild(addButton);
+    div.appendChild(saveButton);
+    div.appendChild(clearButton);
 
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
@@ -637,7 +726,6 @@
     th2.textContent = "名字";
     tr.appendChild(th2);
     thead.appendChild(tr);
-    table.appendChild(thead);
 
     const tbody = document.createElement("tbody");
     const storedData = localStorage.getItem("data");
@@ -673,45 +761,9 @@
       row.appendChild(td2);
       tbody.appendChild(row);
     }
+
+    table.appendChild(thead);
     table.appendChild(tbody);
-
-    const addButton = document.createElement("button");
-    addButton.textContent = "+";
-    addButton.onclick = () => {
-      const newRow = document.createElement("tr");
-      const newTd1 = document.createElement("td");
-      const newLinkInput = document.createElement("input");
-      newLinkInput.type = "text";
-      newTd1.appendChild(newLinkInput);
-      newRow.appendChild(newTd1);
-      const newTd2 = document.createElement("td");
-      const newNameInput = document.createElement("input");
-      newNameInput.type = "text";
-      newTd2.appendChild(newNameInput);
-      newRow.appendChild(newTd2);
-      if (tbody.children.length > 0) {
-        tbody.insertBefore(newRow, tbody.children[0]);
-      } else {
-        tbody.appendChild(newRow);
-      }
-    };
-    table.appendChild(addButton);
-
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "保存";
-    saveButton.onclick = () => {
-      const rows = tbody.rows;
-      const data = [];
-      for (let i = 0; i < rows.length; i++) {
-        const link = rows[i].cells[0].children[0].value;
-        const name = rows[i].cells[1].children[0].value;
-        data.push({ link, name });
-      }
-      localStorage.setItem("data", JSON.stringify(data));
-      div.style.display = "none"; // 点击保存后隐藏当前元素
-    };
-    table.appendChild(saveButton);
-
     div.appendChild(table);
     document.body.appendChild(div);
   }
@@ -1116,10 +1168,40 @@
     }
   };
 
+
+
+  // const download_today = document.createElement("button");
+  // addButtonAttributes(download_today, "下载今日创建");
+  // download_today.onclick =  () => {
+
+
+  //   fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/list", {
+  //     "headers": {
+  //       "accept": "application/json, text/plain, */*",
+  //       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+  //       "content-type": "application/json",
+  //       "priority": "u=1, i",
+  //       "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+  //       "sec-ch-ua-mobile": "?0",
+  //       "sec-ch-ua-platform": "\"macOS\"",
+  //       "sec-fetch-dest": "empty",
+  //       "sec-fetch-mode": "cors",
+  //       "sec-fetch-site": "same-origin",
+  //       "x-b3-traceid": "268ef6d4ba91e008"
+  //     },
+  //     "referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
+  //     "referrerPolicy": "strict-origin-when-cross-origin",
+  //     "body": "{\"startTime\":\"2025-03-28\",\"endTime\":\"2025-03-28\",\"creativityCreateBeginTime\":\"2025-03-27\",\"creativityCreateEndTime\":\"2025-03-27\",\"pageNum\":1,\"pageSize\":20}",
+  //     "method": "POST",
+  //     "mode": "cors",
+  //     "credentials": "include"
+  //   });
+  // };
   // 加载元素
   optionButton.onclick = option;
   buttonContainer.appendChild(optionButton);
   buttonContainer.appendChild(openButton);
   buttonContainer.appendChild(openOrClose);
   buttonContainer.appendChild(modify_the_price);
+  // buttonContainer.appendChild(download_today);
 })();
