@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      1.12
+// @version      1.21
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -194,7 +194,7 @@ margin-right: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    
+
 }
 
   `);
@@ -208,19 +208,19 @@ margin-right: 10px;
   let responseData = [];
   function addBallAttributes(ball, text) {
     ball.style.cssText = `
-      position: fixed; 
-      right: 10px; 
-      bottom: 10px; 
-      width: 60px; 
-      height: 60px; 
-      background-color: #0066CC; 
-      border-radius: 50%; 
-      cursor: pointer; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 12px; 
-      color: white; 
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      width: 60px;
+      height: 60px;
+      background-color: #0066CC;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
       z-index: 9999;
     `;
     ball.textContent = text;
@@ -233,17 +233,17 @@ margin-right: 10px;
   // 创建悬浮窗口元素
   const floatingWindow = document.createElement("div");
   floatingWindow.style.cssText = `
-    position: fixed; 
-    right: 20px; 
-    top: 20px; 
-    width: 50vw; 
-    height: 80vh; 
-    background-color: white; 
-    border: 1px solid #0066CC; 
-    border-radius: 8px; 
-    display: none; 
-    padding: 20px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50vw;
+    height: 80vh;
+    background-color: white;
+    border: 1px solid #0066CC;
+    border-radius: 8px;
+    display: none;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 9999;
   `; // 改成 cssom
   document.body.appendChild(floatingWindow);
@@ -251,11 +251,11 @@ margin-right: 10px;
   // 创建关闭按钮
   const closeButton = document.createElement("div");
   closeButton.style.cssText = `
-    position: absolute; 
-    right: 10px; 
-    top: 10px; 
-    cursor: pointer; 
-    font-size: 20px; 
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
     color: #0066CC;
   `; // 改成 cssom
   closeButton.innerHTML = "×";
@@ -270,12 +270,12 @@ margin-right: 10px;
   function addButtonAttributes(checkButton, text) {
     checkButton.textContent = text; //"检查";
     checkButton.style.cssText = `
-      margin-right: 10px; 
-      padding: 8px 16px; 
-      background-color: #0066CC; 
-      color: white; 
-      border: none; 
-      border-radius: 4px; 
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #0066CC;
+      color: white;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
     `; // 改成 cssom
   }
@@ -292,8 +292,8 @@ margin-right: 10px;
   // 创建链接统计文本容器
   const linkStatsContainer = document.createElement("div");
   linkStatsContainer.style.cssText = `
-    margin-bottom: 20px; 
-    font-size: 14px; 
+    margin-bottom: 20px;
+    font-size: 14px;
     color: #333333;
   `; // 改成 cssom
   floatingWindow.appendChild(linkStatsContainer);
@@ -301,8 +301,8 @@ margin-right: 10px;
   // 创建表格容器
   const tableContainer = document.createElement("div");
   tableContainer.style.cssText = `
-    height: calc(100% - 100px); 
-    overflow-y: auto; 
+    height: calc(100% - 100px);
+    overflow-y: auto;
     overflow-x: auto;
   `; // 改成 cssom
   floatingWindow.appendChild(tableContainer);
@@ -310,8 +310,8 @@ margin-right: 10px;
   // 创建进度条
   const progressBar = document.createElement("progress");
   progressBar.style.cssText = `
-    width: 100%; 
-    margin-top: 10px; 
+    width: 100%;
+    margin-top: 10px;
     display: none;
   `; // 改成 cssom
   progressBar.value = 0;
@@ -521,8 +521,8 @@ margin-right: 10px;
   function createTable(data) {
     const table = document.createElement("table");
     table.style.cssText = `
-      width: 100%; 
-      border-collapse: collapse; 
+      width: 100%;
+      border-collapse: collapse;
       background-color: white;
     `; // 改成 cssom
 
@@ -536,9 +536,9 @@ margin-right: 10px;
     headers.forEach((headerText) => {
       const th = document.createElement("th");
       th.style.cssText = `
-        border: 1px solid #0066CC; 
-        padding: 12px; 
-        color: white; 
+        border: 1px solid #0066CC;
+        padding: 12px;
+        color: white;
         font-weight: bold;
       `; // 改成 cssom
       th.textContent = headerText;
@@ -578,8 +578,8 @@ margin-right: 10px;
       values.forEach((value) => {
         const td = document.createElement("td");
         td.style.cssText = `
-          border: 1px solid #E5E5E5; 
-          padding: 12px; 
+          border: 1px solid #E5E5E5;
+          padding: 12px;
           color: #333333;
         `; // 改成 cssom
         td.textContent = value;
@@ -661,22 +661,22 @@ margin-right: 10px;
     const div = document.createElement("div");
     div.className = "card";
     div.style.cssText = `
-        position: absolute; 
-        top: 50%; 
-        left: 50%; 
-        transform: translate(-50%, -50%); 
-        z-index: 9999; 
-        width: 500px; 
-        height: 300px; 
-        overflow-x: auto; 
-        overflow-y: auto; 
-        background: white; 
-        border: 1px solid rgb(0, 102, 204); 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        width: 500px;
+        height: 300px;
+        overflow-x: auto;
+        overflow-y: auto;
+        background: white;
+        border: 1px solid rgb(0, 102, 204);
         border-radius: 8px;
       `;
     const table = document.createElement("table");
     table.style.cssText = `
-        width: 100%; 
+        width: 100%;
         border-collapse: collapse;
       `;
     const addButton = document.createElement("button");
@@ -1043,7 +1043,7 @@ margin-right: 10px;
   // 关闭计划
   async function closePlan(chunkedA,isColse) {
 
-    const text = isColse = 1?"开启创意":"关闭创意";
+    const text = isColse == 1?"开启创意":"关闭创意";
     for (let i = 0; i < chunkedA.length; i++) {
       const ids = chunkedA[i];
       let retry = true;
@@ -1090,7 +1090,54 @@ margin-right: 10px;
       }
     }
   }
+  // 关闭计划笔记 noteid 和 名称
+  async function closePlanNote(ids,isColse,creativeIdSelect) {
+       // 确保 isColse 是有效的值
+       if (isColse === null || isColse === undefined) {
+        showToast.error("isColse 参数无效");
+        return; // 或者抛出错误
+    }
+  
+    for (let index = 0; index < ids.length; index++) {
+      const id = ids[index];
+      const r = await fetch("https://ad.xiaohongshu.com/api/leona/rtb/creativity/list", {
+        "headers": {
+          "accept": "application/json, text/plain, */*",
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+          "content-type": "application/json",
+          "priority": "u=1, i",
+          "sec-ch-ua": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Microsoft Edge\";v=\"134\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-b3-traceid": "80163e10ad8e7307"
+        },
+        "referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${id}\",\"pageNum\":1,\"pageSize\":50}`,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+      })
+      const res = await r.json()
+      if(res.data.list.length >0){
+        const data =res.data.list.map(e=>e.creativityId )
+      const chunkedA = data.reduce((acc, _, index) => {
+        const chunkIndex = Math.floor(index / 50);
+        if (!acc[chunkIndex]) {
+          acc[chunkIndex] = [];
+        }
+        acc[chunkIndex].push(_);
+        return acc;
+      }, []);
+console.log(isColse)
+      await closePlan(chunkedA,isColse)
+      }
 
+    }
+  }
   function split_array(array, number) {
     // 将数组a以number个为一组切割
     const chunkedA = array.reduce((acc, _, index) => {
@@ -1119,7 +1166,8 @@ margin-right: 10px;
     // 创建第一个下拉列表
     const creativeIdSelect = document.createElement("select");
     creativeIdSelect.options.add(new Option("创意ID", "creativeId"));
-    creativeIdSelect.options.add(new Option("文字匹配", "textMatch"));
+    creativeIdSelect.options.add(new Option("文字匹配", "name"));
+    creativeIdSelect.options.add(new Option("笔记ID", "noteId"));
     card.appendChild(creativeIdSelect);
 
     // 创建第二个下拉列表
@@ -1137,17 +1185,40 @@ margin-right: 10px;
     const requestButton = document.createElement("button");
     requestButton.textContent = "请求";
     requestButton.onclick = async () => {
-      const chunkedA = split_array(textArea.value.trim().split(/\n|,\n/g).map(e=>e.trim()), 50);
-      // console.log();
-      
-      closePlan(chunkedA,toggleSelect.value);
+ 
+       const input_list = textArea.value.trim().split(/\n|,\n/g).map(e=>e.trim()) 
+       const d = toggleSelect.value
+       if (input_list.length === 0) {
+        showToast("请输入内容", "error");
+        return;
+      }
+      if (input_list[0].length <=11 && creativeIdSelect.value === "noteId") {
+        showToast("不符合笔记ID", "error");
+        return;
+      } 
+      if (input_list[0].length >=11 && creativeIdSelect.value === "creativeId") {
+        showToast("不符合创意ID", "error");
+        return;
+      } 
+      console.log(creativeIdSelect.value)
+      if(creativeIdSelect.value==="creativeId"){
+        const chunkedA = split_array(input_list, 50);
+        // console.log();
+
+        closePlan(chunkedA,d);
+      }
+      if(creativeIdSelect.value==="name" || creativeIdSelect.value==="noteId"){
+        const chunkedA =input_list 
+        closePlanNote(chunkedA,d,creativeIdSelect);
+      }
+
     };
     card.appendChild(requestButton);
     // 将遮罩层和卡片添加到页面中
     document.body.appendChild(overlay);
     document.body.appendChild(card);
 
-    
+
   };
 
   // 批量调价搜索词
