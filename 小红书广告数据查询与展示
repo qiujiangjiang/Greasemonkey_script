@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      1.26
+// @version      1.27
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -207,6 +207,7 @@ margin-right: 10px;
   addStyleSheet(sheet);
   // 存储请求返回的数据
   let responseData = [];
+
   function addBallAttributes(ball, text) {
     ball.style.cssText = `
       position: fixed;
@@ -360,6 +361,7 @@ margin-right: 10px;
   // 点击下载按钮
   downloadButton.addEventListener("click", function () {
     if (responseData.length > 0) {
+      console.log(responseData);
       downloadExcel(responseData);
     } else {
       alert("没有可下载的数据！");
@@ -608,8 +610,16 @@ margin-right: 10px;
   // 下载Excel
   function downloadExcel(data) {
     // 添加BOM头,解决中文乱码问题
+    // 数据是原始数据创意层级 下载添加笔记di
     const BOM = "\uFEFF";
-    const headers = ["创建时间", "创意名", "创意ID", "点击链接", "曝光链接"];
+    const headers = [
+      "创建时间",
+      "创意名",
+      "创意ID",
+      "点击链接",
+      "曝光链接",
+      "笔记id",
+    ];
     const csvContent = [headers.join(",")];
 
     data.forEach((item) => {
@@ -630,7 +640,7 @@ margin-right: 10px;
               "\n"
             )
           : "";
-
+      const noteId = item.noteId || "";
       // 处理CSV中的特殊字符
       const escapeCsvValue = (value) => {
         if (typeof value !== "string") return value;
@@ -650,6 +660,7 @@ margin-right: 10px;
         creativityId,
         clickUrl,
         expoUrl,
+        noteId,
       ].map(escapeCsvValue);
       csvContent.push(values.join(","));
     });
@@ -870,7 +881,7 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       // "x-b3-traceid": "37e8ffc9e25f798c",
-    }
+    };
 
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
@@ -880,7 +891,7 @@ margin-right: 10px;
     const r = await fetch(
       "https://ad.xiaohongshu.com/api/leona/rtb/creativity/list",
       {
-        headers:headers, 
+        headers: headers,
         // referrer:
         //   "https://ad.xiaohongshu.com/aurora/ad/manage/103584356/192658846/creativity",
         referrerPolicy: "strict-origin-when-cross-origin",
@@ -934,7 +945,7 @@ margin-right: 10px;
     // alert("完成");
   }
   async function reanmeSend(id, name) {
-    const headers ={
+    const headers = {
       accept: "application/json, text/plain, */*",
       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
       "content-type": "application/json;charset=UTF-8",
@@ -947,8 +958,7 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-b3-traceid": "dee287ce9b6526cc",
-    }
-
+    };
 
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
@@ -958,7 +968,7 @@ margin-right: 10px;
     return fetch(
       "https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/update/name",
       {
-        headers:headers ,
+        headers: headers,
         //"referrer": "https://ad.xiaohongshu.com/aurora/ad/manage/103596579/192712174/creativity",
         referrerPolicy: "strict-origin-when-cross-origin",
         body: `{\"creativityId\":${id},\"creativityName\":\"${name}\"}`,
@@ -984,7 +994,7 @@ margin-right: 10px;
       e.bid = bid * 100;
     });
 
-    const headers =  {
+    const headers = {
       accept: "application/json, text/plain, */*",
       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
       "content-type": "application/json",
@@ -997,13 +1007,13 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-b3-traceid": "631398efd0ea1db1",
-    }
+    };
 
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
         /(?<=vSellerId=)[0-9a-z].*/g
       );
-    } 
+    }
     const r = await fetch("https://ad.xiaohongshu.com/api/leona/rtb/unit", {
       headers: headers,
       // "referrer": "https://ad.xiaohongshu.com/aurora/ad/edit/unit/107358958/208378008/4/2?byManage=true&manageLevel=byAccount&AFormGrayFlag=false",
@@ -1020,7 +1030,7 @@ margin-right: 10px;
   }
 
   async function set_bid(bid) {
-    const headers =  {
+    const headers = {
       accept: "application/json, text/plain, */*",
       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
       "content-type": "application/json",
@@ -1033,46 +1043,54 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-b3-traceid": "e900951027b4cc32",
-    }
+    };
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
         /(?<=vSellerId=)[0-9a-z].*/g
       );
-    } 
-
-    const r = await fetch(
-      "https://ad.xiaohongshu.com/api/leona/rtb/unit/search",
-      {
-        headers: headers,
-        referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
-        referrerPolicy: "strict-origin-when-cross-origin",
-        body: `{\"startTime\":\"${
-          new Date().toISOString().split("T")[0]
-        }\",\"endTime\":\"${
-          new Date().toISOString().split("T")[0]
-        }\",\"pageNum\":1,\"pageSize\":100}`,
-        method: "POST",
-        mode: "cors",
-        credentials: "include",
-      }
-    )
-      .then((response) => response.json())
-      .then(async (data) => {
-        showToast(
-          `获取数据:当前获取单元${data.data.list.length}条\n开始执行调价`,
-          "info"
-        );
-        const result = [];
-        for (let index = 0; index < data.data.list.length; index++) {
-          const element = data.data.list[index];
-          showToast(`当前执行单元${element.unitName},调整出价为${bid}`, "info");
-          console.log(`当前执行单元${element.unitName},调整出价为${bid}`);
-
-          await getData(element, bid, result);
-          await sleep(1000);
+    }
+    var data = [];
+    let pageNum = 1;
+    let totalPage = 1;
+    // 修改价格 do w
+    do {
+      const r = await fetch(
+        "https://ad.xiaohongshu.com/api/leona/rtb/unit/search",
+        {
+          headers: headers,
+          referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
+          referrerPolicy: "strict-origin-when-cross-origin",
+          body: `{\"startTime\":\"${
+            new Date().toISOString().split("T")[0]
+          }\",\"endTime\":\"${
+            new Date().toISOString().split("T")[0]
+          }\",\"pageNum\":${pageNum},\"pageSize\":100}`,
+          method: "POST",
+          mode: "cors",
+          credentials: "include",
         }
-        alert(result.join("\n"));
-      });
+      );
+
+      const j = await r.json();
+      data = data.concat(j.data.list);
+      totalPage = j.data.totalPage;
+      pageNum++;
+    } while (pageNum <= totalPage);
+
+    showToast(
+      `获取数据:当前获取单元${data.length}条\n开始执行调价`,
+      "info"
+    );
+    const result = [];
+    for (let index = 0; index < data.length; index++) {
+      const element = data[index];
+      showToast(`当前执行单元${element.unitName},调整出价为${bid}`, "info");
+      console.log(`当前执行单元${element.unitName},调整出价为${bid}`);
+
+      await getData(element, bid, result);
+      await sleep(1000);
+    }
+    alert(result.join("\n"));
   }
 
   //调价函数----------------------
@@ -1085,8 +1103,7 @@ margin-right: 10px;
 
     const headers = {
       accept: "application/json, text/plain, */*",
-      "accept-language":
-        "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
       "content-type": "application/json;charset=UTF-8",
       priority: "u=1, i",
       "sec-ch-ua":
@@ -1097,23 +1114,21 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-b3-traceid": "c1adc74c127d40f2",
-    }
+    };
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
         /(?<=vSellerId=)[0-9a-z].*/g
       );
-    }  
+    }
     for (let i = 0; i < chunkedA.length; i++) {
       const ids = chunkedA[i];
       let retry = true;
-
-
 
       while (retry) {
         const r = await fetch(
           "https://ad.xiaohongshu.com/api/leona/rtb/creativity/batch/status",
           {
-            headers:headers ,
+            headers: headers,
             referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
             referrerPolicy: "strict-origin-when-cross-origin",
             // 2是关闭 1是开启
@@ -1146,11 +1161,9 @@ margin-right: 10px;
       return; // 或者抛出错误
     }
 
-
     const headers = {
       accept: "application/json, text/plain, */*",
-      "accept-language":
-        "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
       "content-type": "application/json;charset=UTF-8",
       priority: "u=1, i",
       "sec-ch-ua":
@@ -1161,12 +1174,12 @@ margin-right: 10px;
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-b3-traceid": "c1adc74c127d40f2",
-    }
+    };
     if (location.href.indexOf("vSellerId") != -1) {
       headers["v-seller-id"] = location.search.match(
         /(?<=vSellerId=)[0-9a-z].*/g
       );
-    }  
+    }
 
     for (let index = 0; index < ids.length; index++) {
       const id = ids[index];
