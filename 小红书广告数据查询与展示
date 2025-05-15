@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      1.29
+// @version      1.31
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -1183,13 +1183,27 @@ margin-right: 10px;
 
     for (let index = 0; index < ids.length; index++) {
       const id = ids[index];
+      var bbody =``
+      // 判断是否还有制表符
+      if(id.indexOf("\t") != -1){
+        const idArr = id.split("\t");
+        const n = idArr[1] == "信息流" ? 1 :2
+        bbody= `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50,\"placementList\":[${n}]}`
+
+      }else{
+        const idArr = [id];
+        bbody = `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50}`
+
+      }
+
+
       const r = await fetch(
         "https://ad.xiaohongshu.com/api/leona/rtb/creativity/list",
         {
           headers: headers,
           referrer: "https://ad.xiaohongshu.com/aurora/ad/manage/creativity",
           referrerPolicy: "strict-origin-when-cross-origin",
-          body: `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${id}\",\"pageNum\":1,\"pageSize\":50}`,
+          body: bbody,
           method: "POST",
           mode: "cors",
           credentials: "include",
@@ -1253,7 +1267,8 @@ margin-right: 10px;
     // 创建多行文本输入框
     const textArea = document.createElement("textarea");
     card.appendChild(textArea);
-
+    //1 是信息流 2是搜索
+// \"placementList\":[2]
     // 创建请求按钮
     const requestButton = document.createElement("button");
     requestButton.textContent = "请求";
