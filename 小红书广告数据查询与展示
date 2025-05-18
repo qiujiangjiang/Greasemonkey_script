@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         小红书广告数据查询与展示
 // @namespace    http://tampermonkey.net/
-// @version      1.31
+// @version      1.4
 // @description  在当前页面插入悬浮元素，点击展开窗口并发送请求，将结果展示在表格中并提供Excel下载按钮
 // @author       You
 // @match        https://ad.xiaohongshu.com/aurora*
@@ -12,6 +12,226 @@
 
 (function () {
   "use strict";
+  // 
+  // 
+  // 进度条类定义
+class ChainProgress {
+  constructor() {
+    this.totalSteps = 0;
+    this.currentStep = 0;
+    this.initDOM();
+  }
+
+  // 初始化DOM结构（参考材料1†、3†）
+  initDOM() {
+    this.progressContainer = document.createElement('div');
+    this.progressBar = document.createElement('div');
+    this.stepDots = document.createElement('div');
+    
+    Object.assign(this.progressContainer.style, {
+      position: 'fixed',
+      bottom: '0',
+      left: '0',
+      width: '100%',
+      height: '8px',
+      backgroundColor: '#eee',
+      "z-index":2147483647
+    });
+
+    Object.assign(this.progressBar.style, {
+      width: '0%',
+      height: '100%',
+      backgroundColor: '#4CAF50',
+      transition: 'width 0.3s ease' // 添加平滑过渡（材料5†）
+    });
+
+    Object.assign(this.stepDots.style, {
+      position: 'absolute',
+      top: '-20px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: '100%'
+    });
+
+    this.progressContainer.appendChild(this.progressBar);
+    this.progressContainer.appendChild(this.stepDots);
+    document.body.appendChild(this.progressContainer);
+  }
+
+  // 设置总步数（材料6†）
+  setTotal(steps) {
+    this.totalSteps = steps;
+    this.currentStep = 0;
+    this.stepDots.innerHTML = Array(steps)
+      .fill('<div style="width:20px;height:20px;border-radius:50%;background:#ddd"></div>')
+      .join('');
+  }
+
+  // 推进进度（材料4†）
+  next() {
+    if(++this.currentStep > this.totalSteps) return;
+    
+    // 更新进度条（材料2†）
+    const progress = (this.currentStep / this.totalSteps) * 100;
+    this.progressBar.style.width = `${progress}%`;
+    
+    // 更新步骤点（链式效果）
+    const dots = this.stepDots.children;
+    if(dots[this.currentStep-1]) {
+      dots[this.currentStep-1].style.background = '#4CAF50';
+    }
+
+    // 完成处理（材料5†）
+    if(this.currentStep === this.totalSteps) {
+      setTimeout(() => {
+        this.progressBar.style.width = '0%';
+        this.stepDots.innerHTML = '';
+      }, 2000);
+    }
+  }
+}
+
+/* -------------------- 使用示例 -------------------- */
+// const progress = new ChainProgress();
+
+// // 初始化设置总步数
+// progress.setTotal(5); 
+
+// // 每次事件成功调用
+// document.querySelector('.btn').addEventListener('click', () => {
+//   progress.next();
+// });
+  // 
+  // □
+  // 创建日志系统核心类
+  class XinliuLogger {
+    constructor() {
+      this.maxEntries = 200; // 最大存储200条
+      this.entries = [];
+      this.initUI();
+    }
+
+    // 初始化界面
+    initUI() {
+      GM_addStyle(`
+            #xinliu-logger {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 380px;
+                height: 260px;
+                background: rgba(40,40,40,0.95);
+                color: #fff;
+                font: 13px/1.5 'Consolas', monospace;
+                z-index: 99999;
+                border: 1px solid #555;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                border-radius: 6px;
+                overflow: hidden;
+            }
+            .log-header {
+                padding: 8px 12px;
+                background: #333;
+                border-bottom: 1px solid #444;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .log-content {
+                height: calc(100% - 40px);
+                overflow-y: auto;
+                padding: 8px;
+            }
+            .log-entry {
+                margin: 4px 0;
+                padding: 6px;
+                border-radius: 3px;
+                animation: fadeIn 0.3s;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .log-entry.info { background: rgba(26,82,118,0.7); }
+            .log-entry.warn { background: rgba(183,149,11,0.7); }
+            .log-entry.error { background: rgba(146,43,33,0.7); }
+            .timestamp { color: #7f8c8d; margin-right: 10px; }
+            .close-btn {
+                background: #666;
+                border: none;
+                color: #fff;
+                border-radius: 3px;
+                padding: 2px 8px;
+                cursor: pointer;
+            }
+        `);
+
+      this.container = document.createElement("div");
+      this.container.id = "xinliu-logger";
+      this.container.innerHTML = `
+            <div class="log-header">
+                <span>Xinliu Logger v1.1</span>
+                <button class="close-btn" onclick="this.parentElement.parentElement.style.display='none'">×</button>
+            </div>
+            <div class="log-content"></div>
+        `;
+      document.querySelector("body").appendChild(this.container);
+      this.contentEl = this.container.querySelector(".log-content");
+    }
+
+    // 核心日志方法
+    addEntry(level, ...args) {
+      const timestamp = new Date().toLocaleTimeString();
+      const message = args
+        .map((arg) =>
+          typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg)
+        )
+        .join(" ");
+
+      // 创建日志条目
+      const entryEl = document.createElement("div");
+      entryEl.className = `log-entry ${level}`;
+      entryEl.innerHTML = `
+            <span class="timestamp">[${timestamp}]</span>
+            ${message}
+        `;
+
+      // 添加并维护条目数量
+      this.contentEl.appendChild(entryEl);
+      this.entries.push(entryEl);
+      if (this.entries.length > this.maxEntries) {
+        this.contentEl.removeChild(this.entries.shift());
+      }
+
+      // 自动滚动到底部
+      this.contentEl.scrollTop = this.contentEl.scrollHeight;
+    }
+
+    // 公开的日志方法
+    info(...args) {
+      this.addEntry("info", ...args);
+    }
+    warn(...args) {
+      this.addEntry("warn", ...args);
+    }
+    error(...args) {
+      this.addEntry("error", ...args);
+    }
+  }
+
+  // 初始化日志系统
+  // window.log = new XinliuLogger();
+
+  // // 使用示例
+  // setTimeout(() => {
+  //     log.info('系统初始化完成');
+  //     log.warn('检测到非标准分辨率', window.screen.width + 'x' + window.screen.height);
+  //     log.error('API请求失败', {
+  //         status: 404,
+  //         url: location.href
+  //     });
+  // }, 1000);
+
   // 获取版本号
   const getVersion = () => GM_info.script.version;
   function sleep(ms) {
@@ -640,7 +860,7 @@ margin-right: 10px;
               "\n"
             )
           : "";
-      const noteId = item.noteId+"" || "";
+      const noteId = item.noteId + "" || "";
       // 处理CSV中的特殊字符
       const escapeCsvValue = (value) => {
         if (typeof value !== "string") return value;
@@ -1024,12 +1244,12 @@ margin-right: 10px;
       credentials: "include",
     });
     const j = await r.json();
-    showToast(`单元${body.unitName}调整出价${bid},${j.msg}`, "success");
-    console.log(`单元${body.unitName}调整出价${bid},${j.msg}`);
-    result.push(`单元${body.unitName}调整出价${bid},${j.msg}`);
+    showToast(`单元:【${body.unitName}】,id:【${body.unitId}】,${j.msg}`, "success");
+    console.log(`单元:【${body.unitName}】,id:【${body.unitId}】,${j.msg}`);
+    result.push(`单元:【${body.unitName}】,id:【${body.unitId}】,调整出价${bid},${j.msg}`);
   }
 
-  async function set_bid(bid) {
+  async function set_bid(bid, state, uidValue) {
     const headers = {
       accept: "application/json, text/plain, */*",
       "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
@@ -1064,7 +1284,7 @@ margin-right: 10px;
             new Date().toISOString().split("T")[0]
           }\",\"endTime\":\"${
             new Date().toISOString().split("T")[0]
-          }\",\"pageNum\":${pageNum},\"pageSize\":100}`,
+          }\",\"pageNum\":${pageNum},\"pageSize\":100,\"placementList\":[2]}`,//placementList是搜索
           method: "POST",
           mode: "cors",
           credentials: "include",
@@ -1077,20 +1297,51 @@ margin-right: 10px;
       pageNum++;
     } while (pageNum <= totalPage);
 
-    showToast(
-      `获取数据:当前获取单元${data.length}条\n开始执行调价`,
-      "info"
-    );
+    showToast(`获取数据:当前获取总单元${data.length}条\n开始执行调价`, "info");
     const result = [];
+    if (state == "all") {
+      console.log("全部调整");
+      showToast(`当前模式全部调整`, "info");
+    }
+
+    if (state == "uid") {
+      console.log("只调整输入");
+      showToast(`当前模式根据输入调整`, "info");
+
+      const uid = uidValue.trim().split("\n");
+      var t = [];
+      for (let index = 0; index < uid.length; index++) {
+        const element = uid[index];
+        if (data.filter((item) => item.unitId == element).length > 0) {
+          t.push(data.filter((item) => item.unitId == element)[0]);
+        }
+      }
+      data = t;
+    }
+    const progress = new ChainProgress();
+    progress.setTotal(data.length); 
+    /* -------------------- 使用示例 -------------------- */
+// 
+
+// // 初始化设置总步数
+//
+
+// // 每次事件成功调用
+// document.querySelector('.btn').addEventListener('click', () => {
+//  
+// });
     for (let index = 0; index < data.length; index++) {
       const element = data[index];
       showToast(`当前执行单元${element.unitName},调整出价为${bid}`, "info");
       console.log(`当前执行单元${element.unitName},调整出价为${bid}`);
 
       await getData(element, bid, result);
+      progress.next();
       await sleep(1000);
     }
+
     alert(result.join("\n"));
+    return 1;
   }
 
   //调价函数----------------------
@@ -1183,19 +1434,16 @@ margin-right: 10px;
 
     for (let index = 0; index < ids.length; index++) {
       const id = ids[index];
-      var bbody =``
+      var bbody = ``;
       // 判断是否还有制表符
-      if(id.indexOf("\t") != -1){
+      if (id.indexOf("\t") != -1) {
         const idArr = id.split("\t");
-        const n = idArr[1] == "信息流" ? 1 :2
-        bbody= `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50,\"placementList\":[${n}]}`
-
-      }else{
+        const n = idArr[1] == "信息流" ? 1 : 2;
+        bbody = `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50,\"placementList\":[${n}]}`;
+      } else {
         const idArr = [id];
-        bbody = `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50}`
-
+        bbody = `{\"startTime\":\"2025-03-27\",\"endTime\":\"2025-03-27\",\"${creativeIdSelect.value}\":\"${idArr[0]}\",\"pageNum\":1,\"pageSize\":50}`;
       }
-
 
       const r = await fetch(
         "https://ad.xiaohongshu.com/api/leona/rtb/creativity/list",
@@ -1268,7 +1516,7 @@ margin-right: 10px;
     const textArea = document.createElement("textarea");
     card.appendChild(textArea);
     //1 是信息流 2是搜索
-// \"placementList\":[2]
+    // \"placementList\":[2]
     // 创建请求按钮
     const requestButton = document.createElement("button");
     requestButton.textContent = "请求";
@@ -1319,17 +1567,70 @@ margin-right: 10px;
   addButtonAttributes(modify_the_price, "批量调整出价");
 
   modify_the_price.onclick = () => {
-    const bid = prompt("请输入出价");
-    //判断bid是否是数值 并且就bid转换成小数
-    if (isNaN(bid)) {
-      showToast("请输入数字", "error");
-      return;
-    }
+    const { overlay, card, closeButton } = create_car();
+    // 创建第一个下拉列表
+    const creativeIdSelect = document.createElement("select");
+    creativeIdSelect.options.add(new Option("全部调价", "all"));
+    creativeIdSelect.options.add(new Option("单元id调价", "uid"));
 
-    if (bid) {
-      var Newbid = parseFloat(bid);
-      set_bid(Newbid);
-    }
+    const priceInput = document.createElement("input");
+    priceInput.type = "number";
+    priceInput.id = "dynamicPriceInput";
+    priceInput.inputMode = "numeric";
+    priceInput.pattern = "[0-9]*\\.?[0-9]*";
+    priceInput.placeholder = "请输入金额";
+    priceInput.autocomplete = "off";
+    priceInput.step = "0.01";
+
+    const textArea = document.createElement("textarea");
+    textArea.style.display = "none"
+    textArea.placeholder = "请输入单元ID";
+    creativeIdSelect.addEventListener("change", function () {
+      // 判断是否选择第二个选项（索引从0开始）
+      if (this.value === "uid") {
+        // 或判断值：this.value === '2'
+        textArea.style.display = "block";
+      } else {
+        textArea.style.display = "none";
+      }
+    });
+
+    card.appendChild(creativeIdSelect);
+    card.appendChild(priceInput);
+    // 创建多行文本输入框
+    card.appendChild(textArea);
+
+    //1 是信息流 2是搜索
+    // \"placementList\":[2]
+    // 创建请求按钮
+    const requestButton = document.createElement("button");
+    requestButton.textContent = "请求";
+
+    requestButton.addEventListener("click",async function()  {
+      this.disabled = true;
+      const c = this.style.backgroundColor 
+      this.style.backgroundColor  = "rgb(105, 102, 102)";
+      const Newbid = priceInput.valueAsNumber;
+      const r = await set_bid(Newbid, creativeIdSelect.value, textArea.value);
+      this.style.backgroundColor  = c; 
+      this.disabled = false; 
+    });
+
+    // const bid = prompt("请输入出价");
+    // //判断bid是否是数值 并且就bid转换成小数
+    // if (isNaN(bid)) {
+    //   showToast("请输入数字", "error");
+    //   return;
+    // }
+
+    // if (bid) {
+    //   var Newbid = parseFloat(bid);
+    //   set_bid(Newbid);
+    // }
+    card.appendChild(requestButton);
+    // 将遮罩层和卡片添加到页面中
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
   };
 
   // const download_today = document.createElement("button");
