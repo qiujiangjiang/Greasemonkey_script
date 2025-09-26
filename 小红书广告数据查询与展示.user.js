@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       qjjtools
 // @namespace  npm/vite-plugin-monkey
-// @version    10.0.8
+// @version    10.0.9
 // @icon       https://vitejs.dev/logo.svg
 // @match      *://*/*
 // @require    https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.18/vue.global.prod.min.js
@@ -11,7 +11,7 @@
 // @grant      GM_addStyle
 // ==/UserScript==
 
-(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-9f164955]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-9f164955]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-9f164955] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-9f164955] .n-card-content{padding:24px}[data-v-9f164955] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-9f164955] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-9f164955] .n-date-picker,[data-v-9f164955] .n-input{border-radius:8px}[data-v-9f164955] .n-data-table{border-radius:8px;overflow:hidden}[data-v-9f164955] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-f7d071d3]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f7d071d3]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f7d071d3]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.button-container[data-v-9432c6d2]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden} ");
+(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-f7d071d3]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f7d071d3]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f7d071d3]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.button-container[data-v-9432c6d2]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden} ");
 
 (function (vue, naive) {
   'use strict';
@@ -21,7 +21,7 @@
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var require_main_001 = __commonJS({
-    "main-D_tzD5Uo.js"(exports, module) {
+    "main-DuZ_Raqg.js"(exports, module) {
       class LinkChecker {
         constructor() {
           this.isLoading = false;
@@ -2428,14 +2428,18 @@
               width: 100,
               render: (row) => {
                 const typeMap = {
-                  "有效": "success",
-                  "已被计划暂停": "warning",
-                  "未知": "default"
+                  有效: "success",
+                  已被计划暂停: "warning",
+                  未知: "default"
                 };
-                return vue.h("n-tag", {
-                  type: typeMap[row.statusDesc] || "default",
-                  size: "small"
-                }, row.statusDesc);
+                return vue.h(
+                  "n-tag",
+                  {
+                    type: typeMap[row.statusDesc] || "default",
+                    size: "small"
+                  },
+                  row.statusDesc
+                );
               }
             },
             {
@@ -2444,14 +2448,18 @@
               width: 120,
               render: (row) => {
                 const typeMap = {
-                  "审核通过": "success",
-                  "审核拒绝": "error",
-                  "更新待审核": "warning"
+                  审核通过: "success",
+                  审核拒绝: "error",
+                  更新待审核: "warning"
                 };
-                return vue.h("n-tag", {
-                  type: typeMap[row.auditStatusDesc] || "info",
-                  size: "small"
-                }, row.auditStatusDesc);
+                return vue.h(
+                  "n-tag",
+                  {
+                    type: typeMap[row.auditStatusDesc] || "info",
+                    size: "small"
+                  },
+                  row.auditStatusDesc
+                );
               }
             },
             {
@@ -2479,33 +2487,44 @@
                 endTime: formatDate(publishDate.value),
                 pageNo: 1
               };
-              const response = await fetch("https://galaxy.alibaba-inc.com/ad/manage/creative", {
-                headers: {
-                  "accept": "application/json, text/plain, */*",
-                  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-                  "appname": "adcontent-op",
-                  "bx-v": "2.5.31",
-                  "content-type": "application/json",
-                  "priority": "u=1, i",
-                  "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
-                  "sec-ch-ua-mobile": "?0",
-                  "sec-ch-ua-platform": '"macOS"',
-                  "sec-fetch-dest": "empty",
-                  "sec-fetch-mode": "cors",
-                  "sec-fetch-site": "same-origin"
-                },
-                referrer: "https://galaxy.alibaba-inc.com/",
-                body: JSON.stringify(requestBody),
-                method: "POST",
-                mode: "cors",
-                credentials: "include"
-              });
+              const response = await fetch(
+                "https://galaxy.alibaba-inc.com/ad/manage/creative",
+                {
+                  headers: {
+                    accept: "application/json, text/plain, */*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    appname: "adcontent-op",
+                    "bx-v": "2.5.31",
+                    "content-type": "application/json",
+                    priority: "u=1, i",
+                    "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                  },
+                  referrer: "https://galaxy.alibaba-inc.com/",
+                  body: JSON.stringify(requestBody),
+                  method: "POST",
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
               if (!response.ok) {
                 throw new Error(`HTTP错误: ${response.status}`);
               }
               const data = await response.json();
               if (data.success && data.model && data.model.result) {
                 tableData.value = data.model.result;
+                const now = new Date(publishDate.value);
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                console.log(today);
+                tableData.value = tableData.value.filter((item) => {
+                  const createTime = new Date(item.createTime);
+                  console.log(createTime);
+                  return createTime.getFullYear() === now.getFullYear() && createTime.getMonth() === now.getMonth() && createTime.getDate() === now.getDate();
+                });
                 message.success(`获取成功! 共 ${tableData.value.length} 条数据`);
               } else {
                 throw new Error(data.msgInfo || "获取数据失败");
@@ -2543,7 +2562,17 @@
                   item.contentId || ""
                 ]);
               } else {
-                headers = ["创意名称", "账户名称", "计划名称", "创建时间", "状态", "审核状态", "投放位置", "创意ID", "笔记id"];
+                headers = [
+                  "创意名称",
+                  "账户名称",
+                  "计划名称",
+                  "创建时间",
+                  "状态",
+                  "审核状态",
+                  "投放位置",
+                  "创意ID",
+                  "笔记id"
+                ];
                 rows = tableData.value.map((item) => [
                   item.creativeName || "",
                   item.accountName || "",
@@ -2556,14 +2585,19 @@
                   item.contentId || ""
                 ]);
               }
-              const tableText = [headers.join("	"), ...rows.map((row) => row.join("	"))].join("\n");
+              const tableText = [
+                headers.join("	"),
+                ...rows.map((row) => row.join("	"))
+              ].join("\n");
               const htmlTable = `
       <table>
         <thead>
           <tr>${headers.map((h2) => `<th>${h2}</th>`).join("")}</tr>
         </thead>
         <tbody>
-          ${rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`).join("")}
+          ${rows.map(
+              (row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`
+            ).join("")}
         </tbody>
       </table>
     `;
@@ -2582,7 +2616,17 @@
                   item.contentId || ""
                 ]);
               } else {
-                headers = ["创意名称", "账户名称", "计划名称", "创建时间", "状态", "审核状态", "投放位置", "创意ID", "笔记id"];
+                headers = [
+                  "创意名称",
+                  "账户名称",
+                  "计划名称",
+                  "创建时间",
+                  "状态",
+                  "审核状态",
+                  "投放位置",
+                  "创意ID",
+                  "笔记id"
+                ];
                 rows = tableData.value.map((item) => [
                   item.creativeName || "",
                   item.accountName || "",
@@ -2595,7 +2639,10 @@
                   item.contentId || ""
                 ]);
               }
-              const tableText = [headers.join("	"), ...rows.map((row) => row.join("	"))].join("\n");
+              const tableText = [
+                headers.join("	"),
+                ...rows.map((row) => row.join("	"))
+              ].join("\n");
               await navigator.clipboard.writeText(tableText);
             }
           };
@@ -2616,7 +2663,17 @@
             }
           };
           const generateCSV = () => {
-            const headers = ["创意名称", "账户名称", "计划名称", "创建时间", "状态", "审核状态", "投放位置", "创意ID", "笔记id"];
+            const headers = [
+              "创意名称",
+              "账户名称",
+              "计划名称",
+              "创建时间",
+              "状态",
+              "审核状态",
+              "投放位置",
+              "创意ID",
+              "笔记id"
+            ];
             const rows = tableData.value.map((item) => [
               `"${item.creativeName || ""}"`,
               `"${item.accountName || ""}"`,
@@ -2752,7 +2809,7 @@
           };
         }
       };
-      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-9f164955"]]);
+      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-5a29dd22"]]);
       const _hoisted_1$4 = { class: "jihua-container" };
       const _sfc_main$5 = {
         __name: "chuangyi",
