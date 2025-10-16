@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       qjjtools
 // @namespace  npm/vite-plugin-monkey
-// @version    10.1.0
+// @version    10.2.1
 // @icon       https://vitejs.dev/logo.svg
 // @match      *://*/*
 // @require    https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.18/vue.global.prod.min.js
@@ -11,7 +11,7 @@
 // @grant      GM_addStyle
 // ==/UserScript==
 
-(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.button-container[data-v-9432c6d2]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden} ");
+(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-1e7c9319]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.button-container[data-v-38d3d358]{padding:20px} ");
 
 (function (vue, naive) {
   'use strict';
@@ -21,7 +21,7 @@
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var require_main_001 = __commonJS({
-    "main-C1xU1eqg.js"(exports, module) {
+    "main-BkXXu0cB.js"(exports, module) {
       class LinkChecker {
         constructor() {
           this.isLoading = false;
@@ -300,7 +300,7 @@
         }
         return target;
       };
-      const _sfc_main$c = {
+      const _sfc_main$g = {
         __name: "rename",
         setup(__props) {
           const message = naive.useMessage();
@@ -425,8 +425,8 @@
           };
         }
       };
-      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-303426f9"]]);
-      const _sfc_main$b = {
+      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-303426f9"]]);
+      const _sfc_main$f = {
         __name: "BatchPrice",
         props: {
           show: {
@@ -846,8 +846,8 @@
           };
         }
       };
-      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-29be6a47"]]);
-      const _sfc_main$a = {
+      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-29be6a47"]]);
+      const _sfc_main$e = {
         __name: "setplan",
         props: {
           show: {
@@ -1270,11 +1270,11 @@
           };
         }
       };
-      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-18ea35a2"]]);
-      const _hoisted_1$8 = { class: "createrplan-container" };
-      const _hoisted_2$2 = { style: { "font-size": "14px" } };
-      const _hoisted_3$1 = { style: { "font-size": "16px" } };
-      const _sfc_main$9 = {
+      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-18ea35a2"]]);
+      const _hoisted_1$b = { class: "createrplan-container" };
+      const _hoisted_2$3 = { style: { "font-size": "14px" } };
+      const _hoisted_3$2 = { style: { "font-size": "16px" } };
+      const _sfc_main$d = {
         __name: "createrplan",
         setup(__props) {
           const message = naive.useMessage();
@@ -1551,7 +1551,7 @@
             const _component_n_grid = vue.resolveComponent("n-grid");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
               vue.createVNode(_component_n_card, {
                 title: "小红书创意计划工具1.2",
                 class: "main-card"
@@ -1562,7 +1562,7 @@
                     size: "large"
                   }, {
                     icon: vue.withCtx(() => [
-                      vue.createElementVNode("span", _hoisted_2$2, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
+                      vue.createElementVNode("span", _hoisted_2$3, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
                     ]),
                     default: vue.withCtx(() => [
                       vue.createTextVNode(" " + vue.toDisplayString(currentVersion.value === "old" ? "老版本" : "新版本"), 1)
@@ -1681,7 +1681,7 @@
                                 onClick: switchVersion
                               }, {
                                 icon: vue.withCtx(() => [
-                                  vue.createElementVNode("span", _hoisted_3$1, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
+                                  vue.createElementVNode("span", _hoisted_3$2, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
                                 ]),
                                 default: vue.withCtx(() => [
                                   vue.createTextVNode(" 切换到" + vue.toDisplayString(currentVersion.value === "old" ? "新版本" : "老版本"), 1)
@@ -1783,10 +1783,10 @@
           };
         }
       };
-      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-5dbab58c"]]);
-      const _hoisted_1$7 = { class: "button-container" };
-      const _hoisted_2$1 = { class: "modal-content" };
-      const _sfc_main$8 = {
+      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-5dbab58c"]]);
+      const _hoisted_1$a = { class: "button-container" };
+      const _hoisted_2$2 = { class: "modal-content" };
+      const _sfc_main$c = {
         __name: "XHS",
         setup(__props) {
           const linkChecker = new LinkChecker();
@@ -1921,7 +1921,7 @@
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_modal = vue.resolveComponent("n-modal");
             return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-              vue.createElementVNode("div", _hoisted_1$7, [
+              vue.createElementVNode("div", _hoisted_1$a, [
                 vue.createVNode(_component_n_space, {
                   justify: "space-between",
                   wrap: ""
@@ -2068,7 +2068,7 @@
                     })
                   ]),
                   default: vue.withCtx(() => [
-                    vue.createElementVNode("div", _hoisted_2$1, [
+                    vue.createElementVNode("div", _hoisted_2$2, [
                       linkStats.totalCreativity > 0 ? (vue.openBlock(), vue.createBlock(_component_n_grid, {
                         key: 0,
                         cols: 3,
@@ -2245,13 +2245,13 @@
           };
         }
       };
-      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-aaaae17f"]]);
-      const _hoisted_1$6 = { class: "default-component" };
-      const _sfc_main$7 = {
+      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-aaaae17f"]]);
+      const _hoisted_1$9 = { class: "default-component" };
+      const _sfc_main$b = {
         __name: "DefaultComponent",
         setup(__props) {
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
               vue.createVNode(vue.unref(naive.NEmpty), { description: "暂无适配" }, {
                 icon: vue.withCtx(() => [
                   vue.createVNode(vue.unref(naive.NIcon), { size: "48" }, {
@@ -2268,7 +2268,7 @@
           };
         }
       };
-      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-ff0a68db"]]);
+      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-ff0a68db"]]);
       class RequestListener {
         constructor() {
           this.isActive = false;
@@ -2390,8 +2390,8 @@
         }
       }
       const requestListener = new RequestListener();
-      const _hoisted_1$5 = { class: "getchuangyi-container" };
-      const _sfc_main$6 = {
+      const _hoisted_1$8 = { class: "getchuangyi-container" };
+      const _sfc_main$a = {
         __name: "getchuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2693,7 +2693,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
               vue.createVNode(_component_n_space, {
                 vertical: "",
                 size: 16
@@ -2809,9 +2809,9 @@
           };
         }
       };
-      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-5a29dd22"]]);
-      const _hoisted_1$4 = { class: "jihua-container" };
-      const _sfc_main$5 = {
+      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-5a29dd22"]]);
+      const _hoisted_1$7 = { class: "jihua-container" };
+      const _sfc_main$9 = {
         __name: "chuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2930,7 +2930,7 @@
             const _component_n_checkbox = vue.resolveComponent("n-checkbox");
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   vue.createVNode(_component_n_input, {
@@ -2969,9 +2969,9 @@
           };
         }
       };
-      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-e9fa887f"]]);
-      const _hoisted_1$3 = { class: "plan-container" };
-      const _sfc_main$4 = {
+      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-e9fa887f"]]);
+      const _hoisted_1$6 = { class: "plan-container" };
+      const _sfc_main$8 = {
         __name: "jihua",
         setup(__props) {
           const message = naive.useMessage();
@@ -3134,7 +3134,7 @@
             const _component_n_input_number = vue.resolveComponent("n-input-number");
             const _component_n_input = vue.resolveComponent("n-input");
             const _component_n_button = vue.resolveComponent("n-button");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "description" }, [
@@ -3211,21 +3211,21 @@
           };
         }
       };
-      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-f977d1aa"]]);
-      const _hoisted_1$2 = { class: "search-price-container" };
-      const _hoisted_2 = { class: "button-group" };
-      const _hoisted_3 = { class: "result-header" };
-      const _hoisted_4 = { class: "result-icon" };
-      const _hoisted_5 = { class: "result-title" };
-      const _hoisted_6 = { class: "result-content" };
-      const _hoisted_7 = { key: 0 };
-      const _hoisted_8 = {
+      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-f977d1aa"]]);
+      const _hoisted_1$5 = { class: "search-price-container" };
+      const _hoisted_2$1 = { class: "button-group" };
+      const _hoisted_3$1 = { class: "result-header" };
+      const _hoisted_4$1 = { class: "result-icon" };
+      const _hoisted_5$1 = { class: "result-title" };
+      const _hoisted_6$1 = { class: "result-content" };
+      const _hoisted_7$1 = { key: 0 };
+      const _hoisted_8$1 = {
         key: 1,
         class: "error-message"
       };
-      const _hoisted_9 = { class: "preview-header" };
-      const _hoisted_10 = { class: "plan-ids-grid" };
-      const _sfc_main$3 = {
+      const _hoisted_9$1 = { class: "preview-header" };
+      const _hoisted_10$1 = { class: "plan-ids-grid" };
+      const _sfc_main$7 = {
         __name: "sosuo",
         setup(__props) {
           const message = naive.useMessage();
@@ -3373,7 +3373,7 @@
             }
           }, { immediate: true });
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
               _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "🔍 搜索出价调整工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "批量调整计划的搜索关键词出价")
@@ -3439,7 +3439,7 @@
                         ]),
                         _: 1
                       }),
-                      vue.createElementVNode("div", _hoisted_2, [
+                      vue.createElementVNode("div", _hoisted_2$1, [
                         vue.createVNode(vue.unref(naive.NButton), {
                           type: "primary",
                           size: "large",
@@ -3475,12 +3475,12 @@
                 class: vue.normalizeClass(["result-card", { "success": result.value.success, "error": !result.value.success }])
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_3, [
-                    vue.createElementVNode("span", _hoisted_4, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
-                    vue.createElementVNode("span", _hoisted_5, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
+                  vue.createElementVNode("div", _hoisted_3$1, [
+                    vue.createElementVNode("span", _hoisted_4$1, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
+                    vue.createElementVNode("span", _hoisted_5$1, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
                   ]),
-                  vue.createElementVNode("div", _hoisted_6, [
-                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8, vue.toDisplayString(result.value.message), 1)),
+                  vue.createElementVNode("div", _hoisted_6$1, [
+                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7$1, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8$1, vue.toDisplayString(result.value.message), 1)),
                     result.value.details ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NCollapse), { key: 2 }, {
                       default: vue.withCtx(() => [
                         vue.createVNode(vue.unref(naive.NCollapseItem), {
@@ -3504,10 +3504,10 @@
                 class: "preview-card"
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_9, [
+                  vue.createElementVNode("div", _hoisted_9$1, [
                     vue.createElementVNode("span", null, "📊 计划ID预览 (" + vue.toDisplayString(parsedPlanIds.value.length) + " 个)", 1)
                   ]),
-                  vue.createElementVNode("div", _hoisted_10, [
+                  vue.createElementVNode("div", _hoisted_10$1, [
                     (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(parsedPlanIds.value.slice(0, 20), (id, index) => {
                       return vue.openBlock(), vue.createBlock(vue.unref(naive.NTag), {
                         key: index,
@@ -3538,22 +3538,809 @@
           };
         }
       };
-      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-1b153763"]]);
-      const _hoisted_1$1 = { class: "button-container" };
-      const _sfc_main$2 = {
+      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1b153763"]]);
+      const _hoisted_1$4 = { class: "note-match-container" };
+      const _hoisted_2 = { class: "match-stats-content" };
+      const _hoisted_3 = { class: "stats-item" };
+      const _hoisted_4 = { class: "stats-text" };
+      const _hoisted_5 = { class: "stats-item" };
+      const _hoisted_6 = { class: "stats-text" };
+      const _hoisted_7 = { class: "stats-item success" };
+      const _hoisted_8 = { class: "stats-text" };
+      const _hoisted_9 = { class: "stats-item warning" };
+      const _hoisted_10 = { class: "stats-text" };
+      const _hoisted_11 = { class: "stats-summary" };
+      const _hoisted_12 = { class: "stats-text" };
+      const _sfc_main$6 = {
+        __name: "noteMatch",
+        setup(__props) {
+          const message = naive.useMessage();
+          const projectLoading = vue.ref(false);
+          const notesLoading = vue.ref(false);
+          const accountNotesLoading = vue.ref(false);
+          const projectNameList = vue.ref([]);
+          const selectedProject = vue.ref(null);
+          const notesData = vue.ref([]);
+          const accountNotesData = vue.ref([]);
+          const matchResults = vue.ref([]);
+          const accountIds = vue.ref("8273771");
+          const showMatchModal = vue.ref(false);
+          const matchStats = vue.ref({
+            // 匹配统计数据
+            totalAccountNotes: 0,
+            totalLibraryNotes: 0,
+            matchedNotes: 0,
+            unmatchedNotes: 0
+          });
+          const parsedAccountIds = vue.computed(() => {
+            if (!accountIds.value || !accountIds.value.trim()) return [];
+            const ids = accountIds.value.split(",").map((id) => id.trim()).filter((id) => id.length > 0).filter((id) => /^\d+$/.test(id));
+            return ids;
+          });
+          const projectOptions = vue.computed(
+            () => projectNameList.value.map((name) => ({
+              label: name,
+              value: name
+            }))
+          );
+          const notesColumns = [
+            {
+              title: "笔记ID",
+              key: "contentId",
+              width: 120
+            },
+            {
+              title: "笔记标题",
+              key: "contentTitle",
+              ellipsis: {
+                tooltip: true
+              }
+            },
+            {
+              title: "创建时间",
+              key: "pubDate",
+              width: 180,
+              render: (row) => {
+                return row.createTime ? new Date(row.createTime).toLocaleString() : "-";
+              }
+            },
+            {
+              title: "链接",
+              key: "contentUrl",
+              width: 100
+            }
+          ];
+          const accountNotesColumns = [
+            {
+              title: "创意ID",
+              key: "creativeId",
+              width: 120
+            },
+            {
+              title: "笔记ID",
+              key: "contentId",
+              width: 120
+            },
+            {
+              title: "创意名称",
+              key: "creativeName",
+              ellipsis: {
+                tooltip: true
+              }
+            },
+            {
+              title: "状态",
+              key: "statusDesc",
+              width: 100
+            }
+          ];
+          const resultColumns = [
+            {
+              title: "账号笔记ID",
+              key: "accountNoteId",
+              width: 120
+            },
+            {
+              title: "笔记库ID",
+              key: "libraryNoteId",
+              width: 120
+            },
+            {
+              title: "匹配度",
+              key: "matchScore",
+              width: 100,
+              render: (row) => `${(row.matchScore * 100).toFixed(1)}%`
+            },
+            {
+              title: "账号笔记标题",
+              key: "accountNoteTitle",
+              ellipsis: {
+                tooltip: true
+              }
+            },
+            {
+              title: "笔记库标题",
+              key: "libraryNoteTitle",
+              ellipsis: {
+                tooltip: true
+              }
+            }
+          ];
+          const initializeProjects = () => {
+            getAllProjectName();
+          };
+          const loadProjectNotes = () => {
+            if (selectedProject.value) {
+              getAllNotes(selectedProject.value);
+            }
+          };
+          async function getAllProjectName() {
+            try {
+              projectLoading.value = true;
+              const response = await fetch(
+                "https://galaxy.alibaba-inc.com/assets/tag/select/get",
+                {
+                  headers: {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "appname": "adcontent-op",
+                    "bx-v": "2.5.31",
+                    "priority": "u=1, i",
+                    "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                  },
+                  referrer: "https://galaxy.alibaba-inc.com/",
+                  method: "GET",
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+              }
+              const data = await response.json();
+              if (data.success && data.model && data.model.projectName) {
+                projectNameList.value = data.model.projectName;
+                message.success(`获取成功！共 ${data.model.projectName.length} 个项目`);
+              } else {
+                throw new Error(data.msgInfo || "获取项目列表失败");
+              }
+            } catch (error) {
+              console.error("获取项目列表失败:", error);
+              message.error("获取项目列表失败: " + error.message);
+            } finally {
+              projectLoading.value = false;
+            }
+          }
+          async function getAllNotes(projectName) {
+            try {
+              notesLoading.value = true;
+              const response = await fetch(
+                "https://galaxy.alibaba-inc.com/assets/contentTag/list",
+                {
+                  headers: {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "appname": "adcontent-op",
+                    "bx-v": "2.5.31",
+                    "content-type": "application/json",
+                    "priority": "u=1, i",
+                    "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                  },
+                  referrer: "https://galaxy.alibaba-inc.com/",
+                  body: JSON.stringify({
+                    pageNo: 1,
+                    pageSize: 1e3,
+                    // 获取更多数据
+                    media: "RED_BOOK",
+                    projectName
+                  }),
+                  method: "POST",
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+              }
+              const data = await response.json();
+              if (data.success && data.model && data.model.result) {
+                notesData.value = data.model.result;
+                message.success(`获取笔记库成功！共 ${data.model.result.length} 条笔记`);
+              } else {
+                throw new Error(data.msgInfo || "获取笔记库失败");
+              }
+            } catch (error) {
+              console.error("获取笔记库失败:", error);
+              message.error("获取笔记库失败: " + error.message);
+              notesData.value = [];
+            } finally {
+              notesLoading.value = false;
+            }
+          }
+          async function getAllNotesByAccount() {
+            try {
+              if (parsedAccountIds.value.length === 0) {
+                message.warning("请输入有效的账号ID");
+                return;
+              }
+              accountNotesLoading.value = true;
+              const response = await fetch(
+                "https://galaxy.alibaba-inc.com/ad/manage/creative",
+                {
+                  headers: {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "appname": "adcontent-op",
+                    "bx-v": "2.5.31",
+                    "content-type": "application/json",
+                    "priority": "u=1, i",
+                    "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                  },
+                  referrer: "https://galaxy.alibaba-inc.com/",
+                  body: JSON.stringify({
+                    media: "RED_BOOK",
+                    // 当前日期昨天
+                    startTime: "2025-05-01",
+                    endTime: "2025-05-02",
+                    // 当前日期
+                    current: 1,
+                    pageSize: 1e3,
+                    marketingTarget: 4,
+                    optimizeTarget: 0,
+                    type: "creative",
+                    accountIdList: parsedAccountIds.value,
+                    // 使用解析后的账号ID列表
+                    pageNo: 1
+                  }),
+                  method: "POST",
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+              }
+              const data = await response.json();
+              if (data.success && data.model && data.model.result) {
+                accountNotesData.value = data.model.result;
+                message.success(`获取账号笔记成功！共 ${data.model.result.length} 条（账号：${parsedAccountIds.value.join(", ")}）`);
+              } else {
+                throw new Error(data.msgInfo || "获取账号笔记失败");
+              }
+            } catch (error) {
+              console.error("获取账号笔记失败:", error);
+              message.error("获取账号笔记失败: " + error.message);
+              accountNotesData.value = [];
+            } finally {
+              accountNotesLoading.value = false;
+            }
+          }
+          const loadAccountNotes = () => {
+            getAllNotesByAccount();
+          };
+          const matchNotes = () => {
+            try {
+              const results = [];
+              const matchedAccountNoteIds = /* @__PURE__ */ new Set();
+              accountNotesData.value.forEach((accountNote) => {
+                notesData.value.forEach((libraryNote) => {
+                  if (accountNote.contentId === libraryNote.contentId) {
+                    results.push({
+                      accountNoteId: accountNote.contentId,
+                      libraryNoteId: libraryNote.contentId,
+                      matchScore: 1,
+                      // ID直接匹配为100%
+                      accountNoteTitle: accountNote.creativeName,
+                      libraryNoteTitle: libraryNote.title
+                    });
+                    matchedAccountNoteIds.add(accountNote.contentId);
+                  }
+                });
+              });
+              results.sort((a, b) => b.matchScore - a.matchScore);
+              const totalAccountNotes = accountNotesData.value.length;
+              const totalLibraryNotes = notesData.value.length;
+              const matchedNotes = results.filter((result) => result.matchScore === 1).length;
+              const unmatchedNotes = totalAccountNotes - matchedNotes;
+              matchStats.value = {
+                totalAccountNotes,
+                totalLibraryNotes,
+                matchedNotes,
+                unmatchedNotes
+              };
+              matchResults.value = results;
+              showMatchModal.value = true;
+              message.success(`匹配完成！找到 ${results.length} 条匹配结果`);
+            } catch (error) {
+              console.error("匹配失败:", error);
+              message.error("匹配失败: " + error.message);
+            }
+          };
+          const exportResults = () => {
+            try {
+              const csvContent = [
+                ["账号笔记ID", "笔记库ID", "匹配度", "账号笔记标题", "笔记库标题"],
+                ...matchResults.value.map((row) => [
+                  row.accountNoteId,
+                  row.libraryNoteId,
+                  `${(row.matchScore * 100).toFixed(1)}%`,
+                  row.accountNoteTitle,
+                  row.libraryNoteTitle
+                ])
+              ].map((row) => row.join("	")).join("\n");
+              navigator.clipboard.writeText(csvContent);
+              message.success("结果已复制到剪贴板，可直接粘贴到Excel");
+            } catch (error) {
+              message.error("导出失败: " + error.message);
+            }
+          };
+          const clearResults = () => {
+            matchResults.value = [];
+            message.info("已清空匹配结果");
+          };
+          return (_ctx, _cache) => {
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
+              _cache[23] || (_cache[23] = vue.createElementVNode("div", { class: "header" }, [
+                vue.createElementVNode("h2", null, "📚 笔记库匹配工具"),
+                vue.createElementVNode("p", { class: "subtitle" }, "选择项目并匹配笔记库中的内容")
+              ], -1)),
+              vue.createVNode(vue.unref(naive.NCard), { class: "main-card" }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(vue.unref(naive.NSpace), {
+                    vertical: "",
+                    size: "large"
+                  }, {
+                    default: vue.withCtx(() => [
+                      vue.createVNode(vue.unref(naive.NFormItem), { label: "🚀 初始化" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(vue.unref(naive.NSpace), null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(vue.unref(naive.NButton), {
+                                type: "primary",
+                                size: "large",
+                                loading: projectLoading.value,
+                                onClick: initializeProjects,
+                                disabled: projectNameList.value.length > 0
+                              }, {
+                                default: vue.withCtx(() => [
+                                  vue.createTextVNode(" 📋 " + vue.toDisplayString(projectLoading.value ? "加载中..." : "获取项目列表"), 1)
+                                ]),
+                                _: 1
+                              }, 8, ["loading", "disabled"]),
+                              projectNameList.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NTag), {
+                                key: 0,
+                                type: "success"
+                              }, {
+                                default: vue.withCtx(() => [
+                                  vue.createTextVNode(" ✅ 已加载 " + vue.toDisplayString(projectNameList.value.length) + " 个项目 ", 1)
+                                ]),
+                                _: 1
+                              })) : vue.createCommentVNode("", true)
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      }),
+                      projectNameList.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NFormItem), {
+                        key: 0,
+                        label: "🎯 选择项目",
+                        required: ""
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(vue.unref(naive.NSpace), {
+                            vertical: "",
+                            style: { "width": "100%" }
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(vue.unref(naive.NSelect), {
+                                value: selectedProject.value,
+                                "onUpdate:value": _cache[0] || (_cache[0] = ($event) => selectedProject.value = $event),
+                                placeholder: "请选择项目",
+                                options: projectOptions.value,
+                                clearable: ""
+                              }, null, 8, ["value", "options"]),
+                              selectedProject.value ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NButton), {
+                                key: 0,
+                                type: "info",
+                                loading: notesLoading.value,
+                                onClick: loadProjectNotes,
+                                disabled: notesData.value.length > 0
+                              }, {
+                                default: vue.withCtx(() => [
+                                  vue.createTextVNode(" 📚 " + vue.toDisplayString(notesLoading.value ? "加载中..." : "获取笔记库内容"), 1)
+                                ]),
+                                _: 1
+                              }, 8, ["loading", "disabled"])) : vue.createCommentVNode("", true)
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      notesData.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NFormItem), {
+                        key: 1,
+                        label: "📝 笔记库内容"
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(vue.unref(naive.NSpace), {
+                            vertical: "",
+                            style: { "width": "100%" }
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(vue.unref(naive.NTag), { type: "info" }, {
+                                default: vue.withCtx(() => [
+                                  vue.createTextVNode(" 📊 已加载 " + vue.toDisplayString(notesData.value.length) + " 条笔记 ", 1)
+                                ]),
+                                _: 1
+                              }),
+                              vue.createVNode(vue.unref(naive.NDataTable), {
+                                columns: notesColumns,
+                                data: notesData.value,
+                                pagination: {
+                                  pageSize: 10,
+                                  showSizePicker: true,
+                                  pageSizes: [10, 20, 50]
+                                },
+                                bordered: false,
+                                "single-line": false,
+                                size: "small",
+                                "max-height": "400px"
+                              }, null, 8, ["data"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      notesData.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NFormItem), {
+                        key: 2,
+                        label: "👤 账号笔记"
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(vue.unref(naive.NSpace), {
+                            vertical: "",
+                            style: { "width": "100%" }
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(vue.unref(naive.NFormItem), {
+                                label: "🏷️ 账号ID列表",
+                                required: ""
+                              }, {
+                                default: vue.withCtx(() => [
+                                  vue.createVNode(vue.unref(naive.NInput), {
+                                    value: accountIds.value,
+                                    "onUpdate:value": _cache[1] || (_cache[1] = ($event) => accountIds.value = $event),
+                                    placeholder: "请输入账号ID，多个ID用英文逗号分隔\\n例如：8273771,8273772,8273773",
+                                    clearable: "",
+                                    style: { "width": "100%" }
+                                  }, null, 8, ["value"]),
+                                  parsedAccountIds.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NSpace), {
+                                    key: 0,
+                                    style: { "margin-top": "8px" }
+                                  }, {
+                                    default: vue.withCtx(() => [
+                                      (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(parsedAccountIds.value.slice(0, 10), (id, index) => {
+                                        return vue.openBlock(), vue.createBlock(vue.unref(naive.NTag), {
+                                          key: index,
+                                          type: "info",
+                                          size: "small"
+                                        }, {
+                                          default: vue.withCtx(() => [
+                                            vue.createTextVNode(vue.toDisplayString(id), 1)
+                                          ]),
+                                          _: 2
+                                        }, 1024);
+                                      }), 128)),
+                                      parsedAccountIds.value.length > 10 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NTag), {
+                                        key: 0,
+                                        type: "warning",
+                                        size: "small"
+                                      }, {
+                                        default: vue.withCtx(() => [
+                                          vue.createTextVNode(" ...还有" + vue.toDisplayString(parsedAccountIds.value.length - 10) + "个 ", 1)
+                                        ]),
+                                        _: 1
+                                      })) : vue.createCommentVNode("", true)
+                                    ]),
+                                    _: 1
+                                  })) : vue.createCommentVNode("", true)
+                                ]),
+                                _: 1
+                              }),
+                              vue.createVNode(vue.unref(naive.NSpace), null, {
+                                default: vue.withCtx(() => [
+                                  vue.createVNode(vue.unref(naive.NButton), {
+                                    type: "primary",
+                                    loading: accountNotesLoading.value,
+                                    onClick: loadAccountNotes,
+                                    disabled: parsedAccountIds.value.length === 0
+                                  }, {
+                                    default: vue.withCtx(() => _cache[4] || (_cache[4] = [
+                                      vue.createTextVNode(" 🔍 获取账号笔记 ", -1)
+                                    ])),
+                                    _: 1,
+                                    __: [4]
+                                  }, 8, ["loading", "disabled"]),
+                                  vue.createVNode(vue.unref(naive.NButton), {
+                                    type: "info",
+                                    disabled: !accountNotesData.value.length,
+                                    onClick: matchNotes
+                                  }, {
+                                    default: vue.withCtx(() => _cache[5] || (_cache[5] = [
+                                      vue.createTextVNode(" 🔄 开始匹配 ", -1)
+                                    ])),
+                                    _: 1,
+                                    __: [5]
+                                  }, 8, ["disabled"])
+                                ]),
+                                _: 1
+                              }),
+                              accountNotesData.value.length > 0 ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NTag), {
+                                key: 0,
+                                type: "info",
+                                style: { "margin-top": "16px" }
+                              }, {
+                                default: vue.withCtx(() => [
+                                  vue.createTextVNode(" 📊 账号下已加载 " + vue.toDisplayString(accountNotesData.value.length) + " 条笔记 ", 1)
+                                ]),
+                                _: 1
+                              })) : vue.createCommentVNode("", true),
+                              accountNotesData.value.length ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NDataTable), {
+                                key: 1,
+                                columns: accountNotesColumns,
+                                data: accountNotesData.value,
+                                pagination: { pageSize: 5 },
+                                bordered: false,
+                                size: "small",
+                                "max-height": "300px",
+                                style: { "margin-top": "16px" }
+                              }, null, 8, ["data"])) : vue.createCommentVNode("", true)
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              }),
+              matchResults.value.length ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NCard), {
+                key: 0,
+                class: "result-card"
+              }, {
+                header: vue.withCtx(() => [
+                  vue.createElementVNode("span", null, "🎉 匹配结果 (" + vue.toDisplayString(matchResults.value.length) + " 条)", 1)
+                ]),
+                default: vue.withCtx(() => [
+                  vue.createVNode(vue.unref(naive.NDataTable), {
+                    columns: resultColumns,
+                    data: matchResults.value,
+                    pagination: { pageSize: 10 },
+                    bordered: false,
+                    size: "small"
+                  }, null, 8, ["data"]),
+                  vue.createVNode(vue.unref(naive.NSpace), { style: { "margin-top": "16px" } }, {
+                    default: vue.withCtx(() => [
+                      vue.createVNode(vue.unref(naive.NButton), {
+                        type: "success",
+                        onClick: exportResults
+                      }, {
+                        default: vue.withCtx(() => _cache[6] || (_cache[6] = [
+                          vue.createTextVNode(" 📊 导出结果 ", -1)
+                        ])),
+                        _: 1,
+                        __: [6]
+                      }),
+                      vue.createVNode(vue.unref(naive.NButton), { onClick: clearResults }, {
+                        default: vue.withCtx(() => _cache[7] || (_cache[7] = [
+                          vue.createTextVNode(" 🧹 清空结果 ", -1)
+                        ])),
+                        _: 1,
+                        __: [7]
+                      })
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })) : vue.createCommentVNode("", true),
+              vue.createVNode(vue.unref(naive.NModal), {
+                show: showMatchModal.value,
+                "onUpdate:show": _cache[3] || (_cache[3] = ($event) => showMatchModal.value = $event),
+                preset: "card",
+                style: { "width": "600px", "max-width": "90vw" },
+                title: "📊 匹配统计结果",
+                bordered: false,
+                "mask-closable": true,
+                "close-on-esc": true
+              }, {
+                default: vue.withCtx(() => [
+                  vue.createElementVNode("div", _hoisted_2, [
+                    vue.createVNode(vue.unref(naive.NSpace), {
+                      vertical: "",
+                      size: "large"
+                    }, {
+                      default: vue.withCtx(() => [
+                        vue.createElementVNode("div", _hoisted_3, [
+                          _cache[10] || (_cache[10] = vue.createElementVNode("span", { class: "stats-icon" }, "📝", -1)),
+                          vue.createElementVNode("span", _hoisted_4, [
+                            _cache[8] || (_cache[8] = vue.createTextVNode("账号下总共有 ", -1)),
+                            vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalAccountNotes), 1),
+                            _cache[9] || (_cache[9] = vue.createTextVNode(" 条笔记", -1))
+                          ])
+                        ]),
+                        vue.createElementVNode("div", _hoisted_5, [
+                          _cache[13] || (_cache[13] = vue.createElementVNode("span", { class: "stats-icon" }, "📚", -1)),
+                          vue.createElementVNode("span", _hoisted_6, [
+                            _cache[11] || (_cache[11] = vue.createTextVNode("笔记库总共 ", -1)),
+                            vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalLibraryNotes), 1),
+                            _cache[12] || (_cache[12] = vue.createTextVNode(" 条笔记", -1))
+                          ])
+                        ]),
+                        vue.createElementVNode("div", _hoisted_7, [
+                          _cache[16] || (_cache[16] = vue.createElementVNode("span", { class: "stats-icon" }, "✅", -1)),
+                          vue.createElementVNode("span", _hoisted_8, [
+                            _cache[14] || (_cache[14] = vue.createTextVNode("账号下有 ", -1)),
+                            vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.matchedNotes), 1),
+                            _cache[15] || (_cache[15] = vue.createTextVNode(" 条笔记在笔记库中", -1))
+                          ])
+                        ]),
+                        vue.createElementVNode("div", _hoisted_9, [
+                          _cache[19] || (_cache[19] = vue.createElementVNode("span", { class: "stats-icon" }, "⚠️", -1)),
+                          vue.createElementVNode("span", _hoisted_10, [
+                            _cache[17] || (_cache[17] = vue.createTextVNode("有 ", -1)),
+                            vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.unmatchedNotes), 1),
+                            _cache[18] || (_cache[18] = vue.createTextVNode(" 条笔记不在笔记库中", -1))
+                          ])
+                        ]),
+                        vue.createElementVNode("div", _hoisted_11, [
+                          _cache[21] || (_cache[21] = vue.createElementVNode("span", { class: "stats-icon" }, "📈", -1)),
+                          vue.createElementVNode("span", _hoisted_12, [
+                            _cache[20] || (_cache[20] = vue.createTextVNode("匹配率：", -1)),
+                            vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalAccountNotes > 0 ? (matchStats.value.matchedNotes / matchStats.value.totalAccountNotes * 100).toFixed(1) : 0) + "%", 1)
+                          ])
+                        ])
+                      ]),
+                      _: 1
+                    }),
+                    vue.createVNode(vue.unref(naive.NSpace), {
+                      justify: "center",
+                      style: { "margin-top": "24px" }
+                    }, {
+                      default: vue.withCtx(() => [
+                        vue.createVNode(vue.unref(naive.NButton), {
+                          type: "primary",
+                          onClick: _cache[2] || (_cache[2] = ($event) => showMatchModal.value = false)
+                        }, {
+                          default: vue.withCtx(() => _cache[22] || (_cache[22] = [
+                            vue.createTextVNode(" 👍 知道了 ", -1)
+                          ])),
+                          _: 1,
+                          __: [22]
+                        })
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ]),
+                _: 1
+              }, 8, ["show"])
+            ]);
+          };
+        }
+      };
+      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-0e22a33f"]]);
+      const _hoisted_1$3 = { class: "button-container" };
+      const _sfc_main$5 = {
         __name: "app",
         setup(__props) {
-          const showchuangyiModal = vue.ref(false);
-          const showjihuaModal = vue.ref(false);
           const isListening = vue.ref(false);
           const message = naive.useMessage();
-          const igetchuangyi = vue.ref(false);
-          const sos = vue.ref(false);
+          const modalStates = vue.ref({
+            chuangyi: false,
+            jihua: false,
+            getchuangyi: false,
+            noteMatch: false,
+            sosuo: false
+          });
+          const modalConfig = [
+            {
+              key: "chuangyi",
+              title: "批量关闭创意",
+              component: chuangyi
+            },
+            {
+              key: "jihua",
+              title: "计划批量关闭/调价操作",
+              component: jihua
+            },
+            {
+              key: "getchuangyi",
+              title: "查看计划",
+              component: getchuangyi
+            },
+            {
+              key: "sosuo",
+              title: "调整搜索出价",
+              component: vue_sosuo
+            },
+            {
+              key: "noteMatch",
+              title: "笔记匹配",
+              component: noteMatch
+            }
+          ];
+          const openModal = (modalKey) => {
+            modalStates.value[modalKey] = true;
+          };
+          const buttonConfig = vue.computed(() => [
+            {
+              key: "chuangyi",
+              type: "primary",
+              icon: "🐒",
+              label: "创意关闭/开启",
+              action: () => openModal("chuangyi")
+            },
+            {
+              key: "jihua",
+              type: "info",
+              icon: "🐒",
+              label: "计划关闭/调预算",
+              action: () => openModal("jihua")
+            },
+            {
+              key: "listener",
+              type: isListening.value ? "error" : "warning",
+              icon: isListening.value ? "⏹️" : "▶️",
+              label: isListening.value ? "停止监听" : "开始监听",
+              action: toggleListener
+            },
+            {
+              key: "getchuangyi",
+              type: "success",
+              icon: "🐒",
+              label: "查看计划",
+              action: () => openModal("getchuangyi")
+            },
+            {
+              key: "sosuo",
+              type: "success",
+              icon: "🐒",
+              label: "调搜索出价",
+              action: () => openModal("sosuo")
+            },
+            {
+              key: "noteMatch",
+              type: "success",
+              icon: "🐒",
+              label: "笔记匹配",
+              action: () => openModal("noteMatch")
+            }
+          ]);
           const listenerCallback = (data) => {
             console.log("捕获到queryJobPs请求:", data);
             message.info(`捕获到${data.type}类型的queryJobPs请求`);
           };
-          const toggleListener = () => {
+          function toggleListener() {
             if (isListening.value) {
               requestListener.stop();
               requestListener.removeCallback(listenerCallback);
@@ -3569,7 +4356,7 @@
                 message.warning("监听器已在运行中");
               }
             }
-          };
+          }
           vue.onUnmounted(() => {
             if (isListening.value) {
               requestListener.stop();
@@ -3582,115 +4369,34 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_alert = vue.resolveComponent("n-alert");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
               }, {
                 default: vue.withCtx(() => [
-                  vue.createVNode(_component_n_button, {
-                    type: "primary",
-                    size: "large",
-                    style: { "flex": "1", "min-width": "150px", "margin": "4px" },
-                    onClick: _cache[0] || (_cache[0] = ($event) => showchuangyiModal.value = true)
-                  }, {
-                    icon: vue.withCtx(() => [
-                      vue.createVNode(_component_n_icon, null, {
-                        default: vue.withCtx(() => _cache[8] || (_cache[8] = [
-                          vue.createTextVNode(" 🐒 ", -1)
-                        ])),
-                        _: 1,
-                        __: [8]
-                      })
-                    ]),
-                    default: vue.withCtx(() => [
-                      _cache[9] || (_cache[9] = vue.createTextVNode(" 创意关闭/开启 ", -1))
-                    ]),
-                    _: 1,
-                    __: [9]
-                  }),
-                  vue.createVNode(_component_n_button, {
-                    type: "info",
-                    size: "large",
-                    style: { "flex": "1", "min-width": "150px", "margin": "4px" },
-                    onClick: _cache[1] || (_cache[1] = ($event) => showjihuaModal.value = true)
-                  }, {
-                    icon: vue.withCtx(() => [
-                      vue.createVNode(_component_n_icon, null, {
-                        default: vue.withCtx(() => _cache[10] || (_cache[10] = [
-                          vue.createTextVNode(" 🐒 ", -1)
-                        ])),
-                        _: 1,
-                        __: [10]
-                      })
-                    ]),
-                    default: vue.withCtx(() => [
-                      _cache[11] || (_cache[11] = vue.createTextVNode(" 计划关闭/调预算 ", -1))
-                    ]),
-                    _: 1,
-                    __: [11]
-                  }),
-                  vue.createVNode(_component_n_button, {
-                    type: isListening.value ? "error" : "warning",
-                    size: "large",
-                    style: { "flex": "1", "min-width": "150px", "margin": "4px" },
-                    onClick: toggleListener
-                  }, {
-                    icon: vue.withCtx(() => [
-                      vue.createVNode(_component_n_icon, null, {
-                        default: vue.withCtx(() => [
-                          vue.createTextVNode(vue.toDisplayString(isListening.value ? "⏹️" : "▶️"), 1)
-                        ]),
-                        _: 1
-                      })
-                    ]),
-                    default: vue.withCtx(() => [
-                      vue.createTextVNode(" " + vue.toDisplayString(isListening.value ? "停止监听" : "开始监听"), 1)
-                    ]),
-                    _: 1
-                  }, 8, ["type"]),
-                  vue.createVNode(_component_n_button, {
-                    type: "success",
-                    size: "large",
-                    style: { "flex": "1", "min-width": "150px", "margin": "4px" },
-                    onClick: _cache[2] || (_cache[2] = ($event) => igetchuangyi.value = true)
-                  }, {
-                    icon: vue.withCtx(() => [
-                      vue.createVNode(_component_n_icon, null, {
-                        default: vue.withCtx(() => _cache[12] || (_cache[12] = [
-                          vue.createTextVNode(" 🐒 ", -1)
-                        ])),
-                        _: 1,
-                        __: [12]
-                      })
-                    ]),
-                    default: vue.withCtx(() => [
-                      _cache[13] || (_cache[13] = vue.createTextVNode(" 查看计划 ", -1))
-                    ]),
-                    _: 1,
-                    __: [13]
-                  }),
-                  vue.createVNode(_component_n_button, {
-                    type: "success",
-                    size: "large",
-                    style: { "flex": "1", "min-width": "150px", "margin": "4px" },
-                    onClick: _cache[3] || (_cache[3] = ($event) => sos.value = true)
-                  }, {
-                    icon: vue.withCtx(() => [
-                      vue.createVNode(_component_n_icon, null, {
-                        default: vue.withCtx(() => _cache[14] || (_cache[14] = [
-                          vue.createTextVNode(" 🐒 ", -1)
-                        ])),
-                        _: 1,
-                        __: [14]
-                      })
-                    ]),
-                    default: vue.withCtx(() => [
-                      _cache[15] || (_cache[15] = vue.createTextVNode(" 调搜索出价 ", -1))
-                    ]),
-                    _: 1,
-                    __: [15]
-                  })
+                  (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(buttonConfig.value, (button) => {
+                    return vue.openBlock(), vue.createBlock(_component_n_button, {
+                      key: button.key,
+                      type: button.type,
+                      size: "large",
+                      style: { "flex": "1", "min-width": "150px", "margin": "4px" },
+                      onClick: button.action
+                    }, {
+                      icon: vue.withCtx(() => [
+                        vue.createVNode(_component_n_icon, null, {
+                          default: vue.withCtx(() => [
+                            vue.createTextVNode(vue.toDisplayString(button.icon), 1)
+                          ]),
+                          _: 2
+                        }, 1024)
+                      ]),
+                      default: vue.withCtx(() => [
+                        vue.createTextVNode(" " + vue.toDisplayString(button.label), 1)
+                      ]),
+                      _: 2
+                    }, 1032, ["type", "onClick"]);
+                  }), 128))
                 ]),
                 _: 1
               }),
@@ -3702,86 +4408,44 @@
               }, {
                 icon: vue.withCtx(() => [
                   vue.createVNode(_component_n_icon, null, {
-                    default: vue.withCtx(() => _cache[16] || (_cache[16] = [
+                    default: vue.withCtx(() => _cache[0] || (_cache[0] = [
                       vue.createTextVNode("🔊", -1)
                     ])),
                     _: 1,
-                    __: [16]
+                    __: [0]
                   })
                 ]),
                 default: vue.withCtx(() => [
-                  _cache[17] || (_cache[17] = vue.createTextVNode(" 正在监听中...捕获到的queryJobPs请求将显示在浏览器控制台 ", -1))
+                  _cache[1] || (_cache[1] = vue.createTextVNode(" 正在监听中...捕获到的queryJobPs请求将显示在浏览器控制台 ", -1))
                 ]),
                 _: 1,
-                __: [17]
+                __: [1]
               })) : vue.createCommentVNode("", true),
-              vue.createVNode(_component_n_modal, {
-                show: showchuangyiModal.value,
-                "onUpdate:show": _cache[4] || (_cache[4] = ($event) => showchuangyiModal.value = $event),
-                preset: "card",
-                style: { "width": "800px", "max-width": "90vw" },
-                title: "批量关闭创意",
-                bordered: false,
-                "mask-closable": true,
-                "close-on-esc": true
-              }, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(chuangyi)
-                ]),
-                _: 1
-              }, 8, ["show"]),
-              vue.createVNode(_component_n_modal, {
-                show: showjihuaModal.value,
-                "onUpdate:show": _cache[5] || (_cache[5] = ($event) => showjihuaModal.value = $event),
-                preset: "card",
-                style: { "width": "800px", "max-width": "90vw" },
-                title: "计划批量关闭/调价操作",
-                bordered: false,
-                "mask-closable": true,
-                "close-on-esc": true
-              }, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(jihua)
-                ]),
-                _: 1
-              }, 8, ["show"]),
-              vue.createVNode(_component_n_modal, {
-                show: igetchuangyi.value,
-                "onUpdate:show": _cache[6] || (_cache[6] = ($event) => igetchuangyi.value = $event),
-                preset: "card",
-                style: { "width": "800px", "max-width": "90vw" },
-                title: "查看计划",
-                bordered: false,
-                "mask-closable": true,
-                "close-on-esc": true
-              }, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(getchuangyi)
-                ]),
-                _: 1
-              }, 8, ["show"]),
-              vue.createVNode(_component_n_modal, {
-                show: sos.value,
-                "onUpdate:show": _cache[7] || (_cache[7] = ($event) => sos.value = $event),
-                preset: "card",
-                style: { "width": "800px", "max-width": "90vw" },
-                title: "调整搜索出价",
-                bordered: false,
-                "mask-closable": true,
-                "close-on-esc": true
-              }, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(vue_sosuo)
-                ]),
-                _: 1
-              }, 8, ["show"])
+              (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, vue.renderList(modalConfig, (modal) => {
+                return vue.createVNode(_component_n_modal, {
+                  key: modal.key,
+                  show: modalStates.value[modal.key],
+                  "onUpdate:show": ($event) => modalStates.value[modal.key] = $event,
+                  preset: "card",
+                  style: { "width": "800px", "max-width": "90vw" },
+                  title: modal.title,
+                  bordered: false,
+                  "mask-closable": true,
+                  "close-on-esc": true
+                }, {
+                  default: vue.withCtx(() => [
+                    (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(modal.component)))
+                  ]),
+                  _: 2
+                }, 1032, ["show", "onUpdate:show", "title"]);
+              }), 64))
             ]);
           };
         }
       };
-      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-9432c6d2"]]);
-      const _hoisted_1 = { class: "kuaishou-container" };
-      const _sfc_main$1 = {
+      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-1e7c9319"]]);
+      const _hoisted_1$2 = { class: "kuaishou-container" };
+      const _sfc_main$4 = {
         __name: "kuaishou",
         setup(__props) {
           const message = naive.useMessage();
@@ -3986,7 +4650,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -4174,7 +4838,597 @@
           };
         }
       };
-      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-4eb60829"]]);
+      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-4eb60829"]]);
+      const _sfc_main$3 = {
+        __name: "close",
+        setup(__props) {
+          const r = `
+169597390308
+169685376332
+169597006232
+169595328824
+168269398033
+169684625268
+168102001831
+168290494606
+169600912056
+169684001436
+168299019974
+168291195737
+169595521656
+169600026777
+168291009280
+168101654895
+168290834201
+168299214212
+168290922427
+168269622355
+168299405632
+169684283230
+167989923949
+168290390799
+169600254909
+`.split("\n");
+          fetch("https://ad.e.kuaishou.com/rest/dsp/control-panel/creative/update/putStatus?kuaishou.ad.dsp_ph=6b97b016209b12efdb213024078faf279ce6", {
+            "headers": {
+              "accept": "application/json",
+              "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+              "account-id": "82275544",
+              "content-type": "application/json;charset=UTF-8",
+              "ktrace-str": "3|My42NTY4NDU2ODgzODAuMTc2Nzc5MzcuMTc1OTg0Mzg1Mjg1NC4xMTI1|My42NTY4NDU2ODgzODAuNDcxNTMzODYuMTc1OTg0Mzg1Mjg1NC4xMTI0|0|ad-dsp|ad|true|src:Js,seqn:7862,rsi:282af8ed-948c-4567-ba43-1490ef1d5aae,path:/manage,rpi:015d92efa9",
+              "priority": "u=1, i",
+              "sec-ch-ua": '"Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"',
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": '"macOS"',
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "traffic-channel": "pc",
+              "x-fetch-time": Date.now().toString(),
+              "x-fetchid": "m4A/cnwLrUTJxJemUlwq+WkAPJ5/+luqrHS3uqEShUQ=",
+              "x-requestid": "e6416d3b-0f21-4666-88d7-54ffed12c3ed"
+            },
+            "referrer": "https://ad.e.kuaishou.com/manage?__accountId__=82275544&appId=0&templateId=0&advCardId=0&merchandiseId=0&playId=0&searchLevel=3&tab=creative&campaignIds=&unitIds=&creativeIds=&keywordIds=&name=168269398033",
+            "body": `{"creativeIds":${r},"putStatus":2}`,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+          });
+          return (_ctx, _cache) => {
+            return null;
+          };
+        }
+      };
+      const _hoisted_1$1 = { class: "kuaishou-container" };
+      const _sfc_main$2 = {
+        __name: "hunjian",
+        setup(__props) {
+          const message = naive.useMessage();
+          const id = vue.ref("");
+          const formData = vue.ref({
+            batchData: ""
+          });
+          const isProcessing = vue.ref(false);
+          const logs = vue.ref([]);
+          const parsedData = vue.ref([]);
+          const selectors = {
+            title: [
+              'input[placeholder="请输入广告计划名称"]',
+              "#ad_from_unitName_unitName input.ant-input",
+              'input[placeholder="请输入创意名称"]'
+            ],
+            directLink: ['input[placeholder="填写后使用直达链接，不填则会使用落地页"]'],
+            h5Link: [
+              'input[placeholder="请填写https://开头的链接；如投放原生广告，配置落地页应具备调起APP能力"]'
+            ],
+            exposure: [
+              "#ad_from_monitorLinks_impressionUrl input",
+              "#ad_from_monitorLinks_clickUrl input"
+            ],
+            click: ["#ad_from_monitorLinks_actionbarClickUrl input"],
+            other: [
+              'input[placeholder="需遵守描述语规范，建议突出卖点和热点，有助于提升点击率，可在右侧预览展示效果"]'
+            ],
+            组名称: ['div[data-substep="2-unitName"] input']
+          };
+          async function 标题set() {
+            const labelsWithCheckbox = document.querySelectorAll(
+              'label:has(input[type="checkbox"])'
+            );
+            labelsWithCheckbox.forEach((label) => {
+              if (label.textContent.includes("显示素材名称")) {
+                console.log("✅ 找到目标元素:", label);
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                  console.log("🎯 准备点击其内部的复选框:", checkbox);
+                  checkbox.click();
+                  console.log("🖱️ 点击操作已执行。");
+                } else {
+                  console.warn("⚠️ 找到了标签，但未能找到其内部的复选框。");
+                }
+              }
+            });
+            const maxlength = 26;
+            let title = null;
+            let attempts = 0;
+            const maxAttempts = 3;
+            while (!title && attempts < maxAttempts) {
+              attempts++;
+              title = document.querySelector(
+                'div.ant-typography[rows="2"]:has(span[aria-hidden="true"])'
+              );
+              console.log(`第${attempts}次查找titleText:`, title);
+              if (!title && attempts < maxAttempts) {
+                await new Promise((resolve) => setTimeout(resolve, 500));
+              }
+            }
+            if (title) {
+              console.log("成功找到title元素:", title);
+            } else {
+              console.log("重试3次后仍未找到title元素");
+            }
+            if (title) {
+              let titleText = title.textContent.trim();
+              if (titleText.length > maxlength) {
+                titleText = titleText.slice(0, maxlength) + "...";
+                console.log("✅ 找到标题，已截取至", maxlength, "个字符：", titleText);
+                setInputValue(
+                  [
+                    `div[placeholder="请输入广告语或使用推荐的广告语，回车或点击「添加广告语」可新增"]`
+                  ],
+                  titleText
+                );
+              }
+            }
+          }
+          vue.onMounted(() => {
+            loadFromLocalStorage();
+            addLog("快手广告填表工具已启动");
+          });
+          const loadFromLocalStorage = () => {
+            formData.value.batchData = localStorage.getItem("ks_batchData") || "";
+          };
+          const saveToLocalStorage = (key, value) => {
+            localStorage.setItem(`ks_${key}`, value);
+          };
+          const addLog = (message2) => {
+            const timestamp = (/* @__PURE__ */ new Date()).toLocaleTimeString();
+            logs.value.unshift(`[${timestamp}] ${message2}`);
+            if (logs.value.length > 50) {
+              logs.value = logs.value.slice(0, 50);
+            }
+          };
+          const parseBatchData = () => {
+            const lines = formData.value.batchData.trim().split("\n");
+            return lines.map((line, index) => {
+              const parts = line.trim().split("	");
+              if (parts.length >= 3) {
+                return {
+                  index: index + 1,
+                  title: `${parts[0]}_${parts[4]}` || "",
+                  h5Link: parts[6] || "",
+                  directLink: parts[7] || "",
+                  id: parts[2] || "",
+                  // 默认都可以填写
+                  isIOS: true,
+                  //(parts[0] || '').includes('IOS') || (parts[0] || '').includes('iOS')
+                  videoTitle: parts[5]
+                };
+              }
+              return null;
+            }).filter(Boolean);
+          };
+          const previewData = () => {
+            parsedData.value = parseBatchData();
+            if (parsedData.value.length === 0) {
+              message.warning("请先输入有效的批量数据");
+              return;
+            }
+            addLog(`解析完成，共 ${parsedData.value.length} 条数据`);
+            message.success(`已解析 ${parsedData.value.length} 条数据`);
+          };
+          const setInputValue = (selectorArray, value) => {
+            let successCount = 0;
+            selectorArray.forEach((selector) => {
+              try {
+                const element = document.querySelector(selector);
+                if (element) {
+                  element.value = value;
+                  const changeEvent = new Event("change", { bubbles: true });
+                  element.dispatchEvent(changeEvent);
+                  const inputEvent = new Event("input", { bubbles: true });
+                  element.dispatchEvent(inputEvent);
+                  const reactProp = Object.keys(element).find(
+                    (p) => p.startsWith("__reactEventHandlers")
+                  );
+                  if (reactProp && element[reactProp] && element[reactProp].onChange) {
+                    element[reactProp].onChange(changeEvent);
+                  }
+                  successCount++;
+                }
+              } catch (error) {
+                console.warn(`设置选择器 ${selector} 失败:`, error);
+              }
+            });
+            return successCount;
+          };
+          const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+          const fillFormData = async () => {
+            document.querySelector(
+              'div[data-substep="3-nativeAdvertising"]'
+            ).innerText;
+            if (!formData.value.batchData.trim()) {
+              message.warning("请先输入批量数据");
+              return;
+            }
+            isProcessing.value = true;
+            try {
+              const dataList = parseBatchData();
+              if (dataList.length === 0) {
+                message.warning("没有有效的数据可以处理");
+                return;
+              }
+              addLog(`开始批量填充，共 ${dataList.length} 条数据`);
+              const firstData = dataList.filter((item) => id.value.includes(item.id))[0];
+              const directCount = setInputValue(
+                selectors.directLink,
+                firstData.directLink
+              );
+              addLog(
+                `填充直达链接: ${firstData.directLink} (成功 ${directCount} 个字段)`
+              );
+              await delay(300);
+              if (firstData.isIOS) {
+                const h5Count = setInputValue(selectors.h5Link, firstData.h5Link);
+                addLog(
+                  `检测到iOS，填充H5链接: ${firstData.h5Link} (成功 ${h5Count} 个字段)`
+                );
+              }
+              const titleCount = setInputValue(selectors.title, firstData.title);
+              addLog(`填充标题: ${firstData.title} (成功 ${titleCount} 个字段)`);
+              await delay(300);
+              const videoTitle = setInputValue(
+                [`input[placeholder="请输入广告语或使用推荐的广告语，回车或点击「添加广告语」可新增"],input[placeholder="请填写作品广告语，用来推广内容"]`],
+                firstData.videoTitle
+              );
+              message.success("表单填充完成");
+              addLog("批量填充操作完成");
+              await 标题set();
+            } catch (error) {
+              console.error("填充表单失败:", error);
+              message.error("填充表单失败: " + error.message);
+              addLog("填充失败: " + error.message);
+            } finally {
+              isProcessing.value = false;
+            }
+          };
+          const clearData = () => {
+            localStorage.removeItem("ks_batchData");
+            formData.value.batchData = "";
+            parsedData.value = [];
+            logs.value = [];
+            message.success("已清除所有数据");
+          };
+          return (_ctx, _cache) => {
+            const _component_n_input = vue.resolveComponent("n-input");
+            const _component_n_text = vue.resolveComponent("n-text");
+            const _component_n_form_item = vue.resolveComponent("n-form-item");
+            const _component_n_button = vue.resolveComponent("n-button");
+            const _component_n_grid_item = vue.resolveComponent("n-grid-item");
+            const _component_n_grid = vue.resolveComponent("n-grid");
+            const _component_n_tag = vue.resolveComponent("n-tag");
+            const _component_n_table = vue.resolveComponent("n-table");
+            const _component_n_collapse_item = vue.resolveComponent("n-collapse-item");
+            const _component_n_collapse = vue.resolveComponent("n-collapse");
+            const _component_n_log = vue.resolveComponent("n-log");
+            const _component_n_space = vue.resolveComponent("n-space");
+            const _component_n_card = vue.resolveComponent("n-card");
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+              vue.createVNode(_component_n_card, {
+                title: "快手广告填表工具",
+                class: "tool-card"
+              }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_n_space, {
+                    vertical: "",
+                    size: 16
+                  }, {
+                    default: vue.withCtx(() => [
+                      vue.createVNode(_component_n_form_item, { label: "批量数据输入" }, {
+                        feedback: vue.withCtx(() => [
+                          vue.createVNode(_component_n_text, {
+                            depth: "3",
+                            style: { "font-size": "12px" }
+                          }, {
+                            default: vue.withCtx(() => _cache[3] || (_cache[3] = [
+                              vue.createTextVNode(" 格式示例：达人昵称-计划信息 h5 dp ", -1)
+                            ])),
+                            _: 1,
+                            __: [3]
+                          })
+                        ]),
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_input, {
+                            value: formData.value.batchData,
+                            "onUpdate:value": [
+                              _cache[0] || (_cache[0] = ($event) => formData.value.batchData = $event),
+                              _cache[1] || (_cache[1] = ($event) => saveToLocalStorage("batchData", $event))
+                            ],
+                            type: "textarea",
+                            placeholder: "请按格式输入：达人昵称[TAB]H5链接[TAB]直达链接，每行一条数据",
+                            autosize: { minRows: 4, maxRows: 8 }
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
+                      vue.createVNode(_component_n_input, {
+                        value: id.value,
+                        "onUpdate:value": _cache[2] || (_cache[2] = ($event) => id.value = $event),
+                        placeholder: "id"
+                      }, null, 8, ["value"]),
+                      vue.createVNode(_component_n_grid, {
+                        cols: 3,
+                        "x-gap": 12,
+                        "y-gap": 12
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_button, {
+                                type: "primary",
+                                block: "",
+                                size: "large",
+                                onClick: fillFormData,
+                                loading: isProcessing.value
+                              }, {
+                                icon: vue.withCtx(() => _cache[4] || (_cache[4] = [
+                                  vue.createElementVNode("span", { style: { "font-size": "16px" } }, "✏️", -1)
+                                ])),
+                                default: vue.withCtx(() => [
+                                  _cache[5] || (_cache[5] = vue.createTextVNode(" 批量填充表单 ", -1))
+                                ]),
+                                _: 1,
+                                __: [5]
+                              }, 8, ["loading"])
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_button, {
+                                type: "warning",
+                                block: "",
+                                size: "large",
+                                onClick: clearData
+                              }, {
+                                icon: vue.withCtx(() => _cache[6] || (_cache[6] = [
+                                  vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🗑️", -1)
+                                ])),
+                                default: vue.withCtx(() => [
+                                  _cache[7] || (_cache[7] = vue.createTextVNode(" 清除所有数据 ", -1))
+                                ]),
+                                _: 1,
+                                __: [7]
+                              })
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_button, {
+                                type: "success",
+                                block: "",
+                                size: "large",
+                                onClick: previewData
+                              }, {
+                                icon: vue.withCtx(() => _cache[8] || (_cache[8] = [
+                                  vue.createElementVNode("span", { style: { "font-size": "16px" } }, "👁️", -1)
+                                ])),
+                                default: vue.withCtx(() => [
+                                  _cache[9] || (_cache[9] = vue.createTextVNode(" 预览解析数据 ", -1))
+                                ]),
+                                _: 1,
+                                __: [9]
+                              })
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      }),
+                      parsedData.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 0 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "数据预览",
+                            name: "preview"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_table, {
+                                bordered: false,
+                                "single-line": false,
+                                size: "small"
+                              }, {
+                                default: vue.withCtx(() => [
+                                  _cache[10] || (_cache[10] = vue.createElementVNode("thead", null, [
+                                    vue.createElementVNode("tr", null, [
+                                      vue.createElementVNode("th", null, "序号"),
+                                      vue.createElementVNode("th", null, "标题名称"),
+                                      vue.createElementVNode("th", null, "H5链接"),
+                                      vue.createElementVNode("th", null, "直达链接"),
+                                      vue.createElementVNode("th", null, "是否iOS")
+                                    ])
+                                  ], -1)),
+                                  vue.createElementVNode("tbody", null, [
+                                    (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(parsedData.value, (item, index) => {
+                                      return vue.openBlock(), vue.createElementBlock("tr", { key: index }, [
+                                        vue.createElementVNode("td", null, vue.toDisplayString(index + 1), 1),
+                                        vue.createElementVNode("td", null, vue.toDisplayString(item.title), 1),
+                                        vue.createElementVNode("td", null, vue.toDisplayString(item.h5Link), 1),
+                                        vue.createElementVNode("td", null, vue.toDisplayString(item.directLink), 1),
+                                        vue.createElementVNode("td", null, [
+                                          vue.createVNode(_component_n_tag, {
+                                            type: item.isIOS ? "success" : "default",
+                                            size: "small"
+                                          }, {
+                                            default: vue.withCtx(() => [
+                                              vue.createTextVNode(vue.toDisplayString(item.isIOS ? "iOS" : "普通"), 1)
+                                            ]),
+                                            _: 2
+                                          }, 1032, ["type"])
+                                        ])
+                                      ]);
+                                    }), 128))
+                                  ])
+                                ]),
+                                _: 1,
+                                __: [10]
+                              })
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      logs.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 1 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "操作日志",
+                            name: "logs"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_log, {
+                                log: logs.value.join("\n"),
+                                rows: 6
+                              }, null, 8, ["log"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ]);
+          };
+        }
+      };
+      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-4830d34f"]]);
+      const _hoisted_1 = { class: "button-container" };
+      const _sfc_main$1 = {
+        __name: "app",
+        setup(__props) {
+          naive.useMessage();
+          const modalStates = vue.ref({
+            kuaishou: false,
+            close: false,
+            hunjian: false
+          });
+          const modalConfig = [
+            {
+              key: "kuaishou",
+              title: "快手广告填表工具",
+              component: kuaishou$1
+            },
+            {
+              key: "close",
+              title: "快手创意关闭",
+              component: _sfc_main$3
+            },
+            {
+              key: "hunjian",
+              title: "快手混剪工具",
+              component: hunjian
+            }
+          ];
+          const openModal = (modalKey) => {
+            modalStates.value[modalKey] = true;
+          };
+          const buttonConfig = vue.computed(() => [
+            {
+              key: "kuaishou",
+              type: "primary",
+              icon: "🐒",
+              label: "快手填表",
+              action: () => openModal("kuaishou")
+            },
+            {
+              key: "close",
+              type: "error",
+              icon: "🐒",
+              label: "创意关闭",
+              action: () => openModal("close")
+            },
+            {
+              key: "hunjian",
+              type: "success",
+              icon: "🐒",
+              label: "混剪工具",
+              action: () => openModal("hunjian")
+            }
+          ]);
+          return (_ctx, _cache) => {
+            const _component_n_icon = vue.resolveComponent("n-icon");
+            const _component_n_button = vue.resolveComponent("n-button");
+            const _component_n_space = vue.resolveComponent("n-space");
+            const _component_n_modal = vue.resolveComponent("n-modal");
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+              vue.createVNode(_component_n_space, {
+                justify: "space-between",
+                wrap: ""
+              }, {
+                default: vue.withCtx(() => [
+                  (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(buttonConfig.value, (button) => {
+                    return vue.openBlock(), vue.createBlock(_component_n_button, {
+                      key: button.key,
+                      type: button.type,
+                      size: "large",
+                      style: { "flex": "1", "min-width": "150px", "margin": "4px" },
+                      onClick: button.action
+                    }, {
+                      icon: vue.withCtx(() => [
+                        vue.createVNode(_component_n_icon, null, {
+                          default: vue.withCtx(() => [
+                            vue.createTextVNode(vue.toDisplayString(button.icon), 1)
+                          ]),
+                          _: 2
+                        }, 1024)
+                      ]),
+                      default: vue.withCtx(() => [
+                        vue.createTextVNode(" " + vue.toDisplayString(button.label), 1)
+                      ]),
+                      _: 2
+                    }, 1032, ["type", "onClick"]);
+                  }), 128))
+                ]),
+                _: 1
+              }),
+              (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, vue.renderList(modalConfig, (modal) => {
+                return vue.createVNode(_component_n_modal, {
+                  key: modal.key,
+                  show: modalStates.value[modal.key],
+                  "onUpdate:show": ($event) => modalStates.value[modal.key] = $event,
+                  preset: "card",
+                  style: { "width": "800px", "max-width": "90vw" },
+                  title: modal.title,
+                  bordered: false,
+                  "mask-closable": true,
+                  "close-on-esc": true
+                }, {
+                  default: vue.withCtx(() => [
+                    (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(modal.component)))
+                  ]),
+                  _: 2
+                }, 1032, ["show", "onUpdate:show", "title"]);
+              }), 64))
+            ]);
+          };
+        }
+      };
+      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-38d3d358"]]);
       const _sfc_main = {
         __name: "App",
         setup(__props) {
