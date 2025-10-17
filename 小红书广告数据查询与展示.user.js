@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       qjjtools
 // @namespace  npm/vite-plugin-monkey
-// @version    10.2.1
+// @version    10.3.0
 // @icon       https://vitejs.dev/logo.svg
 // @match      *://*/*
 // @require    https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.18/vue.global.prod.min.js
@@ -11,7 +11,7 @@
 // @grant      GM_addStyle
 // ==/UserScript==
 
-(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-1e7c9319]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.button-container[data-v-38d3d358]{padding:20px} ");
+(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-1e7c9319]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.button-container[data-v-38d3d358]{padding:20px}.hunjianpiliang-container[data-v-11362bce]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-11362bce]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-11362bce] .n-card-content{padding:24px}[data-v-11362bce] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-11362bce] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-11362bce] .n-input{border-radius:8px}[data-v-11362bce] .n-form-item-label{font-weight:500;color:#333}[data-v-11362bce] .n-collapse,[data-v-11362bce] .n-data-table{border-radius:8px;overflow:hidden}.button-container[data-v-abb13d7c]{padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh} ");
 
 (function (vue, naive) {
   'use strict';
@@ -21,7 +21,7 @@
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var require_main_001 = __commonJS({
-    "main-BkXXu0cB.js"(exports, module) {
+    "main-DTHABUvS.js"(exports, module) {
       class LinkChecker {
         constructor() {
           this.isLoading = false;
@@ -300,7 +300,7 @@
         }
         return target;
       };
-      const _sfc_main$g = {
+      const _sfc_main$i = {
         __name: "rename",
         setup(__props) {
           const message = naive.useMessage();
@@ -425,8 +425,8 @@
           };
         }
       };
-      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-303426f9"]]);
-      const _sfc_main$f = {
+      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-303426f9"]]);
+      const _sfc_main$h = {
         __name: "BatchPrice",
         props: {
           show: {
@@ -846,8 +846,8 @@
           };
         }
       };
-      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-29be6a47"]]);
-      const _sfc_main$e = {
+      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-29be6a47"]]);
+      const _sfc_main$g = {
         __name: "setplan",
         props: {
           show: {
@@ -1270,11 +1270,11 @@
           };
         }
       };
-      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-18ea35a2"]]);
-      const _hoisted_1$b = { class: "createrplan-container" };
+      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-18ea35a2"]]);
+      const _hoisted_1$d = { class: "createrplan-container" };
       const _hoisted_2$3 = { style: { "font-size": "14px" } };
       const _hoisted_3$2 = { style: { "font-size": "16px" } };
-      const _sfc_main$d = {
+      const _sfc_main$f = {
         __name: "createrplan",
         setup(__props) {
           const message = naive.useMessage();
@@ -1551,7 +1551,7 @@
             const _component_n_grid = vue.resolveComponent("n-grid");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$d, [
               vue.createVNode(_component_n_card, {
                 title: "小红书创意计划工具1.2",
                 class: "main-card"
@@ -1783,10 +1783,10 @@
           };
         }
       };
-      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-5dbab58c"]]);
-      const _hoisted_1$a = { class: "button-container" };
+      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-5dbab58c"]]);
+      const _hoisted_1$c = { class: "button-container" };
       const _hoisted_2$2 = { class: "modal-content" };
-      const _sfc_main$c = {
+      const _sfc_main$e = {
         __name: "XHS",
         setup(__props) {
           const linkChecker = new LinkChecker();
@@ -1921,7 +1921,7 @@
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_modal = vue.resolveComponent("n-modal");
             return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-              vue.createElementVNode("div", _hoisted_1$a, [
+              vue.createElementVNode("div", _hoisted_1$c, [
                 vue.createVNode(_component_n_space, {
                   justify: "space-between",
                   wrap: ""
@@ -2245,13 +2245,13 @@
           };
         }
       };
-      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-aaaae17f"]]);
-      const _hoisted_1$9 = { class: "default-component" };
-      const _sfc_main$b = {
+      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-aaaae17f"]]);
+      const _hoisted_1$b = { class: "default-component" };
+      const _sfc_main$d = {
         __name: "DefaultComponent",
         setup(__props) {
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
               vue.createVNode(vue.unref(naive.NEmpty), { description: "暂无适配" }, {
                 icon: vue.withCtx(() => [
                   vue.createVNode(vue.unref(naive.NIcon), { size: "48" }, {
@@ -2268,7 +2268,7 @@
           };
         }
       };
-      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-ff0a68db"]]);
+      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-ff0a68db"]]);
       class RequestListener {
         constructor() {
           this.isActive = false;
@@ -2390,8 +2390,8 @@
         }
       }
       const requestListener = new RequestListener();
-      const _hoisted_1$8 = { class: "getchuangyi-container" };
-      const _sfc_main$a = {
+      const _hoisted_1$a = { class: "getchuangyi-container" };
+      const _sfc_main$c = {
         __name: "getchuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2693,7 +2693,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
               vue.createVNode(_component_n_space, {
                 vertical: "",
                 size: 16
@@ -2809,9 +2809,9 @@
           };
         }
       };
-      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-5a29dd22"]]);
-      const _hoisted_1$7 = { class: "jihua-container" };
-      const _sfc_main$9 = {
+      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-5a29dd22"]]);
+      const _hoisted_1$9 = { class: "jihua-container" };
+      const _sfc_main$b = {
         __name: "chuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2930,7 +2930,7 @@
             const _component_n_checkbox = vue.resolveComponent("n-checkbox");
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   vue.createVNode(_component_n_input, {
@@ -2969,9 +2969,9 @@
           };
         }
       };
-      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-e9fa887f"]]);
-      const _hoisted_1$6 = { class: "plan-container" };
-      const _sfc_main$8 = {
+      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-e9fa887f"]]);
+      const _hoisted_1$8 = { class: "plan-container" };
+      const _sfc_main$a = {
         __name: "jihua",
         setup(__props) {
           const message = naive.useMessage();
@@ -3134,7 +3134,7 @@
             const _component_n_input_number = vue.resolveComponent("n-input-number");
             const _component_n_input = vue.resolveComponent("n-input");
             const _component_n_button = vue.resolveComponent("n-button");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "description" }, [
@@ -3211,8 +3211,8 @@
           };
         }
       };
-      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-f977d1aa"]]);
-      const _hoisted_1$5 = { class: "search-price-container" };
+      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-f977d1aa"]]);
+      const _hoisted_1$7 = { class: "search-price-container" };
       const _hoisted_2$1 = { class: "button-group" };
       const _hoisted_3$1 = { class: "result-header" };
       const _hoisted_4$1 = { class: "result-icon" };
@@ -3225,7 +3225,7 @@
       };
       const _hoisted_9$1 = { class: "preview-header" };
       const _hoisted_10$1 = { class: "plan-ids-grid" };
-      const _sfc_main$7 = {
+      const _sfc_main$9 = {
         __name: "sosuo",
         setup(__props) {
           const message = naive.useMessage();
@@ -3373,7 +3373,7 @@
             }
           }, { immediate: true });
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
               _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "🔍 搜索出价调整工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "批量调整计划的搜索关键词出价")
@@ -3538,8 +3538,8 @@
           };
         }
       };
-      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1b153763"]]);
-      const _hoisted_1$4 = { class: "note-match-container" };
+      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-1b153763"]]);
+      const _hoisted_1$6 = { class: "note-match-container" };
       const _hoisted_2 = { class: "match-stats-content" };
       const _hoisted_3 = { class: "stats-item" };
       const _hoisted_4 = { class: "stats-text" };
@@ -3551,7 +3551,7 @@
       const _hoisted_10 = { class: "stats-text" };
       const _hoisted_11 = { class: "stats-summary" };
       const _hoisted_12 = { class: "stats-text" };
-      const _sfc_main$6 = {
+      const _sfc_main$8 = {
         __name: "noteMatch",
         setup(__props) {
           const message = naive.useMessage();
@@ -3894,7 +3894,7 @@
             message.info("已清空匹配结果");
           };
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
               _cache[23] || (_cache[23] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "📚 笔记库匹配工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "选择项目并匹配笔记库中的内容")
@@ -4248,9 +4248,9 @@
           };
         }
       };
-      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-0e22a33f"]]);
-      const _hoisted_1$3 = { class: "button-container" };
-      const _sfc_main$5 = {
+      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-0e22a33f"]]);
+      const _hoisted_1$5 = { class: "button-container" };
+      const _sfc_main$7 = {
         __name: "app",
         setup(__props) {
           const isListening = vue.ref(false);
@@ -4369,7 +4369,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_alert = vue.resolveComponent("n-alert");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
@@ -4443,9 +4443,9 @@
           };
         }
       };
-      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-1e7c9319"]]);
-      const _hoisted_1$2 = { class: "kuaishou-container" };
-      const _sfc_main$4 = {
+      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1e7c9319"]]);
+      const _hoisted_1$4 = { class: "kuaishou-container" };
+      const _sfc_main$6 = {
         __name: "kuaishou",
         setup(__props) {
           const message = naive.useMessage();
@@ -4650,7 +4650,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -4838,8 +4838,8 @@
           };
         }
       };
-      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-4eb60829"]]);
-      const _sfc_main$3 = {
+      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-4eb60829"]]);
+      const _sfc_main$5 = {
         __name: "close",
         setup(__props) {
           const r = `
@@ -4899,8 +4899,8 @@
           };
         }
       };
-      const _hoisted_1$1 = { class: "kuaishou-container" };
-      const _sfc_main$2 = {
+      const _hoisted_1$3 = { class: "kuaishou-container" };
+      const _sfc_main$4 = {
         __name: "hunjian",
         setup(__props) {
           const message = naive.useMessage();
@@ -5123,7 +5123,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -5316,9 +5316,9 @@
           };
         }
       };
-      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-4830d34f"]]);
-      const _hoisted_1 = { class: "button-container" };
-      const _sfc_main$1 = {
+      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-4830d34f"]]);
+      const _hoisted_1$2 = { class: "button-container" };
+      const _sfc_main$3 = {
         __name: "app",
         setup(__props) {
           naive.useMessage();
@@ -5336,7 +5336,7 @@
             {
               key: "close",
               title: "快手创意关闭",
-              component: _sfc_main$3
+              component: _sfc_main$5
             },
             {
               key: "hunjian",
@@ -5375,7 +5375,7 @@
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
@@ -5428,7 +5428,538 @@
           };
         }
       };
-      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-38d3d358"]]);
+      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-38d3d358"]]);
+      const _hoisted_1$1 = { class: "hunjianpiliang-container" };
+      const _sfc_main$2 = {
+        __name: "hunjianpiliang",
+        setup(__props) {
+          const message = naive.useMessage();
+          const t = vue.ref(``);
+          const remixMaterialSrcMedia = vue.ref("RED_BOOK");
+          const isProcessing = vue.ref(false);
+          const logs = vue.ref([]);
+          const processedItems = vue.ref([]);
+          const currentIndex = vue.ref(0);
+          const totalItems = vue.ref(0);
+          const 可选项 = [
+            {
+              "isDefault": true,
+              "label": "小红书",
+              "value": "RED_BOOK"
+            },
+            {
+              "label": "B站",
+              "value": "BILIBILI"
+            },
+            {
+              "label": "抖音",
+              "value": "DOUYIN"
+            },
+            {
+              "label": "快手",
+              "value": "KUAISHOU"
+            },
+            {
+              "label": "腾讯视频号",
+              "value": "TENCENT"
+            }
+          ];
+          const progressPercentage = vue.computed(() => {
+            return totalItems.value > 0 ? Math.round(currentIndex.value / totalItems.value * 100) : 0;
+          });
+          const successCount = vue.computed(() => {
+            return processedItems.value.filter((item) => item.status === "success").length;
+          });
+          const failureCount = vue.computed(() => {
+            return processedItems.value.filter((item) => item.status === "error").length;
+          });
+          const resultColumns = [
+            { title: "素材ID", key: "remixMaterialId", width: 150 },
+            { title: "达人唯一标识", key: "koxUniqId", width: 150 },
+            { title: "商品ID列表", key: "itemIds", width: 200 },
+            {
+              title: "状态",
+              key: "status",
+              width: 100,
+              render: (row) => {
+                const type = row.status === "success" ? "success" : "error";
+                const text = row.status === "success" ? "成功" : "失败";
+                const emoji = row.status === "success" ? "✅" : "❌";
+                return h("n-tag", { type, size: "small" }, { default: () => [emoji, " ", text] });
+              }
+            },
+            { title: "错误信息", key: "error", ellipsis: { tooltip: true } }
+          ];
+          const addLog = (message2) => {
+            const timestamp = (/* @__PURE__ */ new Date()).toLocaleTimeString();
+            logs.value.unshift(`[${timestamp}] ${message2}`);
+            if (logs.value.length > 50) {
+              logs.value = logs.value.slice(0, 50);
+            }
+          };
+          const executeDependentRequests = async (record) => {
+            const [
+              remixMaterialId,
+              // 素材id
+              koxUniqId,
+              // 达人唯一标识
+              itemIds,
+              // 商品ID列表
+              remixEditor
+              // 剪辑师（从record中获取）
+            ] = record;
+            const eventId = location.search.match(new RegExp("(?<=eventId=).*"))[0];
+            const r = await fetch(`https://adstar.alimama.com/api/cpa/event/info/detail?bizCode=adstar&_tb_token_=ee3b737e1e7ee&eventId=${eventId}`, {
+              "headers": {
+                "_tb_token_": "ee3b737e1e7ee",
+                "accept": "*/*",
+                "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                "bx-v": "2.5.11",
+                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "priority": "u=1, i",
+                "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"macOS"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-requested-with": "XMLHttpRequest"
+              },
+              //   "referrer": "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=114967592",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+            });
+            const data = await r.json();
+            const media = data.model.eventRule.channelCodeList[0];
+            const cpId = 1314017170;
+            const stickyItemId = itemIds.split(",")[0];
+            const token = "ee3b737e1e7ee";
+            try {
+              const response1 = await fetch(
+                "https://adstar.alimama.com/openapi/json2/1/gateway.unionpub/union.kox.summary.query.json?bizCode=adstar&_tb_token_=" + token + "&uidList=" + koxUniqId + "&mediaBpCode=" + remixMaterialSrcMedia.value,
+                {
+                  method: "GET",
+                  headers: {
+                    _tb_token_: token,
+                    accept: "*/*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "bx-v": "2.5.11",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    priority: "u=1, i",
+                    "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "x-requested-with": "XMLHttpRequest"
+                  },
+                  referrer: "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=" + eventId,
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              const data1 = await response1.json();
+              if (!data1.success || !data1.model || data1.model.length === 0) {
+                throw new Error("请求1失败：未获取到有效的达人数据");
+              }
+              const userInfo = data1.model[0];
+              const postData = {
+                eventId,
+                media,
+                isRemix: true,
+                remixMaterialSrcMedia: remixMaterialSrcMedia.value,
+                koxNickname: userInfo.nick,
+                koxUniqId: userInfo.uniqId,
+                remixEditor,
+                // 使用从record中获取的remixEditor
+                cpId,
+                remixMaterialId,
+                koxId: userInfo.uid,
+                stickyItemId,
+                extraInfo: "{}"
+              };
+              const urlEncodedData = "_data_=" + encodeURIComponent(JSON.stringify(postData));
+              const response2 = await fetch(
+                "https://adstar.alimama.com/openapi/param2/1/gateway.unionpub/union.adcontent.kox.link.record.add.json?_tb_token_=" + token,
+                {
+                  method: "POST",
+                  headers: {
+                    accept: "*/*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "bx-v": "2.5.11",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    priority: "u=1, i",
+                    "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "x-requested-with": "XMLHttpRequest"
+                  },
+                  referrer: "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=" + eventId,
+                  body: urlEncodedData,
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              const data2 = await response2.json();
+              console.log("请求2响应：", data2);
+              return data2;
+            } catch (error) {
+              console.error("执行过程中出错：", error);
+              throw error;
+            }
+          };
+          const processAllRecords = async () => {
+            if (!t.value.trim()) {
+              message.warning("请先输入数据");
+              return;
+            }
+            isProcessing.value = true;
+            processedItems.value = [];
+            currentIndex.value = 0;
+            try {
+              const lines = t.value.trim().split("\n");
+              const records = lines.map((line) => line.split("	"));
+              totalItems.value = records.length;
+              for (const record of records) {
+                try {
+                  currentIndex.value++;
+                  addLog(`正在处理记录: ${record[0]}`);
+                  await executeDependentRequests(record);
+                  processedItems.value.push({
+                    koxNickname: record[0],
+                    index: record[1],
+                    remixMaterialId: record[2],
+                    koxUniqId: record[3],
+                    taskType: record[4],
+                    itemIds: record[5],
+                    status: "success",
+                    error: ""
+                  });
+                  await new Promise((resolve) => setTimeout(resolve, 1e3));
+                } catch (error) {
+                  currentIndex.value++;
+                  addLog(`处理记录 ${record[0]} 时出错: ${error.message}`);
+                  processedItems.value.push({
+                    koxNickname: record[0] || "",
+                    index: record[1] || "",
+                    remixMaterialId: record[2] || "",
+                    koxUniqId: record[3] || "",
+                    taskType: record[4] || "",
+                    itemIds: record[5] || "",
+                    status: "error",
+                    error: error.message
+                  });
+                }
+              }
+              message.success(`批量处理完成! 成功 ${successCount.value} 条，失败 ${failureCount.value} 条`);
+              addLog(`批量处理完成! 成功 ${successCount.value} 条，失败 ${failureCount.value} 条`);
+            } catch (error) {
+              console.error("批量处理过程中出错：", error);
+              message.error("批量处理失败: " + error.message);
+              addLog("批量处理失败: " + error.message);
+            } finally {
+              isProcessing.value = false;
+            }
+          };
+          const clearData = () => {
+            t.value = "";
+            processedItems.value = [];
+            logs.value = [];
+            currentIndex.value = 0;
+            totalItems.value = 0;
+            message.success("已清除所有数据");
+            addLog("清除所有数据");
+          };
+          return (_ctx, _cache) => {
+            const _component_n_input = vue.resolveComponent("n-input");
+            const _component_n_text = vue.resolveComponent("n-text");
+            const _component_n_form_item = vue.resolveComponent("n-form-item");
+            const _component_n_select = vue.resolveComponent("n-select");
+            const _component_n_button = vue.resolveComponent("n-button");
+            const _component_n_space = vue.resolveComponent("n-space");
+            const _component_n_progress = vue.resolveComponent("n-progress");
+            const _component_n_statistic = vue.resolveComponent("n-statistic");
+            const _component_n_grid_item = vue.resolveComponent("n-grid-item");
+            const _component_n_grid = vue.resolveComponent("n-grid");
+            const _component_n_data_table = vue.resolveComponent("n-data-table");
+            const _component_n_collapse_item = vue.resolveComponent("n-collapse-item");
+            const _component_n_collapse = vue.resolveComponent("n-collapse");
+            const _component_n_log = vue.resolveComponent("n-log");
+            const _component_n_card = vue.resolveComponent("n-card");
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+              vue.createVNode(_component_n_card, {
+                title: "混剪批量处理工具",
+                class: "main-card"
+              }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_n_space, {
+                    vertical: "",
+                    size: 16
+                  }, {
+                    default: vue.withCtx(() => [
+                      vue.createVNode(_component_n_form_item, { label: "数据输入" }, {
+                        feedback: vue.withCtx(() => [
+                          vue.createVNode(_component_n_text, {
+                            depth: "3",
+                            style: { "font-size": "12px" }
+                          }, {
+                            default: vue.withCtx(() => _cache[2] || (_cache[2] = [
+                              vue.createTextVNode(" 每行一条数据，字段间用制表符分隔 ", -1)
+                            ])),
+                            _: 1,
+                            __: [2]
+                          })
+                        ]),
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_input, {
+                            value: t.value,
+                            "onUpdate:value": _cache[0] || (_cache[0] = ($event) => t.value = $event),
+                            type: "textarea",
+                            placeholder: "请输入数据，格式：素材id 达人标识 商品id 剪辑师",
+                            autosize: { minRows: 6, maxRows: 12 }
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
+                      vue.createVNode(_component_n_form_item, { label: "素材来源平台" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_select, {
+                            value: remixMaterialSrcMedia.value,
+                            "onUpdate:value": _cache[1] || (_cache[1] = ($event) => remixMaterialSrcMedia.value = $event),
+                            options: 可选项,
+                            placeholder: "请选择素材来源平台"
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
+                      vue.createVNode(_component_n_space, { justify: "center" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_button, {
+                            type: "primary",
+                            size: "large",
+                            onClick: processAllRecords,
+                            loading: isProcessing.value,
+                            disabled: !t.value.trim()
+                          }, {
+                            icon: vue.withCtx(() => _cache[3] || (_cache[3] = [
+                              vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🚀", -1)
+                            ])),
+                            default: vue.withCtx(() => [
+                              _cache[4] || (_cache[4] = vue.createTextVNode(" 开始批量处理 ", -1))
+                            ]),
+                            _: 1,
+                            __: [4]
+                          }, 8, ["loading", "disabled"]),
+                          vue.createVNode(_component_n_button, {
+                            type: "warning",
+                            size: "large",
+                            onClick: clearData
+                          }, {
+                            icon: vue.withCtx(() => _cache[5] || (_cache[5] = [
+                              vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🗑️", -1)
+                            ])),
+                            default: vue.withCtx(() => [
+                              _cache[6] || (_cache[6] = vue.createTextVNode(" 清除数据 ", -1))
+                            ]),
+                            _: 1,
+                            __: [6]
+                          })
+                        ]),
+                        _: 1
+                      }),
+                      isProcessing.value ? (vue.openBlock(), vue.createBlock(_component_n_progress, {
+                        key: 0,
+                        type: "line",
+                        percentage: progressPercentage.value,
+                        "indicator-placement": "inside",
+                        processing: ""
+                      }, null, 8, ["percentage"])) : vue.createCommentVNode("", true),
+                      processedItems.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_grid, {
+                        key: 1,
+                        cols: 3,
+                        "x-gap": 12
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "总记录数",
+                                value: totalItems.value
+                              }, null, 8, ["value"])
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "成功",
+                                value: successCount.value
+                              }, {
+                                prefix: vue.withCtx(() => _cache[7] || (_cache[7] = [
+                                  vue.createElementVNode("span", null, "✅", -1)
+                                ])),
+                                _: 1
+                              }, 8, ["value"])
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "失败",
+                                value: failureCount.value
+                              }, {
+                                prefix: vue.withCtx(() => _cache[8] || (_cache[8] = [
+                                  vue.createElementVNode("span", null, "❌", -1)
+                                ])),
+                                _: 1
+                              }, 8, ["value"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      processedItems.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 2 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "处理结果详情",
+                            name: "results"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_data_table, {
+                                columns: resultColumns,
+                                data: processedItems.value,
+                                pagination: { pageSize: 10 },
+                                size: "small",
+                                striped: ""
+                              }, null, 8, ["data"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      logs.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 3 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "操作日志",
+                            name: "logs"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_log, {
+                                log: logs.value.join("\n"),
+                                rows: 8
+                              }, null, 8, ["log"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ]);
+          };
+        }
+      };
+      const hunjianpiliang = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-11362bce"]]);
+      const _hoisted_1 = { class: "button-container" };
+      const _sfc_main$1 = {
+        __name: "app",
+        setup(__props) {
+          naive.useMessage();
+          const modalStates = vue.ref({
+            hunjianpiliang: false
+          });
+          const modalConfig = [
+            {
+              key: "hunjianpiliang",
+              title: "混剪批量处理",
+              component: hunjianpiliang
+            }
+          ];
+          const openModal = (modalKey) => {
+            modalStates.value[modalKey] = true;
+          };
+          const buttonConfig = vue.computed(() => [
+            {
+              key: "hunjianpiliang",
+              type: "primary",
+              icon: "🎬",
+              label: "混剪批量处理",
+              action: () => openModal("hunjianpiliang")
+            }
+          ]);
+          return (_ctx, _cache) => {
+            const _component_n_icon = vue.resolveComponent("n-icon");
+            const _component_n_button = vue.resolveComponent("n-button");
+            const _component_n_space = vue.resolveComponent("n-space");
+            const _component_n_modal = vue.resolveComponent("n-modal");
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+              vue.createVNode(_component_n_space, {
+                justify: "space-between",
+                wrap: ""
+              }, {
+                default: vue.withCtx(() => [
+                  (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(buttonConfig.value, (button) => {
+                    return vue.openBlock(), vue.createBlock(_component_n_button, {
+                      key: button.key,
+                      type: button.type,
+                      size: "large",
+                      style: { "flex": "1", "min-width": "150px", "margin": "4px" },
+                      onClick: button.action
+                    }, {
+                      icon: vue.withCtx(() => [
+                        vue.createVNode(_component_n_icon, null, {
+                          default: vue.withCtx(() => [
+                            vue.createTextVNode(vue.toDisplayString(button.icon), 1)
+                          ]),
+                          _: 2
+                        }, 1024)
+                      ]),
+                      default: vue.withCtx(() => [
+                        vue.createTextVNode(" " + vue.toDisplayString(button.label), 1)
+                      ]),
+                      _: 2
+                    }, 1032, ["type", "onClick"]);
+                  }), 128))
+                ]),
+                _: 1
+              }),
+              (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, vue.renderList(modalConfig, (modal) => {
+                return vue.createVNode(_component_n_modal, {
+                  key: modal.key,
+                  show: modalStates.value[modal.key],
+                  "onUpdate:show": ($event) => modalStates.value[modal.key] = $event,
+                  preset: "card",
+                  style: { "width": "1200px", "max-width": "95vw", "height": "90vh" },
+                  title: modal.title,
+                  bordered: false,
+                  "mask-closable": true,
+                  "close-on-esc": true
+                }, {
+                  default: vue.withCtx(() => [
+                    (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(modal.component)))
+                  ]),
+                  _: 2
+                }, 1032, ["show", "onUpdate:show", "title"]);
+              }), 64))
+            ]);
+          };
+        }
+      };
+      const xrw = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-abb13d7c"]]);
       const _sfc_main = {
         __name: "App",
         setup(__props) {
@@ -5448,6 +5979,9 @@
             }
             if (url.includes("ad.e.kuaishou.com")) {
               return kuaishou;
+            }
+            if (url.includes("adstar.alimama.com")) {
+              return xrw;
             }
             return DefaultComponent;
           });
