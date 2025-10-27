@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         qjjtools
 // @namespace    npm/vite-plugin-monkey
-// @version      10.5.1
+// @version      10.6.1
 // @author       qjj
 // @description  qjjtools
 // @license      MIT
@@ -198,7 +198,7 @@
 })();
 
 
-(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const t=document.createElement("style");t.textContent=a,document.head.append(t)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-e7612e1f]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-e7612e1f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-e7612e1f] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-e7612e1f] .n-card-content{padding:24px}[data-v-e7612e1f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-e7612e1f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-e7612e1f] .n-date-picker,[data-v-e7612e1f] .n-input{border-radius:8px}[data-v-e7612e1f] .n-data-table{border-radius:8px;overflow:hidden}[data-v-e7612e1f] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-3acfd1ee]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.kuaishou-ad-creator[data-v-654ceeb0]{max-width:1000px;margin:0 auto;padding:20px;font-family:Arial,sans-serif}.form-section[data-v-654ceeb0]{margin-bottom:20px}.form-section h2[data-v-654ceeb0]{color:#333;margin-bottom:20px}.form-section h3[data-v-654ceeb0]{color:#555;margin:15px 0 10px}.form-group[data-v-654ceeb0]{margin-bottom:20px}.form-group label[data-v-654ceeb0]{display:block;margin-bottom:8px;font-weight:700;color:#444}.form-group textarea[data-v-654ceeb0]{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;box-sizing:border border-box;font-family:monospace;font-size:14px}.form-group textarea[readonly][data-v-654ceeb0]{background-color:#f9f9f9;color:#666}.hint[data-v-654ceeb0]{margin-top:5px;font-size:12px;color:#666;font-style:italic}.action-section[data-v-654ceeb0]{margin:20px 0;text-align:center}button[data-v-654ceeb0]{padding:12px 30px;background-color:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:16px;transition:background-color .3s}button[data-v-654ceeb0]:disabled{background-color:#ccc;cursor:not-allowed}button[data-v-654ceeb0]:hover:not(:disabled){background-color:#0056b3}.log-section[data-v-654ceeb0]{margin-top:20px}.log-content[data-v-654ceeb0]{height:300px;overflow-y:auto;padding:15px;background-color:#f8f9fa;border:1px solid #ddd;border-radius:4px;font-family:monospace;font-size:14px;white-space:pre-wrap}.info[data-v-654ceeb0]{color:#333}.success[data-v-654ceeb0]{color:green}.error[data-v-654ceeb0]{color:red}.warning[data-v-654ceeb0]{color:orange}.button-container[data-v-e019b6d3]{padding:20px}.hunjianpiliang-container[data-v-866e6680]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-866e6680]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-866e6680] .n-card-content{padding:24px}[data-v-866e6680] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-866e6680] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-866e6680] .n-input{border-radius:8px}[data-v-866e6680] .n-form-item-label{font-weight:500;color:#333}[data-v-866e6680] .n-collapse,[data-v-866e6680] .n-data-table{border-radius:8px;overflow:hidden}.button-container[data-v-6e361d41]{padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh} ");
+(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const e=document.createElement("style");e.textContent=a,document.head.append(e)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-e7612e1f]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-e7612e1f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-e7612e1f] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-e7612e1f] .n-card-content{padding:24px}[data-v-e7612e1f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-e7612e1f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-e7612e1f] .n-date-picker,[data-v-e7612e1f] .n-input{border-radius:8px}[data-v-e7612e1f] .n-data-table{border-radius:8px;overflow:hidden}[data-v-e7612e1f] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-3acfd1ee]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.kuaishou-ad-creator[data-v-654ceeb0]{max-width:1000px;margin:0 auto;padding:20px;font-family:Arial,sans-serif}.form-section[data-v-654ceeb0]{margin-bottom:20px}.form-section h2[data-v-654ceeb0]{color:#333;margin-bottom:20px}.form-section h3[data-v-654ceeb0]{color:#555;margin:15px 0 10px}.form-group[data-v-654ceeb0]{margin-bottom:20px}.form-group label[data-v-654ceeb0]{display:block;margin-bottom:8px;font-weight:700;color:#444}.form-group textarea[data-v-654ceeb0]{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;box-sizing:border border-box;font-family:monospace;font-size:14px}.form-group textarea[readonly][data-v-654ceeb0]{background-color:#f9f9f9;color:#666}.hint[data-v-654ceeb0]{margin-top:5px;font-size:12px;color:#666;font-style:italic}.action-section[data-v-654ceeb0]{margin:20px 0;text-align:center}button[data-v-654ceeb0]{padding:12px 30px;background-color:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:16px;transition:background-color .3s}button[data-v-654ceeb0]:disabled{background-color:#ccc;cursor:not-allowed}button[data-v-654ceeb0]:hover:not(:disabled){background-color:#0056b3}.log-section[data-v-654ceeb0]{margin-top:20px}.log-content[data-v-654ceeb0]{height:300px;overflow-y:auto;padding:15px;background-color:#f8f9fa;border:1px solid #ddd;border-radius:4px;font-family:monospace;font-size:14px;white-space:pre-wrap}.info[data-v-654ceeb0]{color:#333}.success[data-v-654ceeb0]{color:green}.error[data-v-654ceeb0]{color:red}.warning[data-v-654ceeb0]{color:orange}.kuaishou-ad-creator[data-v-e2ee36d7]{max-width:1000px;margin:0 auto;padding:20px;font-family:Arial,sans-serif}.form-section[data-v-e2ee36d7]{margin-bottom:20px}.form-section h2[data-v-e2ee36d7]{color:#333;margin-bottom:20px}.form-section h3[data-v-e2ee36d7]{color:#555;margin:15px 0 10px}.form-group[data-v-e2ee36d7]{margin-bottom:20px}.form-group label[data-v-e2ee36d7]{display:block;margin-bottom:8px;font-weight:700;color:#444}.form-group textarea[data-v-e2ee36d7]{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;box-sizing:border border-box;font-family:monospace;font-size:14px}.form-group textarea[readonly][data-v-e2ee36d7]{background-color:#f9f9f9;color:#666}.hint[data-v-e2ee36d7]{margin-top:5px;font-size:12px;color:#666;font-style:italic}.action-section[data-v-e2ee36d7]{margin:20px 0;text-align:center}button[data-v-e2ee36d7]{padding:12px 30px;background-color:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:16px;transition:background-color .3s}button[data-v-e2ee36d7]:disabled{background-color:#ccc;cursor:not-allowed}button[data-v-e2ee36d7]:hover:not(:disabled){background-color:#0056b3}.log-section[data-v-e2ee36d7]{margin-top:20px}.log-content[data-v-e2ee36d7]{height:300px;overflow-y:auto;padding:15px;background-color:#f8f9fa;border:1px solid #ddd;border-radius:4px;font-family:monospace;font-size:14px;white-space:pre-wrap}.info[data-v-e2ee36d7]{color:#333}.success[data-v-e2ee36d7]{color:green}.error[data-v-e2ee36d7]{color:red}.warning[data-v-e2ee36d7]{color:orange}.button-container[data-v-ddd76544]{padding:20px}.hunjianpiliang-container[data-v-866e6680]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-866e6680]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-866e6680] .n-card-content{padding:24px}[data-v-866e6680] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-866e6680] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-866e6680] .n-input{border-radius:8px}[data-v-866e6680] .n-form-item-label{font-weight:500;color:#333}[data-v-866e6680] .n-collapse,[data-v-866e6680] .n-data-table{border-radius:8px;overflow:hidden}.hunjianpiliang-container[data-v-f1625577]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-f1625577]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-f1625577] .n-card-content{padding:24px}[data-v-f1625577] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-f1625577] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-f1625577] .n-input{border-radius:8px}[data-v-f1625577] .n-form-item-label{font-weight:500;color:#333}[data-v-f1625577] .n-collapse,[data-v-f1625577] .n-data-table{border-radius:8px;overflow:hidden}.button-container[data-v-4c94ffe2]{padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh} ");
 
 (function (vue, naive) {
   'use strict';
@@ -208,7 +208,7 @@
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var require_main_001 = __commonJS({
-    "main-C82UcP_y.js"(exports, module) {
+    "main-BpcC_4dU.js"(exports, module) {
       class LinkChecker {
         constructor() {
           this.isLoading = false;
@@ -487,7 +487,7 @@
         }
         return target;
       };
-      const _sfc_main$j = {
+      const _sfc_main$l = {
         __name: "rename",
         setup(__props) {
           const message = naive.useMessage();
@@ -612,8 +612,8 @@
           };
         }
       };
-      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__scopeId", "data-v-303426f9"]]);
-      const _sfc_main$i = {
+      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["__scopeId", "data-v-303426f9"]]);
+      const _sfc_main$k = {
         __name: "BatchPrice",
         props: {
           show: {
@@ -1033,8 +1033,8 @@
           };
         }
       };
-      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-29be6a47"]]);
-      const _sfc_main$h = {
+      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__scopeId", "data-v-29be6a47"]]);
+      const _sfc_main$j = {
         __name: "setplan",
         props: {
           show: {
@@ -1457,11 +1457,11 @@
           };
         }
       };
-      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-18ea35a2"]]);
-      const _hoisted_1$e = { class: "createrplan-container" };
-      const _hoisted_2$4 = { style: { "font-size": "14px" } };
-      const _hoisted_3$3 = { style: { "font-size": "16px" } };
-      const _sfc_main$g = {
+      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__scopeId", "data-v-18ea35a2"]]);
+      const _hoisted_1$g = { class: "createrplan-container" };
+      const _hoisted_2$5 = { style: { "font-size": "14px" } };
+      const _hoisted_3$4 = { style: { "font-size": "16px" } };
+      const _sfc_main$i = {
         __name: "createrplan",
         setup(__props) {
           const message = naive.useMessage();
@@ -1738,7 +1738,7 @@
             const _component_n_grid = vue.resolveComponent("n-grid");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$e, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$g, [
               vue.createVNode(_component_n_card, {
                 title: "小红书创意计划工具1.2",
                 class: "main-card"
@@ -1749,7 +1749,7 @@
                     size: "large"
                   }, {
                     icon: vue.withCtx(() => [
-                      vue.createElementVNode("span", _hoisted_2$4, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
+                      vue.createElementVNode("span", _hoisted_2$5, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
                     ]),
                     default: vue.withCtx(() => [
                       vue.createTextVNode(" " + vue.toDisplayString(currentVersion.value === "old" ? "老版本" : "新版本"), 1)
@@ -1868,7 +1868,7 @@
                                 onClick: switchVersion
                               }, {
                                 icon: vue.withCtx(() => [
-                                  vue.createElementVNode("span", _hoisted_3$3, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
+                                  vue.createElementVNode("span", _hoisted_3$4, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
                                 ]),
                                 default: vue.withCtx(() => [
                                   vue.createTextVNode(" 切换到" + vue.toDisplayString(currentVersion.value === "old" ? "新版本" : "老版本"), 1)
@@ -1970,10 +1970,10 @@
           };
         }
       };
-      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-5dbab58c"]]);
-      const _hoisted_1$d = { class: "button-container" };
-      const _hoisted_2$3 = { class: "modal-content" };
-      const _sfc_main$f = {
+      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-5dbab58c"]]);
+      const _hoisted_1$f = { class: "button-container" };
+      const _hoisted_2$4 = { class: "modal-content" };
+      const _sfc_main$h = {
         __name: "XHS",
         setup(__props) {
           const linkChecker = new LinkChecker();
@@ -2108,7 +2108,7 @@
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_modal = vue.resolveComponent("n-modal");
             return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-              vue.createElementVNode("div", _hoisted_1$d, [
+              vue.createElementVNode("div", _hoisted_1$f, [
                 vue.createVNode(_component_n_space, {
                   justify: "space-between",
                   wrap: ""
@@ -2255,7 +2255,7 @@
                     })
                   ]),
                   default: vue.withCtx(() => [
-                    vue.createElementVNode("div", _hoisted_2$3, [
+                    vue.createElementVNode("div", _hoisted_2$4, [
                       linkStats.totalCreativity > 0 ? (vue.openBlock(), vue.createBlock(_component_n_grid, {
                         key: 0,
                         cols: 3,
@@ -2432,13 +2432,13 @@
           };
         }
       };
-      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-aaaae17f"]]);
-      const _hoisted_1$c = { class: "default-component" };
-      const _sfc_main$e = {
+      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-aaaae17f"]]);
+      const _hoisted_1$e = { class: "default-component" };
+      const _sfc_main$g = {
         __name: "DefaultComponent",
         setup(__props) {
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$c, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$e, [
               vue.createVNode(vue.unref(naive.NEmpty), { description: "暂无适配" }, {
                 icon: vue.withCtx(() => [
                   vue.createVNode(vue.unref(naive.NIcon), { size: "48" }, {
@@ -2455,9 +2455,9 @@
           };
         }
       };
-      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-ff0a68db"]]);
-      const _hoisted_1$b = { class: "getchuangyi-container" };
-      const _sfc_main$d = {
+      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-ff0a68db"]]);
+      const _hoisted_1$d = { class: "getchuangyi-container" };
+      const _sfc_main$f = {
         __name: "getchuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2759,7 +2759,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$d, [
               vue.createVNode(_component_n_space, {
                 vertical: "",
                 size: 16
@@ -2875,9 +2875,9 @@
           };
         }
       };
-      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-e7612e1f"]]);
-      const _hoisted_1$a = { class: "jihua-container" };
-      const _sfc_main$c = {
+      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-e7612e1f"]]);
+      const _hoisted_1$c = { class: "jihua-container" };
+      const _sfc_main$e = {
         __name: "chuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2996,7 +2996,7 @@
             const _component_n_checkbox = vue.resolveComponent("n-checkbox");
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$c, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   vue.createVNode(_component_n_input, {
@@ -3035,9 +3035,9 @@
           };
         }
       };
-      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-e9fa887f"]]);
-      const _hoisted_1$9 = { class: "plan-container" };
-      const _sfc_main$b = {
+      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-e9fa887f"]]);
+      const _hoisted_1$b = { class: "plan-container" };
+      const _sfc_main$d = {
         __name: "jihua",
         setup(__props) {
           const message = naive.useMessage();
@@ -3200,7 +3200,7 @@
             const _component_n_input_number = vue.resolveComponent("n-input-number");
             const _component_n_input = vue.resolveComponent("n-input");
             const _component_n_button = vue.resolveComponent("n-button");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "description" }, [
@@ -3277,21 +3277,21 @@
           };
         }
       };
-      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-f977d1aa"]]);
-      const _hoisted_1$8 = { class: "search-price-container" };
-      const _hoisted_2$2 = { class: "button-group" };
-      const _hoisted_3$2 = { class: "result-header" };
-      const _hoisted_4$2 = { class: "result-icon" };
-      const _hoisted_5$2 = { class: "result-title" };
-      const _hoisted_6$2 = { class: "result-content" };
-      const _hoisted_7$2 = { key: 0 };
+      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-f977d1aa"]]);
+      const _hoisted_1$a = { class: "search-price-container" };
+      const _hoisted_2$3 = { class: "button-group" };
+      const _hoisted_3$3 = { class: "result-header" };
+      const _hoisted_4$3 = { class: "result-icon" };
+      const _hoisted_5$3 = { class: "result-title" };
+      const _hoisted_6$3 = { class: "result-content" };
+      const _hoisted_7$3 = { key: 0 };
       const _hoisted_8$1 = {
         key: 1,
         class: "error-message"
       };
       const _hoisted_9$1 = { class: "preview-header" };
       const _hoisted_10$1 = { class: "plan-ids-grid" };
-      const _sfc_main$a = {
+      const _sfc_main$c = {
         __name: "sosuo",
         setup(__props) {
           const message = naive.useMessage();
@@ -3439,7 +3439,7 @@
             }
           }, { immediate: true });
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
               _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "🔍 搜索出价调整工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "批量调整计划的搜索关键词出价")
@@ -3505,7 +3505,7 @@
                         ]),
                         _: 1
                       }),
-                      vue.createElementVNode("div", _hoisted_2$2, [
+                      vue.createElementVNode("div", _hoisted_2$3, [
                         vue.createVNode(vue.unref(naive.NButton), {
                           type: "primary",
                           size: "large",
@@ -3541,12 +3541,12 @@
                 class: vue.normalizeClass(["result-card", { "success": result.value.success, "error": !result.value.success }])
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_3$2, [
-                    vue.createElementVNode("span", _hoisted_4$2, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
-                    vue.createElementVNode("span", _hoisted_5$2, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
+                  vue.createElementVNode("div", _hoisted_3$3, [
+                    vue.createElementVNode("span", _hoisted_4$3, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
+                    vue.createElementVNode("span", _hoisted_5$3, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
                   ]),
-                  vue.createElementVNode("div", _hoisted_6$2, [
-                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7$2, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8$1, vue.toDisplayString(result.value.message), 1)),
+                  vue.createElementVNode("div", _hoisted_6$3, [
+                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7$3, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8$1, vue.toDisplayString(result.value.message), 1)),
                     result.value.details ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NCollapse), { key: 2 }, {
                       default: vue.withCtx(() => [
                         vue.createVNode(vue.unref(naive.NCollapseItem), {
@@ -3604,20 +3604,20 @@
           };
         }
       };
-      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-1b153763"]]);
-      const _hoisted_1$7 = { class: "note-match-container" };
-      const _hoisted_2$1 = { class: "match-stats-content" };
-      const _hoisted_3$1 = { class: "stats-item" };
-      const _hoisted_4$1 = { class: "stats-text" };
-      const _hoisted_5$1 = { class: "stats-item" };
-      const _hoisted_6$1 = { class: "stats-text" };
-      const _hoisted_7$1 = { class: "stats-item success" };
+      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-1b153763"]]);
+      const _hoisted_1$9 = { class: "note-match-container" };
+      const _hoisted_2$2 = { class: "match-stats-content" };
+      const _hoisted_3$2 = { class: "stats-item" };
+      const _hoisted_4$2 = { class: "stats-text" };
+      const _hoisted_5$2 = { class: "stats-item" };
+      const _hoisted_6$2 = { class: "stats-text" };
+      const _hoisted_7$2 = { class: "stats-item success" };
       const _hoisted_8 = { class: "stats-text" };
       const _hoisted_9 = { class: "stats-item warning" };
       const _hoisted_10 = { class: "stats-text" };
       const _hoisted_11 = { class: "stats-summary" };
       const _hoisted_12 = { class: "stats-text" };
-      const _sfc_main$9 = {
+      const _sfc_main$b = {
         __name: "noteMatch",
         setup(__props) {
           const message = naive.useMessage();
@@ -3960,7 +3960,7 @@
             message.info("已清空匹配结果");
           };
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
               _cache[23] || (_cache[23] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "📚 笔记库匹配工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "选择项目并匹配笔记库中的内容")
@@ -4240,29 +4240,29 @@
                 "close-on-esc": true
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_2$1, [
+                  vue.createElementVNode("div", _hoisted_2$2, [
                     vue.createVNode(vue.unref(naive.NSpace), {
                       vertical: "",
                       size: "large"
                     }, {
                       default: vue.withCtx(() => [
-                        vue.createElementVNode("div", _hoisted_3$1, [
+                        vue.createElementVNode("div", _hoisted_3$2, [
                           _cache[10] || (_cache[10] = vue.createElementVNode("span", { class: "stats-icon" }, "📝", -1)),
-                          vue.createElementVNode("span", _hoisted_4$1, [
+                          vue.createElementVNode("span", _hoisted_4$2, [
                             _cache[8] || (_cache[8] = vue.createTextVNode("账号下总共有 ", -1)),
                             vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalAccountNotes), 1),
                             _cache[9] || (_cache[9] = vue.createTextVNode(" 条笔记", -1))
                           ])
                         ]),
-                        vue.createElementVNode("div", _hoisted_5$1, [
+                        vue.createElementVNode("div", _hoisted_5$2, [
                           _cache[13] || (_cache[13] = vue.createElementVNode("span", { class: "stats-icon" }, "📚", -1)),
-                          vue.createElementVNode("span", _hoisted_6$1, [
+                          vue.createElementVNode("span", _hoisted_6$2, [
                             _cache[11] || (_cache[11] = vue.createTextVNode("笔记库总共 ", -1)),
                             vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalLibraryNotes), 1),
                             _cache[12] || (_cache[12] = vue.createTextVNode(" 条笔记", -1))
                           ])
                         ]),
-                        vue.createElementVNode("div", _hoisted_7$1, [
+                        vue.createElementVNode("div", _hoisted_7$2, [
                           _cache[16] || (_cache[16] = vue.createElementVNode("span", { class: "stats-icon" }, "✅", -1)),
                           vue.createElementVNode("span", _hoisted_8, [
                             _cache[14] || (_cache[14] = vue.createTextVNode("账号下有 ", -1)),
@@ -4314,9 +4314,9 @@
           };
         }
       };
-      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-0e22a33f"]]);
-      const _hoisted_1$6 = { class: "button-container" };
-      const _sfc_main$8 = {
+      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-0e22a33f"]]);
+      const _hoisted_1$8 = { class: "button-container" };
+      const _sfc_main$a = {
         __name: "app",
         setup(__props) {
           const isListening = vue.ref(false);
@@ -4408,7 +4408,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_alert = vue.resolveComponent("n-alert");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
@@ -4482,9 +4482,9 @@
           };
         }
       };
-      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-3acfd1ee"]]);
-      const _hoisted_1$5 = { class: "kuaishou-container" };
-      const _sfc_main$7 = {
+      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-3acfd1ee"]]);
+      const _hoisted_1$7 = { class: "kuaishou-container" };
+      const _sfc_main$9 = {
         __name: "kuaishou",
         setup(__props) {
           const message = naive.useMessage();
@@ -4689,7 +4689,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -4877,8 +4877,8 @@
           };
         }
       };
-      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-4eb60829"]]);
-      const _sfc_main$6 = {
+      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-4eb60829"]]);
+      const _sfc_main$8 = {
         __name: "close",
         setup(__props) {
           const r = `
@@ -4938,8 +4938,8 @@
           };
         }
       };
-      const _hoisted_1$4 = { class: "kuaishou-container" };
-      const _sfc_main$5 = {
+      const _hoisted_1$6 = { class: "kuaishou-container" };
+      const _sfc_main$7 = {
         __name: "hunjian",
         setup(__props) {
           const message = naive.useMessage();
@@ -5162,7 +5162,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -5355,15 +5355,15 @@
           };
         }
       };
-      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-4830d34f"]]);
-      const _hoisted_1$3 = { class: "kuaishou-ad-creator" };
-      const _hoisted_2 = { class: "form-section" };
-      const _hoisted_3 = { class: "form-group" };
-      const _hoisted_4 = { class: "form-group" };
-      const _hoisted_5 = { class: "action-section" };
-      const _hoisted_6 = ["disabled"];
-      const _hoisted_7 = { class: "log-section" };
-      const _sfc_main$4 = {
+      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-4830d34f"]]);
+      const _hoisted_1$5 = { class: "kuaishou-ad-creator" };
+      const _hoisted_2$1 = { class: "form-section" };
+      const _hoisted_3$1 = { class: "form-group" };
+      const _hoisted_4$1 = { class: "form-group" };
+      const _hoisted_5$1 = { class: "action-section" };
+      const _hoisted_6$1 = ["disabled"];
+      const _hoisted_7$1 = { class: "log-section" };
+      const _sfc_main$6 = {
         __name: "KuaishouAdCreator",
         setup(__props) {
           const requestInfo = vue.ref("");
@@ -5651,7 +5651,359 @@
             }
           };
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+              vue.createElementVNode("div", _hoisted_2$1, [
+                _cache[6] || (_cache[6] = vue.createElementVNode("h2", null, "快手广告批量创建工具", -1)),
+                vue.createElementVNode("div", _hoisted_3$1, [
+                  _cache[2] || (_cache[2] = vue.createElementVNode("label", { for: "requestInfo" }, "发送请求信息:", -1)),
+                  vue.withDirectives(vue.createElementVNode("textarea", {
+                    id: "requestInfo",
+                    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => requestInfo.value = $event),
+                    placeholder: "从快手平台自动获取的请求信息，如未显示请先在快手平台执行相关操作",
+                    rows: "8",
+                    readonly: ""
+                  }, null, 512), [
+                    [vue.vModelText, requestInfo.value]
+                  ]),
+                  _cache[3] || (_cache[3] = vue.createElementVNode("div", { class: "hint" }, " 💡 请求信息会自动从快手平台获取，如未显示请先在快手平台执行相关操作 ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_4$1, [
+                  _cache[4] || (_cache[4] = vue.createElementVNode("label", { for: "excelData" }, "Excel数据表:", -1)),
+                  vue.withDirectives(vue.createElementVNode("textarea", {
+                    id: "excelData",
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => excelData.value = $event),
+                    placeholder: "请输入Excel中的数据表（达人名称、视频ID、跳转链接、H5链接，用制表符分隔）",
+                    rows: "10"
+                  }, null, 512), [
+                    [vue.vModelText, excelData.value]
+                  ])
+                ]),
+                vue.createElementVNode("div", _hoisted_5$1, [
+                  vue.createElementVNode("button", {
+                    onClick: execute,
+                    disabled: isRunning.value
+                  }, vue.toDisplayString(isRunning.value ? "执行中..." : "开始执行"), 9, _hoisted_6$1)
+                ]),
+                vue.createElementVNode("div", _hoisted_7$1, [
+                  _cache[5] || (_cache[5] = vue.createElementVNode("h3", null, "执行日志", -1)),
+                  vue.createElementVNode("div", {
+                    class: "log-content",
+                    ref_key: "logContent",
+                    ref: logContent
+                  }, [
+                    (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(logs.value, (log, index) => {
+                      return vue.openBlock(), vue.createElementBlock("div", {
+                        key: index,
+                        class: vue.normalizeClass(log.type)
+                      }, vue.toDisplayString(log.message), 3);
+                    }), 128))
+                  ], 512)
+                ])
+              ])
+            ]);
+          };
+        }
+      };
+      const KuaishouAdCreator = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-654ceeb0"]]);
+      const _hoisted_1$4 = { class: "kuaishou-ad-creator" };
+      const _hoisted_2 = { class: "form-section" };
+      const _hoisted_3 = { class: "form-group" };
+      const _hoisted_4 = { class: "form-group" };
+      const _hoisted_5 = { class: "action-section" };
+      const _hoisted_6 = ["disabled"];
+      const _hoisted_7 = { class: "log-section" };
+      const _sfc_main$5 = {
+        __name: "KuaishouAdCreator_ys",
+        setup(__props) {
+          const requestInfo = vue.ref("");
+          const excelData = vue.ref("");
+          const isRunning = vue.ref(false);
+          const logs = vue.ref([]);
+          const logContent = vue.ref(null);
+          const addLog = (message, type = "info") => {
+            logs.value.push({ message, type });
+            setTimeout(() => {
+              if (logContent.value) {
+                logContent.value.scrollTop = logContent.value.scrollHeight;
+              }
+            }, 0);
+          };
+          vue.onMounted(() => {
+            const savedRequest = GM_getValue("kuaishou_requestData") || "";
+            if (savedRequest !== "") {
+              requestInfo.value = savedRequest;
+              addLog("已成功加载保存的请求信息", "success");
+            } else {
+              addLog(
+                "未检测到保存的请求信息，请先在快手平台执行相关操作以获取请求信息",
+                "warning"
+              );
+              addLog(
+                "操作步骤：1. 打开快手广告平台 2. 执行创建广告操作 3. 返回此页面查看是否获取到请求",
+                "info"
+              );
+            }
+          });
+          const parseExcelData = (tableString) => {
+            addLog("开始解析Excel数据...");
+            try {
+              const lines = tableString.split("\n");
+              const result = [];
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line) {
+                  const columns = line.split("	");
+                  if (columns.length >= 4) {
+                    result.push({
+                      name: columns[0],
+                      // 达人名称
+                      videoId: columns[1],
+                      // 视频ID
+                      dp: columns[3],
+                      // 跳转链接
+                      h5: columns[2]
+                      // H5链接
+                    });
+                  }
+                }
+              }
+              addLog(`解析Excel数据完成，共 ${result.length} 条记录`, "success");
+              return result;
+            } catch (error) {
+              addLog(`解析Excel数据失败: ${error.message}`, "error");
+              return [];
+            }
+          };
+          const parseRequestInfo = (requestString) => {
+            try {
+              const captured = typeof requestString === "string" ? JSON.parse(requestString) : requestString;
+              const url = captured.url;
+              const method = captured.method || "POST";
+              const headers = captured.requestHeaders || {};
+              const headers1 = headers;
+              if (typeof headers !== "object") {
+                const headers12 = JSON.parse(headers);
+                return null;
+              }
+              const body = captured.requestBody;
+              console.log(captured);
+              const campaignId = JSON.parse(body).campaignId;
+              const dsp_ph = url.match(new RegExp("(?<=dsp_ph=).*"))[0];
+              return {
+                url,
+                method,
+                headers,
+                body,
+                requestid: headers1["x-requestid"],
+                account: headers1["account-id"],
+                //captured.account,
+                ktrace: headers1["ktrace-str"],
+                //captured.ktrace,
+                campaignId,
+                dsp_ph
+              };
+            } catch (error) {
+              addLog(`解析请求信息失败: ${error.message}`, "error");
+              return null;
+            }
+          };
+          const getTimeStamp = () => {
+            return Date.now().toString();
+          };
+          const t = typeof GM_xmlhttpRequest !== "undefined";
+          addLog(t);
+          const getVideoInfo = async (dsp_ph, authorId, account, ktrace, requestid) => {
+            addLog(`获取达人 ${authorId} 的视频信息...`);
+            return new Promise((resolve, reject) => {
+              const url = `https://ad.e.kuaishou.com/rest/dsp/kwai/order/photo/list?kuaishou.ad.dsp_ph=${dsp_ph}`;
+              const body = `{"authorId":${authorId},"kolUserType":3,"campaignType":2}`;
+              GM_xmlhttpRequest({
+                method: "POST",
+                url,
+                headers: {
+                  accept: "application/json",
+                  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                  "account-id": account,
+                  "content-type": "application/json",
+                  "priority": "u=1, i",
+                  "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="127", "Edge";v="127"',
+                  "sec-ch-ua-mobile": "?0",
+                  "sec-ch-ua-platform": '"Linux"',
+                  "sec-fetch-dest": "empty",
+                  "sec-fetch-mode": "cors",
+                  "sec-fetch-site": "same-origin",
+                  "traffic-channel": "pc",
+                  "x-fetch-time": getTimeStamp(),
+                  "x-requestid": requestid,
+                  "cookie": document.cookie,
+                  "ktrace-str": ktrace
+                },
+                data: body,
+                onload: (response) => {
+                  try {
+                    const json = JSON.parse(response.responseText);
+                    addLog(`获取达人 ${authorId} 的视频信息成功${json.data.photos[0].photoId}`, "success");
+                    resolve(json.data);
+                  } catch (e) {
+                    addLog("解析响应失败: " + e.message, "error");
+                    reject(e);
+                  }
+                },
+                onerror: (err) => {
+                  addLog(`请求失败: ${err.status} ${err.statusText}`, "error");
+                  reject(new Error(`Network error: ${err.status}`));
+                },
+                ontimeout: () => {
+                  addLog("请求超时", "error");
+                  reject(new Error("Request timeout"));
+                },
+                timeout: 2e4
+                // 10秒超时
+              });
+            });
+          };
+          const getBody = (originalBody, projectName, data, authorId, dp, h5) => {
+            addLog(`构造请求体...`);
+            try {
+              let bodyObj = JSON.parse(originalBody);
+              bodyObj.campaignId = bodyObj.campaignId || "";
+              bodyObj.unit.campaignId = bodyObj.campaignId || "";
+              bodyObj.unit.schemaUri = dp;
+              bodyObj.unit.schemaUrl = dp;
+              bodyObj.unit.webUri = h5;
+              bodyObj.unit.name = `${projectName}_${(/* @__PURE__ */ new Date()).getTime()}`;
+              if (bodyObj.customizedCreative && bodyObj.customizedCreative.creativeListParam && bodyObj.customizedCreative.creativeListParam.length > 0) {
+                const creative = bodyObj.customizedCreative.creativeListParam[0];
+                creative.description = data.photos[0].caption.slice(0, 29).trim();
+                creative.coverUrl = data.photos[0].coverThumbnailUrls[0].url, creative.name = `${projectName}_${(/* @__PURE__ */ new Date()).getTime()}`;
+                creative.photoId = data.photos[0].photoId;
+                creative.kolUserId = authorId;
+                creative.coverWidth = data.photos[0].width;
+                creative.coverHeight = data.photos[0].height;
+              }
+              addLog(`构造请求体成功`, "success");
+              return JSON.stringify(bodyObj);
+            } catch (error) {
+              addLog(`构造请求体失败: ${error.message}`, "error");
+              return originalBody;
+            }
+          };
+          const send = async (dsp_ph, account, ktrace, requestid, body) => {
+            addLog(`发送广告创建请求...`);
+            return new Promise((resolve, reject) => {
+              const url = `https://ad.e.kuaishou.com/rest/dsp/portal/createUnitAndCreative?kuaishou.ad.dsp_ph=${dsp_ph}`;
+              GM_xmlhttpRequest({
+                method: "POST",
+                url,
+                headers: {
+                  accept: "application/json",
+                  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                  "account-id": account,
+                  "content-type": "application/json",
+                  "priority": "u=1, i",
+                  "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="127", "Edge";v="127"',
+                  "sec-ch-ua-mobile": "?0",
+                  "sec-ch-ua-platform": '"Linux"',
+                  "sec-fetch-dest": "empty",
+                  "sec-fetch-mode": "cors",
+                  "sec-fetch-site": "same-origin",
+                  "traffic-channel": "pc",
+                  "x-fetch-time": getTimeStamp(),
+                  "x-requestid": requestid,
+                  "cookie": document.cookie,
+                  "ktrace-str": ktrace
+                },
+                data: body,
+                onload: (response) => {
+                  try {
+                    const json = JSON.parse(response.responseText);
+                    resolve(json);
+                  } catch (e) {
+                    addLog("解析响应失败: " + e.message, "error");
+                    reject(e);
+                  }
+                },
+                onerror: (err) => {
+                  addLog(`请求失败: ${err.status} ${err.statusText}`, "error");
+                  reject(new Error(`Network error: ${err.status}`));
+                },
+                ontimeout: () => {
+                  addLog("请求超时", "error");
+                  reject(new Error("Request timeout"));
+                },
+                timeout: 2e4
+                // 10秒超时
+              });
+            });
+          };
+          const execute = async () => {
+            if (isRunning.value) {
+              addLog("正在执行中，请稍后再试", "error");
+              return;
+            }
+            if (!requestInfo.value) {
+              addLog("请先在快手平台执行相关操作以获取请求信息", "error");
+              alert("请先在快手平台执行相关操作以获取请求信息！");
+              return;
+            }
+            if (!excelData.value) {
+              addLog("请填写Excel数据表", "error");
+              return;
+            }
+            isRunning.value = true;
+            addLog("开始执行广告批量创建流程...");
+            try {
+              const requestParams = parseRequestInfo(requestInfo.value);
+              if (!requestParams) {
+                addLog("请求信息解析失败，请检查是否正确获取了请求信息", "error");
+                return;
+              }
+              const dataList = parseExcelData(excelData.value);
+              if (dataList.length === 0) {
+                addLog("Excel数据解析失败或无有效数据，请检查输入格式", "error");
+                return;
+              }
+              const originalBody = requestParams.body;
+              for (let i = 0; i < dataList.length; i++) {
+                const item = dataList[i];
+                addLog(`处理第 ${i + 1}/${dataList.length} 项: ${item.name}`);
+                try {
+                  const videoData = await getVideoInfo(
+                    requestParams.dsp_ph,
+                    item.videoId,
+                    requestParams.account,
+                    requestParams.ktrace,
+                    requestParams.requestid
+                  );
+                  const body = getBody(
+                    originalBody,
+                    item.name,
+                    videoData,
+                    item.videoId,
+                    item.dp,
+                    item.h5
+                  );
+                  await send(
+                    requestParams.dsp_ph,
+                    requestParams.account,
+                    requestParams.ktrace,
+                    requestParams.requestid,
+                    body
+                  );
+                  addLog(`处理第 ${i + 1} 项完成`, "success");
+                } catch (error) {
+                  addLog(`处理第 ${i + 1} 项失败: ${error.message}`, "error");
+                }
+              }
+              addLog("广告批量创建流程执行完成", "success");
+            } catch (error) {
+              addLog(`执行过程中发生错误: ${error.message}`, "error");
+            } finally {
+              isRunning.value = false;
+            }
+          };
+          return (_ctx, _cache) => {
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
               vue.createElementVNode("div", _hoisted_2, [
                 _cache[6] || (_cache[6] = vue.createElementVNode("h2", null, "快手广告批量创建工具", -1)),
                 vue.createElementVNode("div", _hoisted_3, [
@@ -5704,9 +6056,9 @@
           };
         }
       };
-      const KuaishouAdCreator = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-654ceeb0"]]);
-      const _hoisted_1$2 = { class: "button-container" };
-      const _sfc_main$3 = {
+      const KuaishouAdCreatorYS = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-e2ee36d7"]]);
+      const _hoisted_1$3 = { class: "button-container" };
+      const _sfc_main$4 = {
         __name: "app",
         setup(__props) {
           naive.useMessage();
@@ -5725,7 +6077,7 @@
             {
               key: "close",
               title: "快手创意关闭",
-              component: _sfc_main$6
+              component: _sfc_main$8
             },
             {
               key: "hunjian",
@@ -5736,6 +6088,11 @@
               key: "adCreator",
               title: "快手广告创建工具",
               component: KuaishouAdCreator
+            },
+            {
+              key: "adCreatorYS",
+              title: "快手广告创建工具_原生",
+              component: KuaishouAdCreatorYS
             }
           ];
           const openModal = (modalKey) => {
@@ -5769,6 +6126,13 @@
               icon: "🐒",
               label: "广告创建",
               action: () => openModal("adCreator")
+            },
+            {
+              key: "adCreatorYS",
+              type: "info",
+              icon: "🐒",
+              label: "广告创建_原生",
+              action: () => openModal("adCreatorYS")
             }
           ]);
           return (_ctx, _cache) => {
@@ -5776,7 +6140,7 @@
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
@@ -5829,9 +6193,9 @@
           };
         }
       };
-      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-e019b6d3"]]);
-      const _hoisted_1$1 = { class: "hunjianpiliang-container" };
-      const _sfc_main$2 = {
+      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-ddd76544"]]);
+      const _hoisted_1$2 = { class: "hunjianpiliang-container" };
+      const _sfc_main$3 = {
         __name: "hunjianpiliang",
         props: {
           tbToken: {
@@ -6078,7 +6442,7 @@
             const _component_n_collapse = vue.resolveComponent("n-collapse");
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$2, [
               vue.createVNode(_component_n_card, {
                 title: "混剪批量处理工具",
                 class: "main-card"
@@ -6270,7 +6634,433 @@
           };
         }
       };
-      const hunjianpiliang = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-866e6680"]]);
+      const hunjianpiliang = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-866e6680"]]);
+      const _hoisted_1$1 = { class: "hunjianpiliang-container" };
+      const _sfc_main$2 = {
+        __name: "ys",
+        props: {
+          tbToken: {
+            type: String,
+            default: ""
+          }
+        },
+        setup(__props) {
+          const props = __props;
+          const message = naive.useMessage();
+          const t = vue.ref(``);
+          const xrwMedia = vue.ref("RED_BOOK");
+          const isProcessing = vue.ref(false);
+          const logs = vue.ref([]);
+          const processedItems = vue.ref([]);
+          const currentIndex = vue.ref(0);
+          const totalItems = vue.ref(0);
+          const 可选项 = [
+            {
+              "isDefault": true,
+              "label": "小红书",
+              "value": "RED_BOOK"
+            },
+            {
+              "label": "B站",
+              "value": "BILIBILI"
+            },
+            {
+              "label": "抖音",
+              "value": "DOUYIN"
+            },
+            {
+              "label": "快手",
+              "value": "KUAISHOU"
+            },
+            {
+              "label": "腾讯视频号",
+              "value": "TENCENT"
+            }
+          ];
+          const progressPercentage = vue.computed(() => {
+            return totalItems.value > 0 ? Math.round(currentIndex.value / totalItems.value * 100) : 0;
+          });
+          const successCount = vue.computed(() => {
+            return processedItems.value.filter((item) => item.status === "success").length;
+          });
+          const failureCount = vue.computed(() => {
+            return processedItems.value.filter((item) => item.status === "error").length;
+          });
+          const resultColumns = [
+            // { title: '素材ID', key: 'remixMaterialId', width: 150 },
+            { title: "达人唯一标识", key: "koxUniqId", width: 150 },
+            { title: "商品ID列表", key: "itemIds", width: 200 },
+            {
+              title: "状态",
+              key: "status",
+              width: 100,
+              render: (row) => {
+                const type = row.status === "success" ? "success" : "error";
+                const text = row.status === "success" ? "成功" : "失败";
+                const emoji = row.status === "success" ? "✅" : "❌";
+                return h("n-tag", { type, size: "small" }, { default: () => [emoji, " ", text] });
+              }
+            },
+            { title: "错误信息", key: "error", ellipsis: { tooltip: true } }
+          ];
+          const addLog = (message2) => {
+            const timestamp = (/* @__PURE__ */ new Date()).toLocaleTimeString();
+            logs.value.unshift(`[${timestamp}] ${message2}`);
+            if (logs.value.length > 50) {
+              logs.value = logs.value.slice(0, 50);
+            }
+          };
+          const executeDependentRequests = async (record) => {
+            const [
+              // remixMaterialId, // 素材id
+              koxUniqId,
+              // 达人唯一标识
+              itemIds
+              // 商品ID列表
+              // remixEditor // 剪辑师（从record中获取）
+            ] = record;
+            const eventId = location.search.match(new RegExp("(?<=eventId=).*"))[0];
+            const media = xrwMedia.value;
+            const cpId = 1314017170;
+            const stickyItemId = itemIds.split(",")[0];
+            const token = props.tbToken || "ee3b737e1e7ee";
+            try {
+              const response1 = await fetch(
+                "https://adstar.alimama.com/openapi/json2/1/gateway.unionpub/union.kox.summary.query.json?bizCode=adstar&_tb_token_=" + token + "&uidList=" + koxUniqId + "&mediaBpCode=" + xrwMedia.value,
+                {
+                  method: "GET",
+                  headers: {
+                    _tb_token_: token,
+                    accept: "*/*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "bx-v": "2.5.11",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    priority: "u=1, i",
+                    "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "x-requested-with": "XMLHttpRequest"
+                  },
+                  referrer: "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=" + eventId,
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              const data1 = await response1.json();
+              if (!data1.success || !data1.model || data1.model.length === 0) {
+                throw new Error("请求1失败：未获取到有效的达人数据");
+              }
+              const userInfo = data1.model[0];
+              const postData = {
+                eventId,
+                media,
+                isRemix: false,
+                // xrwMedia: xrwMedia.value,
+                koxNickname: userInfo.nick,
+                koxUniqId: userInfo.uniqId,
+                // remixEditor, // 使用从record中获取的remixEditor
+                cpId,
+                // remixMaterialId,
+                koxId: userInfo.uid,
+                stickyItemId,
+                extraInfo: "{}"
+              };
+              const urlEncodedData = "_data_=" + encodeURIComponent(JSON.stringify(postData));
+              const response2 = await fetch(
+                "https://adstar.alimama.com/openapi/param2/1/gateway.unionpub/union.adcontent.kox.link.record.add.json?_tb_token_=" + token,
+                {
+                  method: "POST",
+                  headers: {
+                    accept: "*/*",
+                    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                    "bx-v": "2.5.11",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    priority: "u=1, i",
+                    "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"macOS"',
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "x-requested-with": "XMLHttpRequest"
+                  },
+                  referrer: "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=" + eventId,
+                  body: urlEncodedData,
+                  mode: "cors",
+                  credentials: "include"
+                }
+              );
+              const data2 = await response2.json();
+              console.log("请求2响应：", data2);
+              return data2;
+            } catch (error) {
+              console.error("执行过程中出错：", error);
+              throw error;
+            }
+          };
+          const processAllRecords = async () => {
+            if (!t.value.trim()) {
+              message.warning("请先输入数据");
+              return;
+            }
+            isProcessing.value = true;
+            processedItems.value = [];
+            currentIndex.value = 0;
+            try {
+              const lines = t.value.trim().split("\n");
+              const records = lines.map((line) => line.split("	"));
+              totalItems.value = records.length;
+              for (const record of records) {
+                try {
+                  currentIndex.value++;
+                  addLog(`正在处理记录: ${record[0]}`);
+                  await executeDependentRequests(record);
+                  processedItems.value.push({
+                    koxNickname: record[0],
+                    index: record[1],
+                    // remixMaterialId: record[2],
+                    koxUniqId: record[3],
+                    taskType: record[4],
+                    itemIds: record[5],
+                    status: "success",
+                    error: ""
+                  });
+                  await new Promise((resolve) => setTimeout(resolve, 1e3));
+                } catch (error) {
+                  currentIndex.value++;
+                  addLog(`处理记录 ${record[0]} 时出错: ${error.message}`);
+                  processedItems.value.push({
+                    koxNickname: record[0] || "",
+                    index: record[1] || "",
+                    // remixMaterialId: record[2] || '',
+                    koxUniqId: record[3] || "",
+                    taskType: record[4] || "",
+                    itemIds: record[5] || "",
+                    status: "error",
+                    error: error.message
+                  });
+                }
+              }
+              message.success(`批量处理完成! 成功 ${successCount.value} 条，失败 ${failureCount.value} 条`);
+              addLog(`批量处理完成! 成功 ${successCount.value} 条，失败 ${failureCount.value} 条`);
+            } catch (error) {
+              console.error("批量处理过程中出错：", error);
+              message.error("批量处理失败: " + error.message);
+              addLog("批量处理失败: " + error.message);
+            } finally {
+              isProcessing.value = false;
+            }
+          };
+          const clearData = () => {
+            t.value = "";
+            processedItems.value = [];
+            logs.value = [];
+            currentIndex.value = 0;
+            totalItems.value = 0;
+            message.success("已清除所有数据");
+            addLog("清除所有数据");
+          };
+          return (_ctx, _cache) => {
+            const _component_n_input = vue.resolveComponent("n-input");
+            const _component_n_text = vue.resolveComponent("n-text");
+            const _component_n_form_item = vue.resolveComponent("n-form-item");
+            const _component_n_select = vue.resolveComponent("n-select");
+            const _component_n_button = vue.resolveComponent("n-button");
+            const _component_n_space = vue.resolveComponent("n-space");
+            const _component_n_progress = vue.resolveComponent("n-progress");
+            const _component_n_statistic = vue.resolveComponent("n-statistic");
+            const _component_n_grid_item = vue.resolveComponent("n-grid-item");
+            const _component_n_grid = vue.resolveComponent("n-grid");
+            const _component_n_data_table = vue.resolveComponent("n-data-table");
+            const _component_n_collapse_item = vue.resolveComponent("n-collapse-item");
+            const _component_n_collapse = vue.resolveComponent("n-collapse");
+            const _component_n_log = vue.resolveComponent("n-log");
+            const _component_n_card = vue.resolveComponent("n-card");
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
+              vue.createVNode(_component_n_card, {
+                title: "原生批量处理工具",
+                class: "main-card"
+              }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_n_space, {
+                    vertical: "",
+                    size: 16
+                  }, {
+                    default: vue.withCtx(() => [
+                      vue.createVNode(_component_n_form_item, { label: "数据输入" }, {
+                        feedback: vue.withCtx(() => [
+                          vue.createVNode(_component_n_text, {
+                            depth: "3",
+                            style: { "font-size": "12px" }
+                          }, {
+                            default: vue.withCtx(() => _cache[2] || (_cache[2] = [
+                              vue.createTextVNode(" 每行一条数据，字段间用制表符分隔 ", -1)
+                            ])),
+                            _: 1,
+                            __: [2]
+                          })
+                        ]),
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_input, {
+                            value: t.value,
+                            "onUpdate:value": _cache[0] || (_cache[0] = ($event) => t.value = $event),
+                            type: "textarea",
+                            placeholder: "请输入数据，格式：素材id 达人标识 商品id 剪辑师",
+                            autosize: { minRows: 6, maxRows: 12 }
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
+                      vue.createVNode(_component_n_form_item, { label: "星任务平台" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_select, {
+                            value: xrwMedia.value,
+                            "onUpdate:value": _cache[1] || (_cache[1] = ($event) => xrwMedia.value = $event),
+                            options: 可选项,
+                            placeholder: "星任务平台"
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
+                      vue.createVNode(_component_n_space, { justify: "center" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_button, {
+                            type: "primary",
+                            size: "large",
+                            onClick: processAllRecords,
+                            loading: isProcessing.value,
+                            disabled: !t.value.trim()
+                          }, {
+                            icon: vue.withCtx(() => _cache[3] || (_cache[3] = [
+                              vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🚀", -1)
+                            ])),
+                            default: vue.withCtx(() => [
+                              _cache[4] || (_cache[4] = vue.createTextVNode(" 开始批量处理 ", -1))
+                            ]),
+                            _: 1,
+                            __: [4]
+                          }, 8, ["loading", "disabled"]),
+                          vue.createVNode(_component_n_button, {
+                            type: "warning",
+                            size: "large",
+                            onClick: clearData
+                          }, {
+                            icon: vue.withCtx(() => _cache[5] || (_cache[5] = [
+                              vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🗑️", -1)
+                            ])),
+                            default: vue.withCtx(() => [
+                              _cache[6] || (_cache[6] = vue.createTextVNode(" 清除数据 ", -1))
+                            ]),
+                            _: 1,
+                            __: [6]
+                          })
+                        ]),
+                        _: 1
+                      }),
+                      isProcessing.value ? (vue.openBlock(), vue.createBlock(_component_n_progress, {
+                        key: 0,
+                        type: "line",
+                        percentage: progressPercentage.value,
+                        "indicator-placement": "inside",
+                        processing: ""
+                      }, null, 8, ["percentage"])) : vue.createCommentVNode("", true),
+                      processedItems.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_grid, {
+                        key: 1,
+                        cols: 3,
+                        "x-gap": 12
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "总记录数",
+                                value: totalItems.value
+                              }, null, 8, ["value"])
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "成功",
+                                value: successCount.value
+                              }, {
+                                prefix: vue.withCtx(() => _cache[7] || (_cache[7] = [
+                                  vue.createElementVNode("span", null, "✅", -1)
+                                ])),
+                                _: 1
+                              }, 8, ["value"])
+                            ]),
+                            _: 1
+                          }),
+                          vue.createVNode(_component_n_grid_item, null, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_statistic, {
+                                label: "失败",
+                                value: failureCount.value
+                              }, {
+                                prefix: vue.withCtx(() => _cache[8] || (_cache[8] = [
+                                  vue.createElementVNode("span", null, "❌", -1)
+                                ])),
+                                _: 1
+                              }, 8, ["value"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      processedItems.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 2 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "处理结果详情",
+                            name: "results"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_data_table, {
+                                columns: resultColumns,
+                                data: processedItems.value,
+                                pagination: { pageSize: 10 },
+                                size: "small",
+                                striped: ""
+                              }, null, 8, ["data"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true),
+                      logs.value.length > 0 ? (vue.openBlock(), vue.createBlock(_component_n_collapse, { key: 3 }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_collapse_item, {
+                            title: "操作日志",
+                            name: "logs"
+                          }, {
+                            default: vue.withCtx(() => [
+                              vue.createVNode(_component_n_log, {
+                                log: logs.value.join("\n"),
+                                rows: 8
+                              }, null, 8, ["log"])
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        _: 1
+                      })) : vue.createCommentVNode("", true)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ]);
+          };
+        }
+      };
+      const ys = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-f1625577"]]);
       const _hoisted_1 = { class: "button-container" };
       const _sfc_main$1 = {
         __name: "app",
@@ -6287,6 +7077,11 @@
               key: "hunjianpiliang",
               title: "混剪批量处理",
               component: hunjianpiliang
+            },
+            {
+              key: "ys",
+              title: "原生批量处理",
+              component: ys
             }
           ];
           const openModal = (modalKey) => {
@@ -6299,6 +7094,13 @@
               icon: "🎬",
               label: "混剪批量处理",
               action: () => openModal("hunjianpiliang")
+            },
+            {
+              key: "ys",
+              type: "primary",
+              icon: "🎬",
+              label: "原生批量处理",
+              action: () => openModal("ys")
             }
           ]);
           return (_ctx, _cache) => {
@@ -6381,7 +7183,7 @@
           };
         }
       };
-      const xrw = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-6e361d41"]]);
+      const xrw = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-4c94ffe2"]]);
       const _sfc_main = {
         __name: "App",
         setup(__props) {
