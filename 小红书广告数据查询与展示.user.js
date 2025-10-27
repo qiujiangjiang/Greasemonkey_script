@@ -1,17 +1,204 @@
 // ==UserScript==
-// @name       qjjtools
-// @namespace  npm/vite-plugin-monkey
-// @version    10.4.0
-// @icon       https://vitejs.dev/logo.svg
-// @match      *://*/*
-// @require    https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.18/vue.global.prod.min.js
-// @require    data:application/javascript,%3Bwindow.Vue%3DVue%3B
-// @require    https://cdnjs.cloudflare.com/ajax/libs/naive-ui/2.42.0/index.prod.js
-// @require    data:application/javascript,%3Bwindow.naive%3Dnaive%3B
-// @grant      GM_addStyle
+// @name         qjjtools
+// @namespace    npm/vite-plugin-monkey
+// @version      10.5.1
+// @author       qjj
+// @description  qjjtools
+// @license      MIT
+// @icon         https://vitejs.dev/logo.svg
+// @match        *://*/*
+// @require      https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.18/vue.global.prod.min.js
+// @require      data:application/javascript,%3Bwindow.Vue%3DVue%3B
+// @require      https://cdnjs.cloudflare.com/ajax/libs/naive-ui/2.42.0/index.prod.js
+// @require      data:application/javascript,%3Bwindow.naive%3Dnaive%3B
+// @grant        GM.addElement
+// @grant        GM.addStyle
+// @grant        GM.addValueChangeListener
+// @grant        GM.cookie
+// @grant        GM.deleteValue
+// @grant        GM.deleteValues
+// @grant        GM.download
+// @grant        GM.getResourceText
+// @grant        GM.getResourceUrl
+// @grant        GM.getTab
+// @grant        GM.getTabs
+// @grant        GM.getValue
+// @grant        GM.getValues
+// @grant        GM.info
+// @grant        GM.listValues
+// @grant        GM.log
+// @grant        GM.notification
+// @grant        GM.openInTab
+// @grant        GM.registerMenuCommand
+// @grant        GM.removeValueChangeListener
+// @grant        GM.saveTab
+// @grant        GM.setClipboard
+// @grant        GM.setValue
+// @grant        GM.setValues
+// @grant        GM.unregisterMenuCommand
+// @grant        GM.webRequest
+// @grant        GM.xmlHttpRequest
+// @grant        GM_addElement
+// @grant        GM_addStyle
+// @grant        GM_addValueChangeListener
+// @grant        GM_cookie
+// @grant        GM_deleteValue
+// @grant        GM_deleteValues
+// @grant        GM_download
+// @grant        GM_getResourceText
+// @grant        GM_getResourceURL
+// @grant        GM_getTab
+// @grant        GM_getTabs
+// @grant        GM_getValue
+// @grant        GM_getValues
+// @grant        GM_info
+// @grant        GM_listValues
+// @grant        GM_log
+// @grant        GM_notification
+// @grant        GM_openInTab
+// @grant        GM_registerMenuCommand
+// @grant        GM_removeValueChangeListener
+// @grant        GM_saveTab
+// @grant        GM_setClipboard
+// @grant        GM_setValue
+// @grant        GM_setValues
+// @grant        GM_unregisterMenuCommand
+// @grant        GM_webRequest
+// @grant        GM_xmlhttpRequest
+// @grant        unsafeWindow
+// @grant        window.close
+// @grant        window.focus
+// @grant        window.onurlchange
+// @run-at       document-start
 // ==/UserScript==
+(function() {
+    'use strict';
 
-(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const d=document.createElement("style");d.textContent=a,document.head.append(d)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-5a29dd22]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5a29dd22]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5a29dd22] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5a29dd22] .n-card-content{padding:24px}[data-v-5a29dd22] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5a29dd22] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5a29dd22] .n-date-picker,[data-v-5a29dd22] .n-input{border-radius:8px}[data-v-5a29dd22] .n-data-table{border-radius:8px;overflow:hidden}[data-v-5a29dd22] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-1e7c9319]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.button-container[data-v-38d3d358]{padding:20px}.hunjianpiliang-container[data-v-754a0eb9]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-754a0eb9]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-754a0eb9] .n-card-content{padding:24px}[data-v-754a0eb9] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-754a0eb9] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-754a0eb9] .n-input{border-radius:8px}[data-v-754a0eb9] .n-form-item-label{font-weight:500;color:#333}[data-v-754a0eb9] .n-collapse,[data-v-754a0eb9] .n-data-table{border-radius:8px;overflow:hidden}.button-container[data-v-16e8cf05]{padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh} ");
+    // --------------------------
+    // 配置：仅监听匹配以下规则的URL
+    // 支持字符串全匹配或正则表达式
+    // 示例：
+    // 1. 全匹配："https://api.example.com/data"
+    // 2. 包含字符串：/api\.example\.com/
+    // 3. 特定路径：/\/user\/\d+/
+    console.log(unsafeWindow.location);
+    if(!unsafeWindow.location.href.includes('kuaishou.com')){
+        console.log("不监听");
+        return 0;
+    }
+    console.log('%c【XHR请求监听已启动】仅监听匹配规则的请求，不监听响应', 'color: #22C55E; font-weight: bold');
+   
+    const TARGET_URL_PATTERN = /createUnitAndCreative/; // 替换为你的目标URL规则
+    // --------------------------
+    console.log('监听URL规则：', TARGET_URL_PATTERN);
+    // 生成唯一请求ID
+    const generateRequestId = () => `xhr_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+
+    // 安全打印请求信息
+    const logRequestInfo = (reqId, type, data) => {
+        const title = `[XHR监听] ${type} - ID: ${reqId}`;
+        console.groupCollapsed(`%c${title}`, 'color: #1E90FF; font-weight: 500');
+        Object.entries(data).forEach(([key, value]) => {
+            console.log(`%c${key}:`, 'color: #666; font-weight: 600', value);
+        });
+        console.groupEnd();
+    };
+
+    // 检查URL是否匹配目标规则
+    const isTargetUrl = (url) => {
+        if (typeof TARGET_URL_PATTERN === 'string') {
+            return url === TARGET_URL_PATTERN;
+        } else if (TARGET_URL_PATTERN instanceof RegExp) {
+            return TARGET_URL_PATTERN.test(url);
+        }
+        return false;
+    };
+
+    // 拦截XMLHttpRequest（仅监听请求阶段）
+    const hookXHR = () => {
+        const originalXHR = unsafeWindow .XMLHttpRequest;
+        unsafeWindow .XMLHttpRequest = function() {
+            const xhr = new originalXHR();
+            const reqId = generateRequestId();
+            let method, url;
+            const headers = {};
+            let isTarget = false; // 标记是否为目标URL请求
+
+            // 监听open方法（判断是否为目标URL）
+            const originalOpen = xhr.open;
+            xhr.open = function(m, u, async = true) {
+                method = m.toUpperCase();
+                url = u;
+                // 检查是否匹配目标URL规则
+                isTarget = isTargetUrl(url);
+
+                if (isTarget) {
+                    logRequestInfo(reqId, '请求初始化', {
+                        方法: method,
+                        URL: url,
+                        是否异步: async
+                    });
+                }
+
+                originalOpen.apply(xhr, arguments);
+            };
+
+            // 监听setRequestHeader（仅记录目标请求的头）
+            const originalSetRequestHeader = xhr.setRequestHeader;
+            xhr.setRequestHeader = function(header, value) {
+                if (isTarget) {
+                    headers[header.toLowerCase()] = value;
+                }
+                originalSetRequestHeader.apply(xhr, arguments);
+            };
+
+            // 监听send方法（仅打印目标请求的发送信息）
+            const originalSend = xhr.send;
+            xhr.send = function(body) {
+                if (isTarget) {
+                    // 处理请求体信息
+                    let bodyInfo = '无';
+                    if (body !== undefined && body !== null) {
+                        if (typeof body === 'string') {
+                            bodyInfo =  body; //body.length > 500 ? body.slice(0, 500) + '...（截断）' :
+                        } else {
+                            bodyInfo = `[${Object.prototype.toString.call(body)}] 类型`; //.slice(8, -1)
+                        }
+                    }
+                    const info = {
+                        method: method,
+                        //补充完整url
+
+                        url: unsafeWindow.location.origin+url,
+                        requestHeaders: headers,
+                        requestBody: bodyInfo
+                    }
+                    try {
+                        GM_setValue("kuaishou_requestData",JSON.stringify(info));
+                    } catch (error) {
+                        
+                    }
+                    
+                    logRequestInfo(url + reqId, '请求发送',info);
+                }
+
+                originalSend.apply(xhr, arguments);
+            };
+
+            // 移除所有响应相关的监听（完全不处理响应）
+            // 不添加任何load/error/timeout/abort事件监听
+
+            return xhr;
+        };
+    };
+
+    // 初始化
+    hookXHR();
+
+})();
+
+
+(a=>{if(typeof GM_addStyle=="function"){GM_addStyle(a);return}const t=document.createElement("style");t.textContent=a,document.head.append(t)})(" [data-v-303426f9] .n-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);margin:0}[data-v-303426f9] .n-modal-mask{background-color:#0006}[data-v-303426f9] .n-modal-content{border-radius:8px;overflow:hidden}.n-progress[data-v-29be6a47],.n-progress[data-v-18ea35a2]{margin:10px 0}.createrplan-container[data-v-5dbab58c]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-5dbab58c]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-5dbab58c] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-5dbab58c] .n-card-content{padding:24px}[data-v-5dbab58c] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-5dbab58c] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-5dbab58c] .n-input{border-radius:8px}[data-v-5dbab58c] .n-form-item-label{font-weight:500;color:#333}[data-v-5dbab58c] .n-tag{border-radius:20px;font-weight:500}.button-container[data-v-aaaae17f]{padding:20px}@media (max-width: 768px){.button-container[data-v-aaaae17f] .n-space{flex-direction:column!important}.button-container[data-v-aaaae17f] .n-button{width:100%!important;margin:4px 0!important}}.auto-height-card[data-v-aaaae17f],.auto-height-card[data-v-aaaae17f] .n-card__content{flex:1;display:flex;flex-direction:column}.flex-card[data-v-aaaae17f]{flex:2}.default-component[data-v-ff0a68db]{display:flex;justify-content:center;align-items:center;height:100%;padding:20px}.getchuangyi-container[data-v-e7612e1f]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-e7612e1f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-e7612e1f] .n-card-header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px}.main-card[data-v-e7612e1f] .n-card-content{padding:24px}[data-v-e7612e1f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-e7612e1f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-e7612e1f] .n-date-picker,[data-v-e7612e1f] .n-input{border-radius:8px}[data-v-e7612e1f] .n-data-table{border-radius:8px;overflow:hidden}[data-v-e7612e1f] .n-tag{border-radius:20px;font-weight:500}.jihua-container[data-v-e9fa887f]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-e9fa887f]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-e9fa887f]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.plan-container[data-v-f977d1aa]{padding:20px;max-width:800px;margin:0 auto}.description[data-v-f977d1aa]{background-color:#f5f5f5;padding:12px;border-radius:4px;margin-bottom:16px}.description pre[data-v-f977d1aa]{background-color:#fff;padding:8px;border-radius:4px;margin:8px 0;white-space:pre-wrap}.search-price-container[data-v-1b153763]{max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-1b153763]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-1b153763]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-1b153763]{font-size:16px;opacity:.9;margin:0}.form-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.button-group[data-v-1b153763]{display:flex;gap:12px;justify-content:center;margin-top:20px}.result-card[data-v-1b153763]{margin-bottom:20px;border-radius:16px;box-shadow:0 8px 32px #0000001a}.result-card.success[data-v-1b153763]{border-left:4px solid #18a058}.result-card.error[data-v-1b153763]{border-left:4px solid #d03050}.result-header[data-v-1b153763]{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:600;font-size:16px}.result-icon[data-v-1b153763]{font-size:20px}.error-message[data-v-1b153763]{color:#d03050;margin:0}.preview-card[data-v-1b153763]{border-radius:16px;box-shadow:0 8px 32px #0000001a;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.preview-header[data-v-1b153763]{font-weight:600;margin-bottom:16px;color:#333}.plan-ids-grid[data-v-1b153763]{display:flex;flex-wrap:wrap;gap:8px}@media (max-width: 768px){.search-price-container[data-v-1b153763]{padding:16px}.button-group[data-v-1b153763]{flex-direction:column}.header h2[data-v-1b153763]{font-size:24px}}.note-match-container[data-v-0e22a33f]{max-width:1200px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header[data-v-0e22a33f]{text-align:center;margin-bottom:30px;color:#fff}.header h2[data-v-0e22a33f]{font-size:28px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}.subtitle[data-v-0e22a33f]{font-size:16px;opacity:.9;margin:0}.main-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);margin-bottom:20px}.main-card[data-v-0e22a33f] .n-card-content{padding:24px}.result-card[data-v-0e22a33f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2);border-left:4px solid #18a058}.result-card[data-v-0e22a33f] .n-card-header{background:linear-gradient(135deg,#18a058,#36ad6a);color:#fff;border-radius:16px 16px 0 0;margin:-1px -1px 0}.result-card[data-v-0e22a33f] .n-card-content{padding:24px}.match-stats-content[data-v-0e22a33f]{padding:16px}.stats-item[data-v-0e22a33f]{display:flex;align-items:center;padding:12px 16px;background:#409eff1a;border-radius:8px;border-left:4px solid #409eff}.stats-item.success[data-v-0e22a33f]{background:#18a0581a;border-left-color:#18a058}.stats-item.warning[data-v-0e22a33f]{background:#f08a001a;border-left-color:#f08a00}.stats-item .stats-icon[data-v-0e22a33f]{font-size:20px;margin-right:12px}.stats-item .stats-text[data-v-0e22a33f]{font-size:16px;color:#333}.stats-summary[data-v-0e22a33f]{display:flex;align-items:center;padding:16px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-weight:600;font-size:18px;text-align:center;justify-content:center}.stats-summary .stats-icon[data-v-0e22a33f]{font-size:24px;margin-right:12px}@media (max-width: 768px){.note-match-container[data-v-0e22a33f]{padding:16px}.header h2[data-v-0e22a33f]{font-size:24px}.main-card[data-v-0e22a33f] .n-card-content,.result-card[data-v-0e22a33f] .n-card-content{padding:16px}}.button-container[data-v-3acfd1ee]{padding:20px}.kuaishou-container[data-v-4eb60829]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4eb60829]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4eb60829] .n-card-content{padding:24px}[data-v-4eb60829] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4eb60829] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4eb60829] .n-input{border-radius:8px}[data-v-4eb60829] .n-form-item-label{font-weight:500;color:#333}[data-v-4eb60829] .n-collapse,[data-v-4eb60829] .n-table{border-radius:8px;overflow:hidden}.kuaishou-container[data-v-4830d34f]{padding:24px;max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.tool-card[data-v-4830d34f]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.tool-card[data-v-4830d34f] .n-card-content{padding:24px}[data-v-4830d34f] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-4830d34f] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-4830d34f] .n-input{border-radius:8px}[data-v-4830d34f] .n-form-item-label{font-weight:500;color:#333}[data-v-4830d34f] .n-collapse,[data-v-4830d34f] .n-table{border-radius:8px;overflow:hidden}.kuaishou-ad-creator[data-v-654ceeb0]{max-width:1000px;margin:0 auto;padding:20px;font-family:Arial,sans-serif}.form-section[data-v-654ceeb0]{margin-bottom:20px}.form-section h2[data-v-654ceeb0]{color:#333;margin-bottom:20px}.form-section h3[data-v-654ceeb0]{color:#555;margin:15px 0 10px}.form-group[data-v-654ceeb0]{margin-bottom:20px}.form-group label[data-v-654ceeb0]{display:block;margin-bottom:8px;font-weight:700;color:#444}.form-group textarea[data-v-654ceeb0]{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;box-sizing:border border-box;font-family:monospace;font-size:14px}.form-group textarea[readonly][data-v-654ceeb0]{background-color:#f9f9f9;color:#666}.hint[data-v-654ceeb0]{margin-top:5px;font-size:12px;color:#666;font-style:italic}.action-section[data-v-654ceeb0]{margin:20px 0;text-align:center}button[data-v-654ceeb0]{padding:12px 30px;background-color:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:16px;transition:background-color .3s}button[data-v-654ceeb0]:disabled{background-color:#ccc;cursor:not-allowed}button[data-v-654ceeb0]:hover:not(:disabled){background-color:#0056b3}.log-section[data-v-654ceeb0]{margin-top:20px}.log-content[data-v-654ceeb0]{height:300px;overflow-y:auto;padding:15px;background-color:#f8f9fa;border:1px solid #ddd;border-radius:4px;font-family:monospace;font-size:14px;white-space:pre-wrap}.info[data-v-654ceeb0]{color:#333}.success[data-v-654ceeb0]{color:green}.error[data-v-654ceeb0]{color:red}.warning[data-v-654ceeb0]{color:orange}.button-container[data-v-e019b6d3]{padding:20px}.hunjianpiliang-container[data-v-866e6680]{padding:24px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.main-card[data-v-866e6680]{background:#fffffff2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 8px 32px #0000001a;border:1px solid rgba(255,255,255,.2)}.main-card[data-v-866e6680] .n-card-content{padding:24px}[data-v-866e6680] .n-button{border-radius:12px;font-weight:500;transition:all .3s ease}[data-v-866e6680] .n-button:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000026}[data-v-866e6680] .n-input{border-radius:8px}[data-v-866e6680] .n-form-item-label{font-weight:500;color:#333}[data-v-866e6680] .n-collapse,[data-v-866e6680] .n-data-table{border-radius:8px;overflow:hidden}.button-container[data-v-6e361d41]{padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh} ");
 
 (function (vue, naive) {
   'use strict';
@@ -21,7 +208,7 @@
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
   var require_main_001 = __commonJS({
-    "main-CNtxgxM6.js"(exports, module) {
+    "main-C82UcP_y.js"(exports, module) {
       class LinkChecker {
         constructor() {
           this.isLoading = false;
@@ -300,7 +487,7 @@
         }
         return target;
       };
-      const _sfc_main$i = {
+      const _sfc_main$j = {
         __name: "rename",
         setup(__props) {
           const message = naive.useMessage();
@@ -425,8 +612,8 @@
           };
         }
       };
-      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-303426f9"]]);
-      const _sfc_main$h = {
+      const rename = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["__scopeId", "data-v-303426f9"]]);
+      const _sfc_main$i = {
         __name: "BatchPrice",
         props: {
           show: {
@@ -846,8 +1033,8 @@
           };
         }
       };
-      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-29be6a47"]]);
-      const _sfc_main$g = {
+      const BatchPrice = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["__scopeId", "data-v-29be6a47"]]);
+      const _sfc_main$h = {
         __name: "setplan",
         props: {
           show: {
@@ -1270,11 +1457,11 @@
           };
         }
       };
-      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-18ea35a2"]]);
-      const _hoisted_1$d = { class: "createrplan-container" };
-      const _hoisted_2$3 = { style: { "font-size": "14px" } };
-      const _hoisted_3$2 = { style: { "font-size": "16px" } };
-      const _sfc_main$f = {
+      const setplan = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-18ea35a2"]]);
+      const _hoisted_1$e = { class: "createrplan-container" };
+      const _hoisted_2$4 = { style: { "font-size": "14px" } };
+      const _hoisted_3$3 = { style: { "font-size": "16px" } };
+      const _sfc_main$g = {
         __name: "createrplan",
         setup(__props) {
           const message = naive.useMessage();
@@ -1551,7 +1738,7 @@
             const _component_n_grid = vue.resolveComponent("n-grid");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$d, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$e, [
               vue.createVNode(_component_n_card, {
                 title: "小红书创意计划工具1.2",
                 class: "main-card"
@@ -1562,7 +1749,7 @@
                     size: "large"
                   }, {
                     icon: vue.withCtx(() => [
-                      vue.createElementVNode("span", _hoisted_2$3, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
+                      vue.createElementVNode("span", _hoisted_2$4, vue.toDisplayString(currentVersion.value === "old" ? "🕰️" : "🚀"), 1)
                     ]),
                     default: vue.withCtx(() => [
                       vue.createTextVNode(" " + vue.toDisplayString(currentVersion.value === "old" ? "老版本" : "新版本"), 1)
@@ -1681,7 +1868,7 @@
                                 onClick: switchVersion
                               }, {
                                 icon: vue.withCtx(() => [
-                                  vue.createElementVNode("span", _hoisted_3$2, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
+                                  vue.createElementVNode("span", _hoisted_3$3, vue.toDisplayString(currentVersion.value === "old" ? "🚀" : "🕰️"), 1)
                                 ]),
                                 default: vue.withCtx(() => [
                                   vue.createTextVNode(" 切换到" + vue.toDisplayString(currentVersion.value === "old" ? "新版本" : "老版本"), 1)
@@ -1783,10 +1970,10 @@
           };
         }
       };
-      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-5dbab58c"]]);
-      const _hoisted_1$c = { class: "button-container" };
-      const _hoisted_2$2 = { class: "modal-content" };
-      const _sfc_main$e = {
+      const createrplan = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-5dbab58c"]]);
+      const _hoisted_1$d = { class: "button-container" };
+      const _hoisted_2$3 = { class: "modal-content" };
+      const _sfc_main$f = {
         __name: "XHS",
         setup(__props) {
           const linkChecker = new LinkChecker();
@@ -1921,7 +2108,7 @@
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_modal = vue.resolveComponent("n-modal");
             return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-              vue.createElementVNode("div", _hoisted_1$c, [
+              vue.createElementVNode("div", _hoisted_1$d, [
                 vue.createVNode(_component_n_space, {
                   justify: "space-between",
                   wrap: ""
@@ -2068,7 +2255,7 @@
                     })
                   ]),
                   default: vue.withCtx(() => [
-                    vue.createElementVNode("div", _hoisted_2$2, [
+                    vue.createElementVNode("div", _hoisted_2$3, [
                       linkStats.totalCreativity > 0 ? (vue.openBlock(), vue.createBlock(_component_n_grid, {
                         key: 0,
                         cols: 3,
@@ -2245,13 +2432,13 @@
           };
         }
       };
-      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-aaaae17f"]]);
-      const _hoisted_1$b = { class: "default-component" };
-      const _sfc_main$d = {
+      const XHS = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-aaaae17f"]]);
+      const _hoisted_1$c = { class: "default-component" };
+      const _sfc_main$e = {
         __name: "DefaultComponent",
         setup(__props) {
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$c, [
               vue.createVNode(vue.unref(naive.NEmpty), { description: "暂无适配" }, {
                 icon: vue.withCtx(() => [
                   vue.createVNode(vue.unref(naive.NIcon), { size: "48" }, {
@@ -2268,130 +2455,9 @@
           };
         }
       };
-      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-ff0a68db"]]);
-      class RequestListener {
-        constructor() {
-          this.isActive = false;
-          this.originalXHR = null;
-          this.originalFetch = null;
-          this.callbacks = [];
-        }
-        // 解码函数
-        decodeRequestBody(body) {
-          try {
-            if (typeof body === "string") {
-              if (body.trim().startsWith("{") || body.trim().startsWith("[")) {
-                const parsed = JSON.parse(body);
-                return parsed;
-              } else {
-                return body;
-              }
-            } else if (typeof body === "object") {
-              return body;
-            } else {
-              return body;
-            }
-          } catch (e) {
-            return body;
-          }
-        }
-        // 启动监听器
-        start() {
-          if (this.isActive) return false;
-          this.originalXHR = window.XMLHttpRequest;
-          this.originalFetch = window.fetch;
-          const self = this;
-          window.XMLHttpRequest = function() {
-            const xhr = new self.originalXHR();
-            const originalOpen = xhr.open;
-            const originalSend = xhr.send;
-            let requestUrl = "";
-            let method = "";
-            xhr.open = function(xhrMethod, url) {
-              requestUrl = url;
-              method = xhrMethod;
-              return originalOpen.apply(this, arguments);
-            };
-            xhr.send = function(body) {
-              if (requestUrl.includes("queryJobPs")) {
-                const decodedBody = self.decodeRequestBody(body);
-                self.callbacks.forEach((callback) => {
-                  callback({
-                    type: "xhr",
-                    url: requestUrl,
-                    method,
-                    requestBody: body,
-                    decodedBody
-                  });
-                });
-              }
-              return originalSend.apply(this, arguments);
-            };
-            return xhr;
-          };
-          window.fetch = function(input, init) {
-            let url = "";
-            if (typeof input === "string") {
-              url = input;
-            } else if (input instanceof Request) {
-              url = input.url;
-            } else {
-              url = String(input);
-            }
-            if (url.includes("queryJobPs")) {
-              let body = null;
-              if (init && init.body) {
-                body = init.body;
-              }
-              const decodedBody = self.decodeRequestBody(body);
-              self.callbacks.forEach((callback) => {
-                callback({
-                  type: "fetch",
-                  url,
-                  init,
-                  requestBody: body,
-                  decodedBody
-                });
-              });
-            }
-            return self.originalFetch.apply(this, arguments);
-          };
-          this.isActive = true;
-          return true;
-        }
-        // 停止监听器
-        stop() {
-          if (!this.isActive) return false;
-          if (this.originalXHR) {
-            window.XMLHttpRequest = this.originalXHR;
-          }
-          if (this.originalFetch) {
-            window.fetch = this.originalFetch;
-          }
-          this.isActive = false;
-          return true;
-        }
-        // 添加回调函数
-        addCallback(callback) {
-          if (typeof callback === "function") {
-            this.callbacks.push(callback);
-          }
-        }
-        // 移除回调函数
-        removeCallback(callback) {
-          const index = this.callbacks.indexOf(callback);
-          if (index > -1) {
-            this.callbacks.splice(index, 1);
-          }
-        }
-        // 获取监听器状态
-        getStatus() {
-          return this.isActive;
-        }
-      }
-      const requestListener = new RequestListener();
-      const _hoisted_1$a = { class: "getchuangyi-container" };
-      const _sfc_main$c = {
+      const DefaultComponent = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-ff0a68db"]]);
+      const _hoisted_1$b = { class: "getchuangyi-container" };
+      const _sfc_main$d = {
         __name: "getchuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2482,7 +2548,7 @@
             try {
               const requestBody = {
                 media: "RED_BOOK",
-                pageSize: 100,
+                pageSize: 500,
                 startTime: formatDate(publishDate.value),
                 endTime: formatDate(publishDate.value),
                 pageNo: 1
@@ -2693,7 +2759,7 @@
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_data_table = vue.resolveComponent("n-data-table");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$b, [
               vue.createVNode(_component_n_space, {
                 vertical: "",
                 size: 16
@@ -2809,9 +2875,9 @@
           };
         }
       };
-      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-5a29dd22"]]);
-      const _hoisted_1$9 = { class: "jihua-container" };
-      const _sfc_main$b = {
+      const getchuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-e7612e1f"]]);
+      const _hoisted_1$a = { class: "jihua-container" };
+      const _sfc_main$c = {
         __name: "chuangyi",
         setup(__props) {
           const message = naive.useMessage();
@@ -2930,7 +2996,7 @@
             const _component_n_checkbox = vue.resolveComponent("n-checkbox");
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   vue.createVNode(_component_n_input, {
@@ -2969,9 +3035,9 @@
           };
         }
       };
-      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-e9fa887f"]]);
-      const _hoisted_1$8 = { class: "plan-container" };
-      const _sfc_main$a = {
+      const chuangyi = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-e9fa887f"]]);
+      const _hoisted_1$9 = { class: "plan-container" };
+      const _sfc_main$b = {
         __name: "jihua",
         setup(__props) {
           const message = naive.useMessage();
@@ -3134,7 +3200,7 @@
             const _component_n_input_number = vue.resolveComponent("n-input-number");
             const _component_n_input = vue.resolveComponent("n-input");
             const _component_n_button = vue.resolveComponent("n-button");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$9, [
               vue.createVNode(_component_n_space, { vertical: "" }, {
                 default: vue.withCtx(() => [
                   _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "description" }, [
@@ -3211,21 +3277,21 @@
           };
         }
       };
-      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-f977d1aa"]]);
-      const _hoisted_1$7 = { class: "search-price-container" };
-      const _hoisted_2$1 = { class: "button-group" };
-      const _hoisted_3$1 = { class: "result-header" };
-      const _hoisted_4$1 = { class: "result-icon" };
-      const _hoisted_5$1 = { class: "result-title" };
-      const _hoisted_6$1 = { class: "result-content" };
-      const _hoisted_7$1 = { key: 0 };
+      const jihua = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-f977d1aa"]]);
+      const _hoisted_1$8 = { class: "search-price-container" };
+      const _hoisted_2$2 = { class: "button-group" };
+      const _hoisted_3$2 = { class: "result-header" };
+      const _hoisted_4$2 = { class: "result-icon" };
+      const _hoisted_5$2 = { class: "result-title" };
+      const _hoisted_6$2 = { class: "result-content" };
+      const _hoisted_7$2 = { key: 0 };
       const _hoisted_8$1 = {
         key: 1,
         class: "error-message"
       };
       const _hoisted_9$1 = { class: "preview-header" };
       const _hoisted_10$1 = { class: "plan-ids-grid" };
-      const _sfc_main$9 = {
+      const _sfc_main$a = {
         __name: "sosuo",
         setup(__props) {
           const message = naive.useMessage();
@@ -3373,7 +3439,7 @@
             }
           }, { immediate: true });
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$8, [
               _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "🔍 搜索出价调整工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "批量调整计划的搜索关键词出价")
@@ -3439,7 +3505,7 @@
                         ]),
                         _: 1
                       }),
-                      vue.createElementVNode("div", _hoisted_2$1, [
+                      vue.createElementVNode("div", _hoisted_2$2, [
                         vue.createVNode(vue.unref(naive.NButton), {
                           type: "primary",
                           size: "large",
@@ -3475,12 +3541,12 @@
                 class: vue.normalizeClass(["result-card", { "success": result.value.success, "error": !result.value.success }])
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_3$1, [
-                    vue.createElementVNode("span", _hoisted_4$1, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
-                    vue.createElementVNode("span", _hoisted_5$1, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
+                  vue.createElementVNode("div", _hoisted_3$2, [
+                    vue.createElementVNode("span", _hoisted_4$2, vue.toDisplayString(result.value.success ? "✅" : "❌"), 1),
+                    vue.createElementVNode("span", _hoisted_5$2, vue.toDisplayString(result.value.success ? "提交成功" : "提交失败"), 1)
                   ]),
-                  vue.createElementVNode("div", _hoisted_6$1, [
-                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7$1, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8$1, vue.toDisplayString(result.value.message), 1)),
+                  vue.createElementVNode("div", _hoisted_6$2, [
+                    result.value.success ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_7$2, " 已成功提交 " + vue.toDisplayString(parsedPlanIds.value.length) + " 个计划的出价调整任务 ", 1)) : (vue.openBlock(), vue.createElementBlock("p", _hoisted_8$1, vue.toDisplayString(result.value.message), 1)),
                     result.value.details ? (vue.openBlock(), vue.createBlock(vue.unref(naive.NCollapse), { key: 2 }, {
                       default: vue.withCtx(() => [
                         vue.createVNode(vue.unref(naive.NCollapseItem), {
@@ -3538,20 +3604,20 @@
           };
         }
       };
-      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-1b153763"]]);
-      const _hoisted_1$6 = { class: "note-match-container" };
-      const _hoisted_2 = { class: "match-stats-content" };
-      const _hoisted_3 = { class: "stats-item" };
-      const _hoisted_4 = { class: "stats-text" };
-      const _hoisted_5 = { class: "stats-item" };
-      const _hoisted_6 = { class: "stats-text" };
-      const _hoisted_7 = { class: "stats-item success" };
+      const vue_sosuo = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-1b153763"]]);
+      const _hoisted_1$7 = { class: "note-match-container" };
+      const _hoisted_2$1 = { class: "match-stats-content" };
+      const _hoisted_3$1 = { class: "stats-item" };
+      const _hoisted_4$1 = { class: "stats-text" };
+      const _hoisted_5$1 = { class: "stats-item" };
+      const _hoisted_6$1 = { class: "stats-text" };
+      const _hoisted_7$1 = { class: "stats-item success" };
       const _hoisted_8 = { class: "stats-text" };
       const _hoisted_9 = { class: "stats-item warning" };
       const _hoisted_10 = { class: "stats-text" };
       const _hoisted_11 = { class: "stats-summary" };
       const _hoisted_12 = { class: "stats-text" };
-      const _sfc_main$8 = {
+      const _sfc_main$9 = {
         __name: "noteMatch",
         setup(__props) {
           const message = naive.useMessage();
@@ -3894,7 +3960,7 @@
             message.info("已清空匹配结果");
           };
           return (_ctx, _cache) => {
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
               _cache[23] || (_cache[23] = vue.createElementVNode("div", { class: "header" }, [
                 vue.createElementVNode("h2", null, "📚 笔记库匹配工具"),
                 vue.createElementVNode("p", { class: "subtitle" }, "选择项目并匹配笔记库中的内容")
@@ -4174,29 +4240,29 @@
                 "close-on-esc": true
               }, {
                 default: vue.withCtx(() => [
-                  vue.createElementVNode("div", _hoisted_2, [
+                  vue.createElementVNode("div", _hoisted_2$1, [
                     vue.createVNode(vue.unref(naive.NSpace), {
                       vertical: "",
                       size: "large"
                     }, {
                       default: vue.withCtx(() => [
-                        vue.createElementVNode("div", _hoisted_3, [
+                        vue.createElementVNode("div", _hoisted_3$1, [
                           _cache[10] || (_cache[10] = vue.createElementVNode("span", { class: "stats-icon" }, "📝", -1)),
-                          vue.createElementVNode("span", _hoisted_4, [
+                          vue.createElementVNode("span", _hoisted_4$1, [
                             _cache[8] || (_cache[8] = vue.createTextVNode("账号下总共有 ", -1)),
                             vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalAccountNotes), 1),
                             _cache[9] || (_cache[9] = vue.createTextVNode(" 条笔记", -1))
                           ])
                         ]),
-                        vue.createElementVNode("div", _hoisted_5, [
+                        vue.createElementVNode("div", _hoisted_5$1, [
                           _cache[13] || (_cache[13] = vue.createElementVNode("span", { class: "stats-icon" }, "📚", -1)),
-                          vue.createElementVNode("span", _hoisted_6, [
+                          vue.createElementVNode("span", _hoisted_6$1, [
                             _cache[11] || (_cache[11] = vue.createTextVNode("笔记库总共 ", -1)),
                             vue.createElementVNode("strong", null, vue.toDisplayString(matchStats.value.totalLibraryNotes), 1),
                             _cache[12] || (_cache[12] = vue.createTextVNode(" 条笔记", -1))
                           ])
                         ]),
-                        vue.createElementVNode("div", _hoisted_7, [
+                        vue.createElementVNode("div", _hoisted_7$1, [
                           _cache[16] || (_cache[16] = vue.createElementVNode("span", { class: "stats-icon" }, "✅", -1)),
                           vue.createElementVNode("span", _hoisted_8, [
                             _cache[14] || (_cache[14] = vue.createTextVNode("账号下有 ", -1)),
@@ -4248,13 +4314,13 @@
           };
         }
       };
-      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-0e22a33f"]]);
-      const _hoisted_1$5 = { class: "button-container" };
-      const _sfc_main$7 = {
+      const noteMatch = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-0e22a33f"]]);
+      const _hoisted_1$6 = { class: "button-container" };
+      const _sfc_main$8 = {
         __name: "app",
         setup(__props) {
           const isListening = vue.ref(false);
-          const message = naive.useMessage();
+          naive.useMessage();
           const modalStates = vue.ref({
             chuangyi: false,
             jihua: false,
@@ -4307,13 +4373,13 @@
               label: "计划关闭/调预算",
               action: () => openModal("jihua")
             },
-            {
-              key: "listener",
-              type: isListening.value ? "error" : "warning",
-              icon: isListening.value ? "⏹️" : "▶️",
-              label: isListening.value ? "停止监听" : "开始监听",
-              action: toggleListener
-            },
+            // {
+            //   key: 'listener',
+            //   type: isListening.value ? 'error' : 'warning',
+            //   icon: isListening.value ? '⏹️' : '▶️',
+            //   label: isListening.value ? '停止监听' : '开始监听',
+            //   action: toggleListener
+            // },
             {
               key: "getchuangyi",
               type: "success",
@@ -4336,40 +4402,13 @@
               action: () => openModal("noteMatch")
             }
           ]);
-          const listenerCallback = (data) => {
-            console.log("捕获到queryJobPs请求:", data);
-            message.info(`捕获到${data.type}类型的queryJobPs请求`);
-          };
-          function toggleListener() {
-            if (isListening.value) {
-              requestListener.stop();
-              requestListener.removeCallback(listenerCallback);
-              isListening.value = false;
-              message.success("已停止监听queryJobPs请求");
-            } else {
-              const started = requestListener.start();
-              if (started) {
-                requestListener.addCallback(listenerCallback);
-                isListening.value = true;
-                message.success("已开始监听queryJobPs请求");
-              } else {
-                message.warning("监听器已在运行中");
-              }
-            }
-          }
-          vue.onUnmounted(() => {
-            if (isListening.value) {
-              requestListener.stop();
-              requestListener.removeCallback(listenerCallback);
-            }
-          });
           return (_ctx, _cache) => {
             const _component_n_icon = vue.resolveComponent("n-icon");
             const _component_n_button = vue.resolveComponent("n-button");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_alert = vue.resolveComponent("n-alert");
             const _component_n_modal = vue.resolveComponent("n-modal");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
               vue.createVNode(_component_n_space, {
                 justify: "space-between",
                 wrap: ""
@@ -4443,9 +4482,9 @@
           };
         }
       };
-      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1e7c9319"]]);
-      const _hoisted_1$4 = { class: "kuaishou-container" };
-      const _sfc_main$6 = {
+      const zt = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-3acfd1ee"]]);
+      const _hoisted_1$5 = { class: "kuaishou-container" };
+      const _sfc_main$7 = {
         __name: "kuaishou",
         setup(__props) {
           const message = naive.useMessage();
@@ -4650,7 +4689,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -4838,8 +4877,8 @@
           };
         }
       };
-      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-4eb60829"]]);
-      const _sfc_main$5 = {
+      const kuaishou$1 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-4eb60829"]]);
+      const _sfc_main$6 = {
         __name: "close",
         setup(__props) {
           const r = `
@@ -4899,8 +4938,8 @@
           };
         }
       };
-      const _hoisted_1$3 = { class: "kuaishou-container" };
-      const _sfc_main$4 = {
+      const _hoisted_1$4 = { class: "kuaishou-container" };
+      const _sfc_main$5 = {
         __name: "hunjian",
         setup(__props) {
           const message = naive.useMessage();
@@ -5123,7 +5162,7 @@
             const _component_n_log = vue.resolveComponent("n-log");
             const _component_n_space = vue.resolveComponent("n-space");
             const _component_n_card = vue.resolveComponent("n-card");
-            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$4, [
               vue.createVNode(_component_n_card, {
                 title: "快手广告填表工具",
                 class: "tool-card"
@@ -5316,7 +5355,356 @@
           };
         }
       };
-      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-4830d34f"]]);
+      const hunjian = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-4830d34f"]]);
+      const _hoisted_1$3 = { class: "kuaishou-ad-creator" };
+      const _hoisted_2 = { class: "form-section" };
+      const _hoisted_3 = { class: "form-group" };
+      const _hoisted_4 = { class: "form-group" };
+      const _hoisted_5 = { class: "action-section" };
+      const _hoisted_6 = ["disabled"];
+      const _hoisted_7 = { class: "log-section" };
+      const _sfc_main$4 = {
+        __name: "KuaishouAdCreator",
+        setup(__props) {
+          const requestInfo = vue.ref("");
+          const excelData = vue.ref("");
+          const isRunning = vue.ref(false);
+          const logs = vue.ref([]);
+          const logContent = vue.ref(null);
+          const addLog = (message, type = "info") => {
+            logs.value.push({ message, type });
+            setTimeout(() => {
+              if (logContent.value) {
+                logContent.value.scrollTop = logContent.value.scrollHeight;
+              }
+            }, 0);
+          };
+          vue.onMounted(() => {
+            const savedRequest = GM_getValue("kuaishou_requestData") || "";
+            if (savedRequest !== "") {
+              requestInfo.value = savedRequest;
+              addLog("已成功加载保存的请求信息", "success");
+            } else {
+              addLog(
+                "未检测到保存的请求信息，请先在快手平台执行相关操作以获取请求信息",
+                "warning"
+              );
+              addLog(
+                "操作步骤：1. 打开快手广告平台 2. 执行创建广告操作 3. 返回此页面查看是否获取到请求",
+                "info"
+              );
+            }
+          });
+          const parseExcelData = (tableString) => {
+            addLog("开始解析Excel数据...");
+            try {
+              const lines = tableString.split("\n");
+              const result = [];
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line) {
+                  const columns = line.split("	");
+                  if (columns.length >= 4) {
+                    result.push({
+                      name: columns[0],
+                      // 达人名称
+                      videoId: columns[1],
+                      // 视频ID
+                      dp: columns[3],
+                      // 跳转链接
+                      h5: columns[2]
+                      // H5链接
+                    });
+                  }
+                }
+              }
+              addLog(`解析Excel数据完成，共 ${result.length} 条记录`, "success");
+              return result;
+            } catch (error) {
+              addLog(`解析Excel数据失败: ${error.message}`, "error");
+              return [];
+            }
+          };
+          const parseRequestInfo = (requestString) => {
+            try {
+              const captured = typeof requestString === "string" ? JSON.parse(requestString) : requestString;
+              const url = captured.url;
+              const method = captured.method || "POST";
+              const headers = captured.requestHeaders || {};
+              const headers1 = headers;
+              if (typeof headers !== "object") {
+                const headers12 = JSON.parse(headers);
+                return null;
+              }
+              const body = captured.requestBody;
+              console.log(captured);
+              const campaignId = JSON.parse(body).campaignId;
+              const dsp_ph = url.match(new RegExp("(?<=dsp_ph=).*"))[0];
+              return {
+                url,
+                method,
+                headers,
+                body,
+                requestid: headers1["x-requestid"],
+                account: headers1["account-id"],
+                //captured.account,
+                ktrace: headers1["ktrace-str"],
+                //captured.ktrace,
+                campaignId,
+                dsp_ph
+              };
+            } catch (error) {
+              addLog(`解析请求信息失败: ${error.message}`, "error");
+              return null;
+            }
+          };
+          const getTimeStamp = () => {
+            return Date.now().toString();
+          };
+          const t = typeof GM_xmlhttpRequest !== "undefined";
+          addLog(t);
+          const getVideoInfo = async (dsp_ph, authorId, account, ktrace, requestid) => {
+            addLog(`获取达人 ${authorId} 的视频信息...`);
+            return new Promise((resolve, reject) => {
+              const url = `https://ad.e.kuaishou.com/rest/dsp/control-panel/photo/filter/list?kuaishou.ad.dsp_ph=${dsp_ph}`;
+              const body = `{"campaignType":7,"videoListType":1,"splash":false,"creativeMaterialTypes":[1,2],"createSourceType":1,"createType":0,"keyword":"${authorId}","photoSources":[],"sort":1,"photoTags":[],"createTimeRange":[],"photoDupStatus":[],"nativeGoodType":[],"lowQualityStatus":[],"photoPackageIds":[],"dcursor":0,"count":15,"photoAdInfoParam":{"age":[{"min":40,"max":75}],"gender":"","regionCategoryNames":[{"id":"64","name":"宁夏"},{"id":"65","name":"新疆"},{"id":"11","name":"北京"},{"id":"12","name":"天津"},{"id":"13","name":"河北"},{"id":"14","name":"山西"},{"id":"15","name":"内蒙古"},{"id":"21","name":"辽宁"},{"id":"22","name":"吉林"},{"id":"23","name":"黑龙江"},{"id":"31","name":"上海"},{"id":"32","name":"江苏"},{"id":"33","name":"浙江"},{"id":"34","name":"安徽"},{"id":"35","name":"福建"},{"id":"36","name":"江西"},{"id":"37","name":"山东"},{"id":"41","name":"河南"},{"id":"42","name":"湖北"},{"id":"43","name":"湖南"},{"id":"44","name":"广东"},{"id":"45","name":"广西"},{"id":"46","name":"海南"},{"id":"50","name":"重庆"},{"id":"51","name":"四川"},{"id":"52","name":"贵州"},{"id":"53","name":"云南"},{"id":"61","name":"陕西"},{"id":"62","name":"甘肃"},{"id":"63","name":"青海"}],"cpaBid":30000,"ocpxActionType":190,"bidType":10,"audience":[],"unitDayBudget":0,"unitBudgetSchedule":[],"campaignDayBudget":0,"campaignBudgetSchedule":[],"campaignType":7},"adDspPhotoCheckParam":{"videoListType":1,"createSourceType":1,"creativeMaterialTypes":[1,2],"createType":0,"campaignType":7},"ocpcActionType":190,"needToShowGuideUseNewMaterial":false}`;
+              GM_xmlhttpRequest({
+                method: "POST",
+                url,
+                headers: {
+                  accept: "application/json",
+                  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                  "account-id": account,
+                  "content-type": "application/json",
+                  "priority": "u=1, i",
+                  "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="127", "Edge";v="127"',
+                  "sec-ch-ua-mobile": "?0",
+                  "sec-ch-ua-platform": '"Linux"',
+                  "sec-fetch-dest": "empty",
+                  "sec-fetch-mode": "cors",
+                  "sec-fetch-site": "same-origin",
+                  "traffic-channel": "pc",
+                  "x-fetch-time": getTimeStamp(),
+                  "x-requestid": requestid,
+                  "cookie": document.cookie,
+                  "ktrace-str": ktrace
+                },
+                data: body,
+                onload: (response) => {
+                  try {
+                    const json = JSON.parse(response.responseText);
+                    addLog(`获取达人 ${authorId} 的视频信息成功${json.photos[0].photoId}`, "success");
+                    resolve(json);
+                  } catch (e) {
+                    addLog("解析响应失败: " + e.message, "error");
+                    reject(e);
+                  }
+                },
+                onerror: (err) => {
+                  addLog(`请求失败: ${err.status} ${err.statusText}`, "error");
+                  reject(new Error(`Network error: ${err.status}`));
+                },
+                ontimeout: () => {
+                  addLog("请求超时", "error");
+                  reject(new Error("Request timeout"));
+                },
+                timeout: 2e4
+                // 10秒超时
+              });
+            });
+          };
+          const getBody = (originalBody, projectName, data, authorId, dp, h5) => {
+            addLog(`构造请求体...`);
+            try {
+              let bodyObj = JSON.parse(originalBody);
+              bodyObj.campaignId = bodyObj.campaignId || "";
+              bodyObj.unit.campaignId = bodyObj.campaignId || "";
+              bodyObj.unit.schemaUri = dp;
+              bodyObj.unit.schemaUrl = dp;
+              bodyObj.unit.webUri = h5;
+              bodyObj.unit.name = `${projectName}_${(/* @__PURE__ */ new Date()).getTime()}`;
+              if (bodyObj.customizedCreative && bodyObj.customizedCreative.creativeListParam && bodyObj.customizedCreative.creativeListParam.length > 0) {
+                const creative = bodyObj.customizedCreative.creativeListParam[0];
+                creative.coverUrl = data.photos[0].coverUrls[1].url;
+                creative.name = `${projectName}_${(/* @__PURE__ */ new Date()).getTime()}`;
+                creative.photoId = data.photos[0].photoId;
+              }
+              addLog(`构造请求体成功`, "success");
+              return JSON.stringify(bodyObj);
+            } catch (error) {
+              addLog(`构造请求体失败: ${error.message}`, "error");
+              return originalBody;
+            }
+          };
+          const send = async (dsp_ph, account, ktrace, requestid, body) => {
+            addLog(`发送广告创建请求...`);
+            return new Promise((resolve, reject) => {
+              const url = `https://ad.e.kuaishou.com/rest/dsp/portal/createUnitAndCreative?kuaishou.ad.dsp_ph=${dsp_ph}`;
+              GM_xmlhttpRequest({
+                method: "POST",
+                url,
+                headers: {
+                  accept: "application/json",
+                  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                  "account-id": account,
+                  "content-type": "application/json",
+                  "priority": "u=1, i",
+                  "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="127", "Edge";v="127"',
+                  "sec-ch-ua-mobile": "?0",
+                  "sec-ch-ua-platform": '"Linux"',
+                  "sec-fetch-dest": "empty",
+                  "sec-fetch-mode": "cors",
+                  "sec-fetch-site": "same-origin",
+                  "traffic-channel": "pc",
+                  "x-fetch-time": getTimeStamp(),
+                  "x-requestid": requestid,
+                  "cookie": document.cookie,
+                  "ktrace-str": ktrace
+                },
+                data: body,
+                onload: (response) => {
+                  try {
+                    const json = JSON.parse(response.responseText);
+                    resolve(json);
+                  } catch (e) {
+                    addLog("解析响应失败: " + e.message, "error");
+                    reject(e);
+                  }
+                },
+                onerror: (err) => {
+                  addLog(`请求失败: ${err.status} ${err.statusText}`, "error");
+                  reject(new Error(`Network error: ${err.status}`));
+                },
+                ontimeout: () => {
+                  addLog("请求超时", "error");
+                  reject(new Error("Request timeout"));
+                },
+                timeout: 2e4
+                // 10秒超时
+              });
+            });
+          };
+          const execute = async () => {
+            if (isRunning.value) {
+              addLog("正在执行中，请稍后再试", "error");
+              return;
+            }
+            if (!requestInfo.value) {
+              addLog("请先在快手平台执行相关操作以获取请求信息", "error");
+              alert("请先在快手平台执行相关操作以获取请求信息！");
+              return;
+            }
+            if (!excelData.value) {
+              addLog("请填写Excel数据表", "error");
+              return;
+            }
+            isRunning.value = true;
+            addLog("开始执行广告批量创建流程...");
+            try {
+              const requestParams = parseRequestInfo(requestInfo.value);
+              if (!requestParams) {
+                addLog("请求信息解析失败，请检查是否正确获取了请求信息", "error");
+                return;
+              }
+              const dataList = parseExcelData(excelData.value);
+              if (dataList.length === 0) {
+                addLog("Excel数据解析失败或无有效数据，请检查输入格式", "error");
+                return;
+              }
+              const originalBody = requestParams.body;
+              for (let i = 0; i < dataList.length; i++) {
+                const item = dataList[i];
+                addLog(`处理第 ${i + 1}/${dataList.length} 项: ${item.name}`);
+                try {
+                  const videoData = await getVideoInfo(
+                    requestParams.dsp_ph,
+                    item.videoId,
+                    requestParams.account,
+                    requestParams.ktrace,
+                    requestParams.requestid
+                  );
+                  const body = getBody(
+                    originalBody,
+                    item.name,
+                    videoData,
+                    item.videoId,
+                    item.dp,
+                    item.h5
+                  );
+                  await send(
+                    requestParams.dsp_ph,
+                    requestParams.account,
+                    requestParams.ktrace,
+                    requestParams.requestid,
+                    body
+                  );
+                  addLog(`处理第 ${i + 1} 项完成`, "success");
+                } catch (error) {
+                  addLog(`处理第 ${i + 1} 项失败: ${error.message}`, "error");
+                }
+              }
+              addLog("广告批量创建流程执行完成", "success");
+            } catch (error) {
+              addLog(`执行过程中发生错误: ${error.message}`, "error");
+            } finally {
+              isRunning.value = false;
+            }
+          };
+          return (_ctx, _cache) => {
+            return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$3, [
+              vue.createElementVNode("div", _hoisted_2, [
+                _cache[6] || (_cache[6] = vue.createElementVNode("h2", null, "快手广告批量创建工具", -1)),
+                vue.createElementVNode("div", _hoisted_3, [
+                  _cache[2] || (_cache[2] = vue.createElementVNode("label", { for: "requestInfo" }, "发送请求信息:", -1)),
+                  vue.withDirectives(vue.createElementVNode("textarea", {
+                    id: "requestInfo",
+                    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => requestInfo.value = $event),
+                    placeholder: "从快手平台自动获取的请求信息，如未显示请先在快手平台执行相关操作",
+                    rows: "8",
+                    readonly: ""
+                  }, null, 512), [
+                    [vue.vModelText, requestInfo.value]
+                  ]),
+                  _cache[3] || (_cache[3] = vue.createElementVNode("div", { class: "hint" }, " 💡 请求信息会自动从快手平台获取，如未显示请先在快手平台执行相关操作 ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_4, [
+                  _cache[4] || (_cache[4] = vue.createElementVNode("label", { for: "excelData" }, "Excel数据表:", -1)),
+                  vue.withDirectives(vue.createElementVNode("textarea", {
+                    id: "excelData",
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => excelData.value = $event),
+                    placeholder: "请输入Excel中的数据表（达人名称、视频ID、跳转链接、H5链接，用制表符分隔）",
+                    rows: "10"
+                  }, null, 512), [
+                    [vue.vModelText, excelData.value]
+                  ])
+                ]),
+                vue.createElementVNode("div", _hoisted_5, [
+                  vue.createElementVNode("button", {
+                    onClick: execute,
+                    disabled: isRunning.value
+                  }, vue.toDisplayString(isRunning.value ? "执行中..." : "开始执行"), 9, _hoisted_6)
+                ]),
+                vue.createElementVNode("div", _hoisted_7, [
+                  _cache[5] || (_cache[5] = vue.createElementVNode("h3", null, "执行日志", -1)),
+                  vue.createElementVNode("div", {
+                    class: "log-content",
+                    ref_key: "logContent",
+                    ref: logContent
+                  }, [
+                    (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(logs.value, (log, index) => {
+                      return vue.openBlock(), vue.createElementBlock("div", {
+                        key: index,
+                        class: vue.normalizeClass(log.type)
+                      }, vue.toDisplayString(log.message), 3);
+                    }), 128))
+                  ], 512)
+                ])
+              ])
+            ]);
+          };
+        }
+      };
+      const KuaishouAdCreator = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-654ceeb0"]]);
       const _hoisted_1$2 = { class: "button-container" };
       const _sfc_main$3 = {
         __name: "app",
@@ -5325,7 +5713,8 @@
           const modalStates = vue.ref({
             kuaishou: false,
             close: false,
-            hunjian: false
+            hunjian: false,
+            adCreator: false
           });
           const modalConfig = [
             {
@@ -5336,12 +5725,17 @@
             {
               key: "close",
               title: "快手创意关闭",
-              component: _sfc_main$5
+              component: _sfc_main$6
             },
             {
               key: "hunjian",
               title: "快手混剪工具",
               component: hunjian
+            },
+            {
+              key: "adCreator",
+              title: "快手广告创建工具",
+              component: KuaishouAdCreator
             }
           ];
           const openModal = (modalKey) => {
@@ -5368,6 +5762,13 @@
               icon: "🐒",
               label: "混剪工具",
               action: () => openModal("hunjian")
+            },
+            {
+              key: "adCreator",
+              type: "info",
+              icon: "🐒",
+              label: "广告创建",
+              action: () => openModal("adCreator")
             }
           ]);
           return (_ctx, _cache) => {
@@ -5428,7 +5829,7 @@
           };
         }
       };
-      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-38d3d358"]]);
+      const kuaishou = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-e019b6d3"]]);
       const _hoisted_1$1 = { class: "hunjianpiliang-container" };
       const _sfc_main$2 = {
         __name: "hunjianpiliang",
@@ -5442,6 +5843,7 @@
           const props = __props;
           const message = naive.useMessage();
           const t = vue.ref(``);
+          const xrwMedia = vue.ref("RED_BOOK");
           const remixMaterialSrcMedia = vue.ref("RED_BOOK");
           const isProcessing = vue.ref(false);
           const logs = vue.ref([]);
@@ -5516,30 +5918,7 @@
               // 剪辑师（从record中获取）
             ] = record;
             const eventId = location.search.match(new RegExp("(?<=eventId=).*"))[0];
-            const r = await fetch(`https://adstar.alimama.com/api/cpa/event/info/detail?bizCode=adstar&_tb_token_=${props.tbToken || "ee3b737e1e7ee"}&eventId=${eventId}`, {
-              "headers": {
-                "_tb_token_": props.tbToken || "ee3b737e1e7ee",
-                "accept": "*/*",
-                "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-                "bx-v": "2.5.11",
-                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "priority": "u=1, i",
-                "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": '"macOS"',
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin",
-                "x-requested-with": "XMLHttpRequest"
-              },
-              //   "referrer": "https://adstar.alimama.com/portal/v2/pages/tasks/detail/self_official.htm?eventId=114967592",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-            });
-            const data = await r.json();
-            const media = data.model.eventRule.channelCodeList[0];
+            const media = xrwMedia.value;
             const cpId = 1314017170;
             const stickyItemId = itemIds.split(",")[0];
             const token = props.tbToken || "ee3b737e1e7ee";
@@ -5716,11 +6095,11 @@
                             depth: "3",
                             style: { "font-size": "12px" }
                           }, {
-                            default: vue.withCtx(() => _cache[2] || (_cache[2] = [
+                            default: vue.withCtx(() => _cache[3] || (_cache[3] = [
                               vue.createTextVNode(" 每行一条数据，字段间用制表符分隔 ", -1)
                             ])),
                             _: 1,
-                            __: [2]
+                            __: [3]
                           })
                         ]),
                         default: vue.withCtx(() => [
@@ -5734,11 +6113,22 @@
                         ]),
                         _: 1
                       }),
+                      vue.createVNode(_component_n_form_item, { label: "星任务平台" }, {
+                        default: vue.withCtx(() => [
+                          vue.createVNode(_component_n_select, {
+                            value: xrwMedia.value,
+                            "onUpdate:value": _cache[1] || (_cache[1] = ($event) => xrwMedia.value = $event),
+                            options: 可选项,
+                            placeholder: "星任务平台"
+                          }, null, 8, ["value"])
+                        ]),
+                        _: 1
+                      }),
                       vue.createVNode(_component_n_form_item, { label: "素材来源平台" }, {
                         default: vue.withCtx(() => [
                           vue.createVNode(_component_n_select, {
                             value: remixMaterialSrcMedia.value,
-                            "onUpdate:value": _cache[1] || (_cache[1] = ($event) => remixMaterialSrcMedia.value = $event),
+                            "onUpdate:value": _cache[2] || (_cache[2] = ($event) => remixMaterialSrcMedia.value = $event),
                             options: 可选项,
                             placeholder: "请选择素材来源平台"
                           }, null, 8, ["value"])
@@ -5754,28 +6144,28 @@
                             loading: isProcessing.value,
                             disabled: !t.value.trim()
                           }, {
-                            icon: vue.withCtx(() => _cache[3] || (_cache[3] = [
+                            icon: vue.withCtx(() => _cache[4] || (_cache[4] = [
                               vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🚀", -1)
                             ])),
                             default: vue.withCtx(() => [
-                              _cache[4] || (_cache[4] = vue.createTextVNode(" 开始批量处理 ", -1))
+                              _cache[5] || (_cache[5] = vue.createTextVNode(" 开始批量处理 ", -1))
                             ]),
                             _: 1,
-                            __: [4]
+                            __: [5]
                           }, 8, ["loading", "disabled"]),
                           vue.createVNode(_component_n_button, {
                             type: "warning",
                             size: "large",
                             onClick: clearData
                           }, {
-                            icon: vue.withCtx(() => _cache[5] || (_cache[5] = [
+                            icon: vue.withCtx(() => _cache[6] || (_cache[6] = [
                               vue.createElementVNode("span", { style: { "font-size": "16px" } }, "🗑️", -1)
                             ])),
                             default: vue.withCtx(() => [
-                              _cache[6] || (_cache[6] = vue.createTextVNode(" 清除数据 ", -1))
+                              _cache[7] || (_cache[7] = vue.createTextVNode(" 清除数据 ", -1))
                             ]),
                             _: 1,
-                            __: [6]
+                            __: [7]
                           })
                         ]),
                         _: 1
@@ -5808,7 +6198,7 @@
                                 label: "成功",
                                 value: successCount.value
                               }, {
-                                prefix: vue.withCtx(() => _cache[7] || (_cache[7] = [
+                                prefix: vue.withCtx(() => _cache[8] || (_cache[8] = [
                                   vue.createElementVNode("span", null, "✅", -1)
                                 ])),
                                 _: 1
@@ -5822,7 +6212,7 @@
                                 label: "失败",
                                 value: failureCount.value
                               }, {
-                                prefix: vue.withCtx(() => _cache[8] || (_cache[8] = [
+                                prefix: vue.withCtx(() => _cache[9] || (_cache[9] = [
                                   vue.createElementVNode("span", null, "❌", -1)
                                 ])),
                                 _: 1
@@ -5880,15 +6270,15 @@
           };
         }
       };
-      const hunjianpiliang = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-754a0eb9"]]);
+      const hunjianpiliang = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-866e6680"]]);
       const _hoisted_1 = { class: "button-container" };
       const _sfc_main$1 = {
         __name: "app",
         setup(__props) {
-          const message = naive.useMessage();
+          naive.useMessage();
           const isListening = vue.ref(false);
           const capturedToken = vue.ref("");
-          const lastCaptureTime = vue.ref(0);
+          vue.ref(0);
           const modalStates = vue.ref({
             hunjianpiliang: false
           });
@@ -5909,86 +6299,8 @@
               icon: "🎬",
               label: "混剪批量处理",
               action: () => openModal("hunjianpiliang")
-            },
-            {
-              key: "listener",
-              type: isListening.value ? "error" : "warning",
-              icon: isListening.value ? "⏹️" : "▶️",
-              label: isListening.value ? "停止监听" : "开始监听",
-              action: toggleListener
             }
           ]);
-          const listenerCallback = (token) => {
-            console.log("捕获到_tb_token_值:", token);
-            capturedToken.value = token;
-            lastCaptureTime.value = Date.now();
-            message.success(`捕获到_tb_token_值: ${token}`);
-          };
-          function toggleListener() {
-            if (isListening.value) {
-              stopRequestListener();
-              isListening.value = false;
-              message.success("已停止监听_tb_token_请求");
-            } else {
-              const now = Date.now();
-              const oneDay = 24 * 60 * 60 * 1e3;
-              if (lastCaptureTime.value === 0 || now - lastCaptureTime.value > oneDay) {
-                startRequestListener();
-                isListening.value = true;
-                message.success("已开始监听_tb_token_请求");
-              } else {
-                message.info("上次捕获时间未超过1天，无需重新监听");
-                isListening.value = true;
-              }
-            }
-          }
-          function startRequestListener() {
-            const originalFetch = window.fetch;
-            window.fetch = function(...args) {
-              const [url, options = {}] = args;
-              if (typeof url === "string" && url.includes("_tb_token_=")) {
-                try {
-                  const urlObj = new URL(url, window.location.origin);
-                  const token = urlObj.searchParams.get("_tb_token_");
-                  if (token) {
-                    listenerCallback(token);
-                  }
-                } catch (e) {
-                  console.warn("解析URL时出错:", e);
-                }
-              }
-              if (options.headers) {
-                let token = null;
-                if (options.headers instanceof Headers) {
-                  token = options.headers.get("_tb_token_");
-                } else if (typeof options.headers === "object") {
-                  token = options.headers["_tb_token_"] || options.headers["_tb_token_"];
-                }
-                if (token) {
-                  listenerCallback(token);
-                }
-              }
-              return originalFetch.apply(this, args);
-            };
-          }
-          function stopRequestListener() {
-            if (window.originalFetch) {
-              window.fetch = window.originalFetch;
-            }
-          }
-          vue.onMounted(() => {
-            const now = Date.now();
-            const oneDay = 24 * 60 * 60 * 1e3;
-            if (lastCaptureTime.value === 0 || now - lastCaptureTime.value > oneDay) {
-              startRequestListener();
-              isListening.value = true;
-            }
-          });
-          vue.onUnmounted(() => {
-            if (isListening.value) {
-              stopRequestListener();
-            }
-          });
           return (_ctx, _cache) => {
             const _component_n_icon = vue.resolveComponent("n-icon");
             const _component_n_button = vue.resolveComponent("n-button");
@@ -6069,7 +6381,7 @@
           };
         }
       };
-      const xrw = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-16e8cf05"]]);
+      const xrw = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-6e361d41"]]);
       const _sfc_main = {
         __name: "App",
         setup(__props) {
@@ -6145,6 +6457,7 @@
           };
         }
       };
+      console.log("当前环境production");
       if (window.self === window.top) {
         vue.createApp(_sfc_main).use(naive).mount(
           (() => {
