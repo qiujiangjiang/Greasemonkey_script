@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         qjjtools
 // @namespace    npm/vite-plugin-monkey
-// @version      18.5.2
+// @version      18.5.3
 // @author       qjj
 // @description  qjjtools
 // @license      MIT
