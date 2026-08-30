@@ -212,7 +212,7 @@
       startTime: range.startTime,
       endTime: range.endTime,
       pageNo: 1,
-      empName: config.empName,
+      //empName: config.empName,
       accountIdList: config.accountIdList
     };
 
