@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         钉钉AI表格透视表批量提取工具（支持合并单元格）
 // @namespace    http://tampermonkey.net/
-// @version      3.0
-// @description  自动检测页面所有表格，正确处理合并单元格，每个表格左上角悬浮下载和复制按钮
+// @version      3.1
+// @description  自动检测页面所有表格，正确处理合并单元格，每个表格左上角悬浮下载和复制按钮（已修复零宽空格污染）
 // @author       You
 // @match        *://alidocs.dingtalk.com/*
 // @match        *://docs.dingtalk.com/*
@@ -16,6 +16,14 @@
     'use strict';
 
     // ==================== 工具函数 ====================
+
+    /**
+     * 净化文本：去除零宽空格、BOM、不间断空格等隐形字符
+     */
+    function sanitizeText(text) {
+        if (!text) return '';
+        return text.trim().replace(/[\u200B-\u200D\uFEFF\u00A0\u202F]/g, '');
+    }
 
     /**
      * 核心：将带合并单元格的 HTML 表格解析为完整的二维数组
@@ -41,7 +49,7 @@
                     colIndex++;
                 }
 
-                const text = cell.textContent.trim();
+                const text = sanitizeText(cell.textContent);
                 const rowSpan = parseInt(cell.getAttribute('rowspan')) || 1;
                 const colSpan = parseInt(cell.getAttribute('colspan')) || 1;
 
@@ -71,7 +79,7 @@
         if (rows.length === 0) {
             let cells = container.querySelectorAll('[class*="cell"], [class*="Cell"]');
             if (cells.length > 0) {
-                let rowData = Array.from(cells).map(cell => cell.innerText.trim());
+                let rowData = Array.from(cells).map(cell => sanitizeText(cell.innerText));
                 if (rowData.some(t => t.length > 0)) {
                     data.push(rowData);
                 }
@@ -80,7 +88,7 @@
             for (let row of rows) {
                 let cells = row.querySelectorAll('[class*="cell"], [class*="Cell"], td, th, div');
                 let rowData = Array.from(cells)
-                    .map(cell => cell.innerText.trim())
+                    .map(cell => sanitizeText(cell.innerText))
                     .filter((text, index, self) => self.indexOf(text) === index || text !== '');
                 if (rowData.length > 0) {
                     data.push(rowData);
@@ -220,7 +228,7 @@
         `;
 
         let copyBtn = document.createElement('button');
-        copyBtn.textContent = ' 复制';
+        copyBtn.textContent = '复制';
         copyBtn.style.cssText = `
             padding: 4px 12px;
             background: rgba(255,255,255,0.95);
@@ -247,7 +255,7 @@
         });
 
         let downloadBtn = document.createElement('button');
-        downloadBtn.textContent = ' 下载';
+        downloadBtn.textContent = '下载';
         downloadBtn.style.cssText = `
             padding: 4px 12px;
             background: rgba(255,255,255,0.95);
@@ -370,7 +378,7 @@
                         `;
 
                         let copyBtn = document.createElement('button');
-                        copyBtn.textContent = ' 复制';
+                        copyBtn.textContent = '复制';
                         copyBtn.style.cssText = `
                             padding: 4px 12px;
                             background: rgba(255,255,255,0.95);
@@ -385,7 +393,7 @@
                         copyBtn.addEventListener('click', () => copyToClipboard(data));
 
                         let downloadBtn = document.createElement('button');
-                        downloadBtn.textContent = ' 下载';
+                        downloadBtn.textContent = '下载';
                         downloadBtn.style.cssText = `
                             padding: 4px 12px;
                             background: rgba(255,255,255,0.95);
@@ -442,7 +450,7 @@
     }).observe(document, { subtree: true, childList: true });
 
     if (typeof GM_registerMenuCommand === 'function') {
-        GM_registerMenuCommand(' 重新扫描表格', scanAndAnnotate);
+        GM_registerMenuCommand('重新扫描表格', scanAndAnnotate);
     }
 
 })();
